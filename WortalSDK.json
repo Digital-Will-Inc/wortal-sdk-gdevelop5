@@ -44,7 +44,6 @@
             "",
             "    return result;",
             "};",
-            "",
             "const isObjectEmpty = (obj) => {",
             "    return obj && Object.keys(obj).length === 0 && obj.constructor === Object;",
             "}",
@@ -77,7 +76,6 @@
             "        });",
             "    }",
             "}",
-            "",
             "gdjs._wortalExtension = {",
             "    isSdkReady: false,",
             "    isShowingAd: false,",
@@ -87,12 +85,10 @@
             "    isObjectEmpty,",
             "    setResultToVarableCallback,",
             "};",
-            "",
             "const script = document.createElement('script');",
             "script.src = 'https://storage.googleapis.com/cdn-wortal-ai/v2/wortal-core.js';",
             "script.async = true;",
             "document.head.appendChild(script);",
-            "",
             "script.onload = function() {",
             "    Wortal.initializeAsync().then(() => {",
             "        gdjs._wortalExtension.isSdkReady = true;",
@@ -265,10 +261,7 @@
       "events": [
         {
           "type": "BuiltinCommonInstructions::JsCode",
-          "inlineCode": [
-            "const device = Wortal.session.getDevice();",
-            "eventsFunctionContext.returnValue = device;"
-          ],
+          "inlineCode": "eventsFunctionContext.returnValue = Wortal.session.getDevice();",
           "parameterObjects": "",
           "useStrict": true,
           "eventsSheetExpanded": false
@@ -290,6 +283,31 @@
       "name": "GetEntryPointAsync",
       "sentence": "Get entry point that the game asynchronously",
       "events": [
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "inverted": true,
+                "value": "WortalSDK::IsWortalInitialized"
+              },
+              "parameters": [
+                "",
+                ""
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "BuiltinAsync::ResolveAsyncEventsFunction"
+              },
+              "parameters": [
+                ""
+              ]
+            }
+          ]
+        },
         {
           "type": "BuiltinCommonInstructions::JsCode",
           "inlineCode": [
@@ -315,7 +333,7 @@
       "functionType": "Action",
       "group": "Session",
       "name": "GetEntryPointData",
-      "sentence": "Get any data object associated with the entry point",
+      "sentence": "Get any data object associated with the entry point and set result to _PARAM1_",
       "events": [
         {
           "type": "BuiltinCommonInstructions::JsCode",
@@ -436,10 +454,7 @@
       "events": [
         {
           "type": "BuiltinCommonInstructions::JsCode",
-          "inlineCode": [
-            "console.log(\"Happy\");\r",
-            "Wortal.session.happyTime();"
-          ],
+          "inlineCode": "Wortal.session.happyTime();",
           "parameterObjects": "",
           "useStrict": true,
           "eventsSheetExpanded": false
@@ -539,18 +554,14 @@
           "type": "BuiltinCommonInstructions::JsCode",
           "inlineCode": [
             "Wortal.achievements.getAchievementsAsync()",
-            "    .then((achievements) => {",
-            "        const achievementsVar = eventsFunctionContext.getArgument(\"AchivementsVariable\");",
-            "        achievementsVar.clearChildren();",
-            "        achievements.forEach((achievement, index) => {",
-            "            const achievementVar = achievementsVar.getChild(index.toString());",
-            "            achievementVar.getChild(\"id\").setString(achievement.id || \"\");",
-            "            achievementVar.getChild(\"description\").setString(achievement.description || \"\");",
-            "            achievementVar.getChild(\"isUnlocked\").setNumber(achievement.isUnlocked || false);",
-            "            achievementVar.getChild(\"name\").setNumber(achievement.name || \"\");",
-            "            achievementVar.getChild(\"type\").setNumber(achievement.type || \"\");",
-            "        });",
-            "    });"
+            ".then(results => {",
+            "    const resultsVar = eventsFunctionContext.getArgument(\"Result\");",
+            "    gdjs._wortalExtension.setResultToVarableCallback(results, resultsVar);",
+            "})",
+            ".catch(error => {",
+            "    console.warn(\"Failed to retrieve achivements:\", error);",
+            "})",
+            ".finally(() => eventsFunctionContext.task.resolve());"
           ],
           "parameterObjects": "",
           "useStrict": true,
@@ -559,8 +570,8 @@
       ],
       "parameters": [
         {
-          "description": "",
-          "name": "AchivementsVariable",
+          "description": "Array of Achivement structure variable callback",
+          "name": "Result",
           "type": "variable"
         }
       ],
@@ -587,7 +598,11 @@
             "    } else {",
             "        isUnclocked.setBoolean(false);",
             "    }",
-            "});"
+            "})",
+            ".catch(error => {",
+            "    console.warn(\"Failed to unlock achivement:\", error);",
+            "})",
+            ".finally(() => eventsFunctionContext.task.resolve());"
           ],
           "parameterObjects": "",
           "useStrict": true,
@@ -596,12 +611,12 @@
       ],
       "parameters": [
         {
-          "description": "",
+          "description": "Achivement name",
           "name": "AchievementName",
           "type": "string"
         },
         {
-          "description": "",
+          "description": "Is unlocked variable callback",
           "name": "IsUnlockedVariable",
           "type": "variable"
         }
@@ -3607,6 +3622,7 @@
       "description": "Returns whether ads are blocked for the current session",
       "fullName": "Is ad blocked",
       "functionType": "Condition",
+      "group": "Ad",
       "name": "IsAdBlocked",
       "sentence": "Is ad blocked",
       "events": [
@@ -3626,14 +3642,18 @@
       "fullName": "Show banner ad",
       "functionType": "Action",
       "group": "Ad",
-      "name": "ShowBanner",
+      "name": "ShowBannerAd",
       "sentence": "Show a banner ad at the_PARAM1_ of the screen",
       "events": [
         {
           "type": "BuiltinCommonInstructions::JsCode",
           "inlineCode": [
-            "const position = eventsFunctionContext.getArgument(\"Position\").getValue();\r",
-            "Wortal.ads.showBanner(true, position);"
+            "const position = eventsFunctionContext.getArgument(\"Position\");\r",
+            "try {\r",
+            "    Wortal.ads.showBanner(true, position);\r",
+            "} catch (error) {\r",
+            "    console.log(\"Failed to show banner ad: \", error);\r",
+            "}"
           ],
           "parameterObjects": "",
           "useStrict": true,
@@ -3651,6 +3671,7 @@
       "objectGroups": []
     },
     {
+      "async": true,
       "description": "Shows an interstitial ad. These can be shown at various points in the game such as a level end, restart or a timed interval in games with longer levels.",
       "fullName": "Show interstitial ad",
       "functionType": "Action",
@@ -3661,30 +3682,33 @@
         {
           "type": "BuiltinCommonInstructions::JsCode",
           "inlineCode": [
-            "const placement = eventsFunctionContext.getArgument(\"Placement\").getValue();",
-            "const desc = eventsFunctionContext.getArgument(\"Description\").getValue();",
+            "const placement = eventsFunctionContext.getArgument(\"Placement\");",
+            "const desc = eventsFunctionContext.getArgument(\"Description\");",
             "",
             "const volume = runtimeScene.getSoundManager().getGlobalVolume();",
-            "Wortal.ads.showInterstitial(placement, desc, {",
-            "    beforeAd: () => {",
+            "Wortal.ads.showInterstitial(placement, desc, ",
+            "    () => {",
+            "        gdjs._wortalExtension.hasAdJustFinishedShowing = false;",
             "        gdjs._wortalExtension.isShowingAd = true;",
             "        runtimeScene.getSoundManager().setGlobalVolume(0);",
             "    },",
-            "    afterAd: () => {",
+            "    () => {",
             "        gdjs._wortalExtension.hasAdJustFinishedShowing = true;",
             "        gdjs._wortalExtension.isShowingAd = false;",
             "        if (runtimeScene.getSoundManager().getGlobalVolume() === 0) {",
             "            runtimeScene.getSoundManager().setGlobalVolume(volume);",
             "        }",
+            "        eventsFunctionContext.task.resolve();",
             "    },",
-            "    noFill: () => {",
+            "    () => {",
             "        gdjs._wortalExtension.isShowingAd = false;",
-            "        gdjs._wortalExtension.hasAdJustFinishedShowing = true;",
+            "        gdjs._wortalExtension.hasAdJustFinishedShowing = false;",
             "        if (runtimeScene.getSoundManager().getGlobalVolume() === 0) {",
             "            runtimeScene.getSoundManager().setGlobalVolume(volume);",
             "        }",
+            "        eventsFunctionContext.task.resolve();",
             "    },",
-            "});"
+            ");"
           ],
           "parameterObjects": "",
           "useStrict": true,
@@ -3707,6 +3731,7 @@
       "objectGroups": []
     },
     {
+      "async": true,
       "description": "Shows a rewarded ad. These are longer, optional ads that the player can earn a reward for watching. The player must be notified of the ad and give permission to show before it can be shown.",
       "fullName": "Show rewarded ad",
       "functionType": "Action",
@@ -3717,7 +3742,7 @@
         {
           "type": "BuiltinCommonInstructions::JsCode",
           "inlineCode": [
-            "const desc = eventsFunctionContext.getArgument(\"Description\").getValue();",
+            "const desc = eventsFunctionContext.getArgument(\"Description\");",
             "const volume = runtimeScene.getSoundManager().getGlobalVolume();",
             "gdjs._wortalExtension.shouldRewardPlayer = false;",
             "",
@@ -3727,21 +3752,28 @@
             "    if (runtimeScene.getSoundManager().getGlobalVolume() === 0) {",
             "        runtimeScene.getSoundManager().setGlobalVolume(volume);",
             "    }",
+            "    eventsFunctionContext.task.resolve();",
             "}",
+            "console.log(\"jalan reward\");",
             "",
-            "Wortal.ads.showRewarded(desc, {",
-            "    beforeAd: () => {",
+            "Wortal.ads.showRewarded(desc,",
+            "    () => {",
+            "        console.log(\"beforeAd\");",
+            "        gdjs._wortalExtension.hasAdJustFinishedShowing = false;",
             "        gdjs._wortalExtension.isShowingAd = true;",
             "        runtimeScene.getSoundManager().setGlobalVolume(0);",
             "    },",
-            "    afterAd: resetAdState,",
-            "    adDismissed: resetAdState,",
-            "    adViewed: () => {",
+            "    resetAdState,",
+            "    resetAdState,",
+            "    () => {",
             "        gdjs._wortalExtension.shouldRewardPlayer = true;",
             "        resetAdState();",
             "    },",
-            "    noFill: resetAdState,",
-            "});"
+            "    () => {",
+            "        resetAdState();",
+            "        gdjs._wortalExtension.hasAdJustFinishedShowing = false;",
+            "    },",
+            ");"
           ],
           "parameterObjects": "",
           "useStrict": true,
@@ -3780,12 +3812,16 @@
       "description": "Check if ad just finished showing",
       "fullName": "Has ad just finished showing",
       "functionType": "Condition",
+      "group": "Ad",
       "name": "HasAdJustFinishedShowing",
       "sentence": "Has ad just finished showing",
       "events": [
         {
           "type": "BuiltinCommonInstructions::JsCode",
-          "inlineCode": "eventsFunctionContext.returnValue = gdjs._wortalExtension.hasAdJustFinishedShowing;",
+          "inlineCode": [
+            "console.log(gdjs._wortalExtension.hasAdJustFinishedShowing);\r",
+            "eventsFunctionContext.returnValue = gdjs._wortalExtension.hasAdJustFinishedShowing;"
+          ],
           "parameterObjects": "",
           "useStrict": true,
           "eventsSheetExpanded": false
@@ -3798,6 +3834,7 @@
       "description": "To check if should reward player after showing rewarded ad",
       "fullName": "Should reward player",
       "functionType": "Condition",
+      "group": "Ad",
       "name": "ShouldRewardPlayer",
       "sentence": "Should reward player",
       "events": [
