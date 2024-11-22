@@ -349,6 +349,73 @@
       "name": "Output",
       "type": "string",
       "value": ""
+    },
+    {
+      "name": "PlayerInfo",
+      "type": "structure",
+      "children": [
+        {
+          "name": "EntryPointData",
+          "type": "structure",
+          "children": []
+        },
+        {
+          "name": "Entrypoint",
+          "type": "string",
+          "value": ""
+        },
+        {
+          "name": "SignedASID",
+          "type": "structure",
+          "children": []
+        },
+        {
+          "name": "asid",
+          "type": "string",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "name": "GameProgress",
+      "type": "structure",
+      "children": [
+        {
+          "name": "Level",
+          "type": "number",
+          "value": 1
+        },
+        {
+          "name": "Profile",
+          "type": "structure",
+          "children": []
+        },
+        {
+          "name": "Score",
+          "type": "number",
+          "value": 0
+        }
+      ]
+    },
+    {
+      "name": "CanSub",
+      "type": "boolean",
+      "value": false
+    },
+    {
+      "name": "ConnectedPlayers",
+      "type": "array",
+      "children": []
+    },
+    {
+      "name": "ConnectedPlayersPayload",
+      "type": "string",
+      "value": ""
+    },
+    {
+      "name": "TrafficSource",
+      "type": "structure",
+      "children": []
     }
   ],
   "layouts": [
@@ -416,31 +483,14 @@
           "angle": 0,
           "customSize": true,
           "depth": 48,
-          "height": 63,
-          "keepRatio": true,
-          "layer": "",
-          "name": "AnalyticsButton",
-          "persistentUuid": "6a0e34d7-0633-4643-9334-e543cf4c39e8",
-          "width": 192,
-          "x": 768,
-          "y": 33,
-          "zOrder": 5,
-          "numberProperties": [],
-          "stringProperties": [],
-          "initialVariables": []
-        },
-        {
-          "angle": 0,
-          "customSize": true,
-          "depth": 48,
           "height": 64,
           "keepRatio": true,
           "layer": "",
           "name": "ContextButton",
           "persistentUuid": "bc20537b-4287-4538-8359-bb6519f5eac6",
           "width": 192,
-          "x": 320,
-          "y": 128,
+          "x": 768,
+          "y": 32,
           "zOrder": 6,
           "numberProperties": [],
           "stringProperties": [],
@@ -456,7 +506,7 @@
           "name": "IAPButton",
           "persistentUuid": "3a1f6632-a6f5-40f1-9e23-80d88bb2930b",
           "width": 192,
-          "x": 544,
+          "x": 320,
           "y": 128,
           "zOrder": 7,
           "numberProperties": [],
@@ -473,7 +523,7 @@
           "name": "LeaderboardButton",
           "persistentUuid": "d1f1232d-acfb-484f-aae8-2ce1d10045c4",
           "width": 192,
-          "x": 768,
+          "x": 544,
           "y": 128,
           "zOrder": 8,
           "numberProperties": [],
@@ -490,8 +540,8 @@
           "name": "NotificationButton",
           "persistentUuid": "67f25ecc-ba85-43c2-9c61-285c24bfca9d",
           "width": 192,
-          "x": 320,
-          "y": 224,
+          "x": 768,
+          "y": 128,
           "zOrder": 9,
           "numberProperties": [],
           "stringProperties": [],
@@ -507,7 +557,7 @@
           "name": "PlayerButton",
           "persistentUuid": "760cb9d8-5d19-46a6-bb45-ad552f804b88",
           "width": 192,
-          "x": 544,
+          "x": 320,
           "y": 224,
           "zOrder": 10,
           "numberProperties": [],
@@ -524,7 +574,7 @@
           "name": "SessionButton",
           "persistentUuid": "f51ab333-046b-4bef-9f24-89d9b4a7982e",
           "width": 192,
-          "x": 768,
+          "x": 544,
           "y": 224,
           "zOrder": 11,
           "numberProperties": [],
@@ -541,8 +591,8 @@
           "name": "StatButton",
           "persistentUuid": "dcc6ebd5-fa2c-44df-83d9-fc14f0636983",
           "width": 192,
-          "x": 416,
-          "y": 320,
+          "x": 768,
+          "y": 224,
           "zOrder": 12,
           "numberProperties": [],
           "stringProperties": [],
@@ -558,7 +608,7 @@
           "name": "TournamentButton",
           "persistentUuid": "d88a5a2c-7598-40d4-a415-bc14c334f3fe",
           "width": 192,
-          "x": 672,
+          "x": 320,
           "y": 320,
           "zOrder": 13,
           "numberProperties": [],
@@ -1659,6 +1709,58 @@
                   "parameters": [
                     "",
                     "\"Ads\"",
+                    ""
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "PanelSpriteButton::PanelSpriteButton::IsClicked"
+                  },
+                  "parameters": [
+                    "PlayerButton",
+                    ""
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "Scene"
+                  },
+                  "parameters": [
+                    "",
+                    "\"Player\"",
+                    ""
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "PanelSpriteButton::PanelSpriteButton::IsClicked"
+                  },
+                  "parameters": [
+                    "SessionButton",
+                    ""
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "Scene"
+                  },
+                  "parameters": [
+                    "",
+                    "\"Session\"",
                     ""
                   ]
                 }
@@ -3460,6 +3562,3591 @@
           "type": "TextContainerCapability::TextContainerBehavior"
         }
       ]
+    },
+    {
+      "b": 139,
+      "disableInputWhenNotFocused": true,
+      "mangledName": "Player",
+      "name": "Player",
+      "r": 139,
+      "standardSortMethod": true,
+      "stopSoundsOnStartup": true,
+      "title": "",
+      "v": 139,
+      "uiSettings": {
+        "grid": true,
+        "gridType": "rectangular",
+        "gridWidth": 32,
+        "gridHeight": 32,
+        "gridOffsetX": 0,
+        "gridOffsetY": 0,
+        "gridColor": 10401023,
+        "gridAlpha": 0.8,
+        "snap": true,
+        "zoomFactor": 0.546875,
+        "windowMask": false
+      },
+      "objectsGroups": [],
+      "variables": [
+        {
+          "name": "ConnectedPlayer",
+          "type": "number",
+          "value": 0
+        }
+      ],
+      "instances": [
+        {
+          "angle": 0,
+          "customSize": true,
+          "depth": 1,
+          "height": 227,
+          "keepRatio": true,
+          "layer": "",
+          "name": "OutputText",
+          "persistentUuid": "e498f790-46ce-4675-acda-19c5c8d16cc3",
+          "width": 814,
+          "x": 256,
+          "y": 448,
+          "zOrder": 14,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "depth": 1,
+          "height": 256,
+          "keepRatio": true,
+          "layer": "",
+          "name": "OutputBorder",
+          "persistentUuid": "23e4276f-175b-4441-8161-4a57a24fa526",
+          "width": 896,
+          "x": 192,
+          "y": 416,
+          "zOrder": 2,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "keepRatio": true,
+          "layer": "",
+          "name": "BackButton",
+          "persistentUuid": "d112d581-26dc-45d5-a675-5481dae988fe",
+          "width": 0,
+          "x": 352,
+          "y": 320,
+          "zOrder": 15,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "depth": 48,
+          "height": 64,
+          "keepRatio": true,
+          "layer": "",
+          "name": "GetIDButton",
+          "persistentUuid": "d6e2ddfc-e20c-4a46-94a2-6e1501e63e61",
+          "width": 192,
+          "x": 352,
+          "y": 32,
+          "zOrder": 16,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "depth": 48,
+          "height": 64,
+          "keepRatio": true,
+          "layer": "",
+          "name": "GetNameButton",
+          "persistentUuid": "e8b8e633-4be4-4d02-a79b-99b1af2c5b3c",
+          "width": 192,
+          "x": 544,
+          "y": 32,
+          "zOrder": 17,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "depth": 48,
+          "height": 64,
+          "keepRatio": true,
+          "layer": "",
+          "name": "GetPhotoButton",
+          "persistentUuid": "45368537-b48a-4fac-bc30-59571ab6cf4d",
+          "width": 192,
+          "x": 736,
+          "y": 32,
+          "zOrder": 18,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "depth": 48,
+          "height": 64,
+          "keepRatio": true,
+          "layer": "",
+          "name": "GetDataAsyncButton",
+          "persistentUuid": "370aec5c-6a2d-4af3-9390-4744c2776e92",
+          "width": 192,
+          "x": 352,
+          "y": 96,
+          "zOrder": 19,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "depth": 48,
+          "height": 64,
+          "keepRatio": true,
+          "layer": "",
+          "name": "SetDataAsyncButton",
+          "persistentUuid": "29303286-9069-4a7f-b0e0-a098ce01b1c1",
+          "width": 192,
+          "x": 544,
+          "y": 96,
+          "zOrder": 20,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "depth": 48,
+          "height": 64,
+          "keepRatio": true,
+          "layer": "",
+          "name": "FlushDataAsyncButton",
+          "persistentUuid": "df75025e-6cf2-419b-893a-5047c0f830ec",
+          "width": 192,
+          "x": 736,
+          "y": 96,
+          "zOrder": 21,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "depth": 48,
+          "height": 64,
+          "keepRatio": true,
+          "layer": "",
+          "name": "SubcsribeBotAsyncButton",
+          "persistentUuid": "2490000e-4635-4823-bb9e-c719731c5ecd",
+          "width": 192,
+          "x": 352,
+          "y": 160,
+          "zOrder": 22,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "depth": 48,
+          "height": 64,
+          "keepRatio": true,
+          "layer": "",
+          "name": "GetConnectedPlayerAsyncButton",
+          "persistentUuid": "987669b9-526e-443d-8bca-c878a705f809",
+          "width": 192,
+          "x": 544,
+          "y": 160,
+          "zOrder": 23,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "depth": 48,
+          "height": 64,
+          "keepRatio": true,
+          "layer": "",
+          "name": "GetASIDAsyncButton",
+          "persistentUuid": "97423a28-e05e-4b9c-a617-5f5d9c6417f3",
+          "width": 192,
+          "x": 736,
+          "y": 160,
+          "zOrder": 24,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "depth": 48,
+          "height": 64,
+          "keepRatio": true,
+          "layer": "",
+          "name": "GetSIgnedASIDAsyncButton",
+          "persistentUuid": "d235c1a4-d652-4bda-8e12-2da38b979877",
+          "width": 192,
+          "x": 352,
+          "y": 224,
+          "zOrder": 25,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        }
+      ],
+      "objects": [
+        {
+          "assetStoreId": "9cf9ca8be6e98fc23e76b6770d3f4d094dea09f30a49f38ef9a9d2e97c2460be",
+          "name": "GetIDButton",
+          "type": "PanelSpriteButton::PanelSpriteButton",
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "content": {
+            "LeftPadding": 16,
+            "RightPadding": 16,
+            "PressedLabelOffsetY": 3,
+            "BottomPadding": 32,
+            "TopPadding": 32,
+            "HoveredFadeOutDuration": 0.25
+          },
+          "childrenContent": {
+            "Hovered": {
+              "bottomMargin": 16,
+              "height": 69,
+              "leftMargin": 16,
+              "rightMargin": 16,
+              "texture": "Grey Button With Shadow_Hovered.png",
+              "tiled": true,
+              "topMargin": 16,
+              "width": 192
+            },
+            "Idle": {
+              "bottomMargin": 16,
+              "height": 69,
+              "leftMargin": 16,
+              "rightMargin": 16,
+              "texture": "Grey Button With Shadow_Idle.png",
+              "tiled": true,
+              "topMargin": 16,
+              "width": 192
+            },
+            "Label": {
+              "bold": false,
+              "italic": false,
+              "smoothed": true,
+              "underlined": false,
+              "string": "GetID",
+              "font": "CantoraOne-Regular.ttf",
+              "textAlignment": "center",
+              "characterSize": 20,
+              "color": {
+                "b": 255,
+                "g": 255,
+                "r": 255
+              },
+              "content": {
+                "bold": false,
+                "isOutlineEnabled": false,
+                "isShadowEnabled": false,
+                "italic": false,
+                "outlineColor": "255;255;255",
+                "outlineThickness": 2,
+                "shadowAngle": 90,
+                "shadowBlurRadius": 2,
+                "shadowColor": "0;0;0",
+                "shadowDistance": 4,
+                "shadowOpacity": 127,
+                "smoothed": true,
+                "underlined": false,
+                "text": "GetID",
+                "font": "CantoraOne-Regular.ttf",
+                "textAlignment": "center",
+                "verticalTextAlignment": "top",
+                "characterSize": 20,
+                "color": "255;255;255"
+              }
+            },
+            "Pressed": {
+              "bottomMargin": 16,
+              "height": 69,
+              "leftMargin": 16,
+              "rightMargin": 16,
+              "texture": "Grey Button With Shadow_Pressed.png",
+              "tiled": true,
+              "topMargin": 16,
+              "width": 192
+            }
+          }
+        },
+        {
+          "assetStoreId": "9cf9ca8be6e98fc23e76b6770d3f4d094dea09f30a49f38ef9a9d2e97c2460be",
+          "name": "GetNameButton",
+          "type": "PanelSpriteButton::PanelSpriteButton",
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "content": {
+            "LeftPadding": 16,
+            "RightPadding": 16,
+            "PressedLabelOffsetY": 3,
+            "BottomPadding": 32,
+            "TopPadding": 32,
+            "HoveredFadeOutDuration": 0.25
+          },
+          "childrenContent": {
+            "Hovered": {
+              "bottomMargin": 16,
+              "height": 69,
+              "leftMargin": 16,
+              "rightMargin": 16,
+              "texture": "Grey Button With Shadow_Hovered.png",
+              "tiled": true,
+              "topMargin": 16,
+              "width": 192
+            },
+            "Idle": {
+              "bottomMargin": 16,
+              "height": 69,
+              "leftMargin": 16,
+              "rightMargin": 16,
+              "texture": "Grey Button With Shadow_Idle.png",
+              "tiled": true,
+              "topMargin": 16,
+              "width": 192
+            },
+            "Label": {
+              "bold": false,
+              "italic": false,
+              "smoothed": true,
+              "underlined": false,
+              "string": "GetName",
+              "font": "CantoraOne-Regular.ttf",
+              "textAlignment": "center",
+              "characterSize": 20,
+              "color": {
+                "b": 255,
+                "g": 255,
+                "r": 255
+              },
+              "content": {
+                "bold": false,
+                "isOutlineEnabled": false,
+                "isShadowEnabled": false,
+                "italic": false,
+                "outlineColor": "255;255;255",
+                "outlineThickness": 2,
+                "shadowAngle": 90,
+                "shadowBlurRadius": 2,
+                "shadowColor": "0;0;0",
+                "shadowDistance": 4,
+                "shadowOpacity": 127,
+                "smoothed": true,
+                "underlined": false,
+                "text": "GetName",
+                "font": "CantoraOne-Regular.ttf",
+                "textAlignment": "center",
+                "verticalTextAlignment": "top",
+                "characterSize": 20,
+                "color": "255;255;255"
+              }
+            },
+            "Pressed": {
+              "bottomMargin": 16,
+              "height": 69,
+              "leftMargin": 16,
+              "rightMargin": 16,
+              "texture": "Grey Button With Shadow_Pressed.png",
+              "tiled": true,
+              "topMargin": 16,
+              "width": 192
+            }
+          }
+        },
+        {
+          "assetStoreId": "9cf9ca8be6e98fc23e76b6770d3f4d094dea09f30a49f38ef9a9d2e97c2460be",
+          "name": "GetPhotoButton",
+          "type": "PanelSpriteButton::PanelSpriteButton",
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "content": {
+            "LeftPadding": 16,
+            "RightPadding": 16,
+            "PressedLabelOffsetY": 3,
+            "BottomPadding": 32,
+            "TopPadding": 32,
+            "HoveredFadeOutDuration": 0.25
+          },
+          "childrenContent": {
+            "Hovered": {
+              "bottomMargin": 16,
+              "height": 69,
+              "leftMargin": 16,
+              "rightMargin": 16,
+              "texture": "Grey Button With Shadow_Hovered.png",
+              "tiled": true,
+              "topMargin": 16,
+              "width": 192
+            },
+            "Idle": {
+              "bottomMargin": 16,
+              "height": 69,
+              "leftMargin": 16,
+              "rightMargin": 16,
+              "texture": "Grey Button With Shadow_Idle.png",
+              "tiled": true,
+              "topMargin": 16,
+              "width": 192
+            },
+            "Label": {
+              "bold": false,
+              "italic": false,
+              "smoothed": true,
+              "underlined": false,
+              "string": "GetPhoto",
+              "font": "CantoraOne-Regular.ttf",
+              "textAlignment": "center",
+              "characterSize": 20,
+              "color": {
+                "b": 255,
+                "g": 255,
+                "r": 255
+              },
+              "content": {
+                "bold": false,
+                "isOutlineEnabled": false,
+                "isShadowEnabled": false,
+                "italic": false,
+                "outlineColor": "255;255;255",
+                "outlineThickness": 2,
+                "shadowAngle": 90,
+                "shadowBlurRadius": 2,
+                "shadowColor": "0;0;0",
+                "shadowDistance": 4,
+                "shadowOpacity": 127,
+                "smoothed": true,
+                "underlined": false,
+                "text": "GetPhoto",
+                "font": "CantoraOne-Regular.ttf",
+                "textAlignment": "center",
+                "verticalTextAlignment": "top",
+                "characterSize": 20,
+                "color": "255;255;255"
+              }
+            },
+            "Pressed": {
+              "bottomMargin": 16,
+              "height": 69,
+              "leftMargin": 16,
+              "rightMargin": 16,
+              "texture": "Grey Button With Shadow_Pressed.png",
+              "tiled": true,
+              "topMargin": 16,
+              "width": 192
+            }
+          }
+        },
+        {
+          "assetStoreId": "9cf9ca8be6e98fc23e76b6770d3f4d094dea09f30a49f38ef9a9d2e97c2460be",
+          "name": "GetDataAsyncButton",
+          "type": "PanelSpriteButton::PanelSpriteButton",
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "content": {
+            "LeftPadding": 16,
+            "RightPadding": 16,
+            "PressedLabelOffsetY": 3,
+            "BottomPadding": 32,
+            "TopPadding": 32,
+            "HoveredFadeOutDuration": 0.25
+          },
+          "childrenContent": {
+            "Hovered": {
+              "bottomMargin": 16,
+              "height": 69,
+              "leftMargin": 16,
+              "rightMargin": 16,
+              "texture": "Grey Button With Shadow_Hovered.png",
+              "tiled": true,
+              "topMargin": 16,
+              "width": 192
+            },
+            "Idle": {
+              "bottomMargin": 16,
+              "height": 69,
+              "leftMargin": 16,
+              "rightMargin": 16,
+              "texture": "Grey Button With Shadow_Idle.png",
+              "tiled": true,
+              "topMargin": 16,
+              "width": 192
+            },
+            "Label": {
+              "bold": false,
+              "italic": false,
+              "smoothed": true,
+              "underlined": false,
+              "string": "GetDataAsync",
+              "font": "CantoraOne-Regular.ttf",
+              "textAlignment": "center",
+              "characterSize": 20,
+              "color": {
+                "b": 255,
+                "g": 255,
+                "r": 255
+              },
+              "content": {
+                "bold": false,
+                "isOutlineEnabled": false,
+                "isShadowEnabled": false,
+                "italic": false,
+                "outlineColor": "255;255;255",
+                "outlineThickness": 2,
+                "shadowAngle": 90,
+                "shadowBlurRadius": 2,
+                "shadowColor": "0;0;0",
+                "shadowDistance": 4,
+                "shadowOpacity": 127,
+                "smoothed": true,
+                "underlined": false,
+                "text": "GetDataAsync",
+                "font": "CantoraOne-Regular.ttf",
+                "textAlignment": "center",
+                "verticalTextAlignment": "top",
+                "characterSize": 20,
+                "color": "255;255;255"
+              }
+            },
+            "Pressed": {
+              "bottomMargin": 16,
+              "height": 69,
+              "leftMargin": 16,
+              "rightMargin": 16,
+              "texture": "Grey Button With Shadow_Pressed.png",
+              "tiled": true,
+              "topMargin": 16,
+              "width": 192
+            }
+          }
+        },
+        {
+          "assetStoreId": "9cf9ca8be6e98fc23e76b6770d3f4d094dea09f30a49f38ef9a9d2e97c2460be",
+          "name": "SetDataAsyncButton",
+          "type": "PanelSpriteButton::PanelSpriteButton",
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "content": {
+            "LeftPadding": 16,
+            "RightPadding": 16,
+            "PressedLabelOffsetY": 3,
+            "BottomPadding": 32,
+            "TopPadding": 32,
+            "HoveredFadeOutDuration": 0.25
+          },
+          "childrenContent": {
+            "Hovered": {
+              "bottomMargin": 16,
+              "height": 69,
+              "leftMargin": 16,
+              "rightMargin": 16,
+              "texture": "Grey Button With Shadow_Hovered.png",
+              "tiled": true,
+              "topMargin": 16,
+              "width": 192
+            },
+            "Idle": {
+              "bottomMargin": 16,
+              "height": 69,
+              "leftMargin": 16,
+              "rightMargin": 16,
+              "texture": "Grey Button With Shadow_Idle.png",
+              "tiled": true,
+              "topMargin": 16,
+              "width": 192
+            },
+            "Label": {
+              "bold": false,
+              "italic": false,
+              "smoothed": true,
+              "underlined": false,
+              "string": "SetDataAsync",
+              "font": "CantoraOne-Regular.ttf",
+              "textAlignment": "center",
+              "characterSize": 20,
+              "color": {
+                "b": 255,
+                "g": 255,
+                "r": 255
+              },
+              "content": {
+                "bold": false,
+                "isOutlineEnabled": false,
+                "isShadowEnabled": false,
+                "italic": false,
+                "outlineColor": "255;255;255",
+                "outlineThickness": 2,
+                "shadowAngle": 90,
+                "shadowBlurRadius": 2,
+                "shadowColor": "0;0;0",
+                "shadowDistance": 4,
+                "shadowOpacity": 127,
+                "smoothed": true,
+                "underlined": false,
+                "text": "SetDataAsync",
+                "font": "CantoraOne-Regular.ttf",
+                "textAlignment": "center",
+                "verticalTextAlignment": "top",
+                "characterSize": 20,
+                "color": "255;255;255"
+              }
+            },
+            "Pressed": {
+              "bottomMargin": 16,
+              "height": 69,
+              "leftMargin": 16,
+              "rightMargin": 16,
+              "texture": "Grey Button With Shadow_Pressed.png",
+              "tiled": true,
+              "topMargin": 16,
+              "width": 192
+            }
+          }
+        },
+        {
+          "assetStoreId": "9cf9ca8be6e98fc23e76b6770d3f4d094dea09f30a49f38ef9a9d2e97c2460be",
+          "name": "FlushDataAsyncButton",
+          "type": "PanelSpriteButton::PanelSpriteButton",
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "content": {
+            "LeftPadding": 16,
+            "RightPadding": 16,
+            "PressedLabelOffsetY": 3,
+            "BottomPadding": 32,
+            "TopPadding": 32,
+            "HoveredFadeOutDuration": 0.25
+          },
+          "childrenContent": {
+            "Hovered": {
+              "bottomMargin": 16,
+              "height": 69,
+              "leftMargin": 16,
+              "rightMargin": 16,
+              "texture": "Grey Button With Shadow_Hovered.png",
+              "tiled": true,
+              "topMargin": 16,
+              "width": 192
+            },
+            "Idle": {
+              "bottomMargin": 16,
+              "height": 69,
+              "leftMargin": 16,
+              "rightMargin": 16,
+              "texture": "Grey Button With Shadow_Idle.png",
+              "tiled": true,
+              "topMargin": 16,
+              "width": 192
+            },
+            "Label": {
+              "bold": false,
+              "italic": false,
+              "smoothed": true,
+              "underlined": false,
+              "string": "FlushDataAsync",
+              "font": "CantoraOne-Regular.ttf",
+              "textAlignment": "center",
+              "characterSize": 20,
+              "color": {
+                "b": 255,
+                "g": 255,
+                "r": 255
+              },
+              "content": {
+                "bold": false,
+                "isOutlineEnabled": false,
+                "isShadowEnabled": false,
+                "italic": false,
+                "outlineColor": "255;255;255",
+                "outlineThickness": 2,
+                "shadowAngle": 90,
+                "shadowBlurRadius": 2,
+                "shadowColor": "0;0;0",
+                "shadowDistance": 4,
+                "shadowOpacity": 127,
+                "smoothed": true,
+                "underlined": false,
+                "text": "FlushDataAsync",
+                "font": "CantoraOne-Regular.ttf",
+                "textAlignment": "center",
+                "verticalTextAlignment": "top",
+                "characterSize": 20,
+                "color": "255;255;255"
+              }
+            },
+            "Pressed": {
+              "bottomMargin": 16,
+              "height": 69,
+              "leftMargin": 16,
+              "rightMargin": 16,
+              "texture": "Grey Button With Shadow_Pressed.png",
+              "tiled": true,
+              "topMargin": 16,
+              "width": 192
+            }
+          }
+        },
+        {
+          "assetStoreId": "9cf9ca8be6e98fc23e76b6770d3f4d094dea09f30a49f38ef9a9d2e97c2460be",
+          "name": "SubcsribeBotAsyncButton",
+          "type": "PanelSpriteButton::PanelSpriteButton",
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "content": {
+            "LeftPadding": 16,
+            "RightPadding": 16,
+            "PressedLabelOffsetY": 3,
+            "BottomPadding": 32,
+            "TopPadding": 32,
+            "HoveredFadeOutDuration": 0.25
+          },
+          "childrenContent": {
+            "Hovered": {
+              "bottomMargin": 16,
+              "height": 69,
+              "leftMargin": 16,
+              "rightMargin": 16,
+              "texture": "Grey Button With Shadow_Hovered.png",
+              "tiled": true,
+              "topMargin": 16,
+              "width": 192
+            },
+            "Idle": {
+              "bottomMargin": 16,
+              "height": 69,
+              "leftMargin": 16,
+              "rightMargin": 16,
+              "texture": "Grey Button With Shadow_Idle.png",
+              "tiled": true,
+              "topMargin": 16,
+              "width": 192
+            },
+            "Label": {
+              "bold": false,
+              "italic": false,
+              "smoothed": true,
+              "underlined": false,
+              "string": "SubcsribeBotAsync",
+              "font": "CantoraOne-Regular.ttf",
+              "textAlignment": "center",
+              "characterSize": 20,
+              "color": {
+                "b": 255,
+                "g": 255,
+                "r": 255
+              },
+              "content": {
+                "bold": false,
+                "isOutlineEnabled": false,
+                "isShadowEnabled": false,
+                "italic": false,
+                "outlineColor": "255;255;255",
+                "outlineThickness": 2,
+                "shadowAngle": 90,
+                "shadowBlurRadius": 2,
+                "shadowColor": "0;0;0",
+                "shadowDistance": 4,
+                "shadowOpacity": 127,
+                "smoothed": true,
+                "underlined": false,
+                "text": "SubcsribeBotAsync",
+                "font": "CantoraOne-Regular.ttf",
+                "textAlignment": "center",
+                "verticalTextAlignment": "top",
+                "characterSize": 20,
+                "color": "255;255;255"
+              }
+            },
+            "Pressed": {
+              "bottomMargin": 16,
+              "height": 69,
+              "leftMargin": 16,
+              "rightMargin": 16,
+              "texture": "Grey Button With Shadow_Pressed.png",
+              "tiled": true,
+              "topMargin": 16,
+              "width": 192
+            }
+          }
+        },
+        {
+          "assetStoreId": "9cf9ca8be6e98fc23e76b6770d3f4d094dea09f30a49f38ef9a9d2e97c2460be",
+          "name": "GetConnectedPlayerAsyncButton",
+          "type": "PanelSpriteButton::PanelSpriteButton",
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "content": {
+            "LeftPadding": 16,
+            "RightPadding": 16,
+            "PressedLabelOffsetY": 3,
+            "BottomPadding": 32,
+            "TopPadding": 32,
+            "HoveredFadeOutDuration": 0.25
+          },
+          "childrenContent": {
+            "Hovered": {
+              "bottomMargin": 16,
+              "height": 69,
+              "leftMargin": 16,
+              "rightMargin": 16,
+              "texture": "Grey Button With Shadow_Hovered.png",
+              "tiled": true,
+              "topMargin": 16,
+              "width": 192
+            },
+            "Idle": {
+              "bottomMargin": 16,
+              "height": 69,
+              "leftMargin": 16,
+              "rightMargin": 16,
+              "texture": "Grey Button With Shadow_Idle.png",
+              "tiled": true,
+              "topMargin": 16,
+              "width": 192
+            },
+            "Label": {
+              "bold": false,
+              "italic": false,
+              "smoothed": true,
+              "underlined": false,
+              "string": "GetConnectedPlayerAsync",
+              "font": "CantoraOne-Regular.ttf",
+              "textAlignment": "center",
+              "characterSize": 20,
+              "color": {
+                "b": 255,
+                "g": 255,
+                "r": 255
+              },
+              "content": {
+                "bold": false,
+                "isOutlineEnabled": false,
+                "isShadowEnabled": false,
+                "italic": false,
+                "outlineColor": "255;255;255",
+                "outlineThickness": 2,
+                "shadowAngle": 90,
+                "shadowBlurRadius": 2,
+                "shadowColor": "0;0;0",
+                "shadowDistance": 4,
+                "shadowOpacity": 127,
+                "smoothed": true,
+                "underlined": false,
+                "text": "GetConnectedPlayerAsync",
+                "font": "CantoraOne-Regular.ttf",
+                "textAlignment": "center",
+                "verticalTextAlignment": "top",
+                "characterSize": 20,
+                "color": "255;255;255"
+              }
+            },
+            "Pressed": {
+              "bottomMargin": 16,
+              "height": 69,
+              "leftMargin": 16,
+              "rightMargin": 16,
+              "texture": "Grey Button With Shadow_Pressed.png",
+              "tiled": true,
+              "topMargin": 16,
+              "width": 192
+            }
+          }
+        },
+        {
+          "assetStoreId": "9cf9ca8be6e98fc23e76b6770d3f4d094dea09f30a49f38ef9a9d2e97c2460be",
+          "name": "GetASIDAsyncButton",
+          "type": "PanelSpriteButton::PanelSpriteButton",
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "content": {
+            "LeftPadding": 16,
+            "RightPadding": 16,
+            "PressedLabelOffsetY": 3,
+            "BottomPadding": 32,
+            "TopPadding": 32,
+            "HoveredFadeOutDuration": 0.25
+          },
+          "childrenContent": {
+            "Hovered": {
+              "bottomMargin": 16,
+              "height": 69,
+              "leftMargin": 16,
+              "rightMargin": 16,
+              "texture": "Grey Button With Shadow_Hovered.png",
+              "tiled": true,
+              "topMargin": 16,
+              "width": 192
+            },
+            "Idle": {
+              "bottomMargin": 16,
+              "height": 69,
+              "leftMargin": 16,
+              "rightMargin": 16,
+              "texture": "Grey Button With Shadow_Idle.png",
+              "tiled": true,
+              "topMargin": 16,
+              "width": 192
+            },
+            "Label": {
+              "bold": false,
+              "italic": false,
+              "smoothed": true,
+              "underlined": false,
+              "string": "GetASIDAsync",
+              "font": "CantoraOne-Regular.ttf",
+              "textAlignment": "center",
+              "characterSize": 20,
+              "color": {
+                "b": 255,
+                "g": 255,
+                "r": 255
+              },
+              "content": {
+                "bold": false,
+                "isOutlineEnabled": false,
+                "isShadowEnabled": false,
+                "italic": false,
+                "outlineColor": "255;255;255",
+                "outlineThickness": 2,
+                "shadowAngle": 90,
+                "shadowBlurRadius": 2,
+                "shadowColor": "0;0;0",
+                "shadowDistance": 4,
+                "shadowOpacity": 127,
+                "smoothed": true,
+                "underlined": false,
+                "text": "GetASIDAsync",
+                "font": "CantoraOne-Regular.ttf",
+                "textAlignment": "center",
+                "verticalTextAlignment": "top",
+                "characterSize": 20,
+                "color": "255;255;255"
+              }
+            },
+            "Pressed": {
+              "bottomMargin": 16,
+              "height": 69,
+              "leftMargin": 16,
+              "rightMargin": 16,
+              "texture": "Grey Button With Shadow_Pressed.png",
+              "tiled": true,
+              "topMargin": 16,
+              "width": 192
+            }
+          }
+        },
+        {
+          "assetStoreId": "9cf9ca8be6e98fc23e76b6770d3f4d094dea09f30a49f38ef9a9d2e97c2460be",
+          "name": "GetSIgnedASIDAsyncButton",
+          "type": "PanelSpriteButton::PanelSpriteButton",
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "content": {
+            "LeftPadding": 16,
+            "RightPadding": 16,
+            "PressedLabelOffsetY": 3,
+            "BottomPadding": 32,
+            "TopPadding": 32,
+            "HoveredFadeOutDuration": 0.25
+          },
+          "childrenContent": {
+            "Hovered": {
+              "bottomMargin": 16,
+              "height": 69,
+              "leftMargin": 16,
+              "rightMargin": 16,
+              "texture": "Grey Button With Shadow_Hovered.png",
+              "tiled": true,
+              "topMargin": 16,
+              "width": 192
+            },
+            "Idle": {
+              "bottomMargin": 16,
+              "height": 69,
+              "leftMargin": 16,
+              "rightMargin": 16,
+              "texture": "Grey Button With Shadow_Idle.png",
+              "tiled": true,
+              "topMargin": 16,
+              "width": 192
+            },
+            "Label": {
+              "bold": false,
+              "italic": false,
+              "smoothed": true,
+              "underlined": false,
+              "string": "GetSignedASIDAsync",
+              "font": "CantoraOne-Regular.ttf",
+              "textAlignment": "center",
+              "characterSize": 20,
+              "color": {
+                "b": 255,
+                "g": 255,
+                "r": 255
+              },
+              "content": {
+                "bold": false,
+                "isOutlineEnabled": false,
+                "isShadowEnabled": false,
+                "italic": false,
+                "outlineColor": "255;255;255",
+                "outlineThickness": 2,
+                "shadowAngle": 90,
+                "shadowBlurRadius": 2,
+                "shadowColor": "0;0;0",
+                "shadowDistance": 4,
+                "shadowOpacity": 127,
+                "smoothed": true,
+                "underlined": false,
+                "text": "GetSignedASIDAsync",
+                "font": "CantoraOne-Regular.ttf",
+                "textAlignment": "center",
+                "verticalTextAlignment": "top",
+                "characterSize": 20,
+                "color": "255;255;255"
+              }
+            },
+            "Pressed": {
+              "bottomMargin": 16,
+              "height": 69,
+              "leftMargin": 16,
+              "rightMargin": 16,
+              "texture": "Grey Button With Shadow_Pressed.png",
+              "tiled": true,
+              "topMargin": 16,
+              "width": 192
+            }
+          }
+        }
+      ],
+      "objectsFolderStructure": {
+        "folderName": "__ROOT",
+        "children": [
+          {
+            "objectName": "GetIDButton"
+          },
+          {
+            "objectName": "GetNameButton"
+          },
+          {
+            "objectName": "GetPhotoButton"
+          },
+          {
+            "objectName": "GetDataAsyncButton"
+          },
+          {
+            "objectName": "SetDataAsyncButton"
+          },
+          {
+            "objectName": "FlushDataAsyncButton"
+          },
+          {
+            "objectName": "SubcsribeBotAsyncButton"
+          },
+          {
+            "objectName": "GetConnectedPlayerAsyncButton"
+          },
+          {
+            "objectName": "GetASIDAsyncButton"
+          },
+          {
+            "objectName": "GetSIgnedASIDAsyncButton"
+          }
+        ]
+      },
+      "events": [
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "WortalSDK::IsWortalInitialized"
+              },
+              "parameters": [
+                "",
+                ""
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "TextContainerCapability::TextContainerBehavior::SetValue"
+              },
+              "parameters": [
+                "OutputText",
+                "Text",
+                "=",
+                "Output"
+              ]
+            },
+            {
+              "type": {
+                "value": "SetNumberVariable"
+              },
+              "parameters": [
+                "GameProgress.Level",
+                "=",
+                "2"
+              ]
+            }
+          ],
+          "events": [
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "PanelSpriteButton::PanelSpriteButton::IsClicked"
+                  },
+                  "parameters": [
+                    "GetIDButton",
+                    ""
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "SetStringVariable"
+                  },
+                  "parameters": [
+                    "Output",
+                    "=",
+                    "WortalSDK::GetID()"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "PanelSpriteButton::PanelSpriteButton::IsClicked"
+                  },
+                  "parameters": [
+                    "GetNameButton",
+                    ""
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "SetStringVariable"
+                  },
+                  "parameters": [
+                    "Output",
+                    "=",
+                    "WortalSDK::GetName()"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "PanelSpriteButton::PanelSpriteButton::IsClicked"
+                  },
+                  "parameters": [
+                    "GetPhotoButton",
+                    ""
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "SetStringVariable"
+                  },
+                  "parameters": [
+                    "Output",
+                    "=",
+                    "WortalSDK::GetPhoto()"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "PanelSpriteButton::PanelSpriteButton::IsClicked"
+                  },
+                  "parameters": [
+                    "SetDataAsyncButton",
+                    ""
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "SetNumberVariable"
+                  },
+                  "parameters": [
+                    "GameProgress.Score",
+                    "+",
+                    "2"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "WortalSDK::SetDataAsync"
+                  },
+                  "parameters": [
+                    "",
+                    "GameProgress",
+                    ""
+                  ]
+                }
+              ],
+              "events": [
+                {
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [],
+                  "actions": [
+                    {
+                      "type": {
+                        "value": "SetStringVariable"
+                      },
+                      "parameters": [
+                        "Output",
+                        "=",
+                        "\"Data saved\""
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "PanelSpriteButton::PanelSpriteButton::IsClicked"
+                  },
+                  "parameters": [
+                    "GetDataAsyncButton",
+                    ""
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "WortalSDK::GetDataAsync"
+                  },
+                  "parameters": [
+                    "",
+                    "\"Level,Score,Profile\"",
+                    "GameProgress",
+                    ""
+                  ]
+                }
+              ],
+              "events": [
+                {
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [],
+                  "actions": [
+                    {
+                      "type": {
+                        "value": "SetStringVariable"
+                      },
+                      "parameters": [
+                        "Output",
+                        "+",
+                        "NewLine() + \"Level: \" + GameProgress.Level + NewLine() + \"Score: \" + GameProgress.Score"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "PanelSpriteButton::PanelSpriteButton::IsClicked"
+                  },
+                  "parameters": [
+                    "FlushDataAsyncButton",
+                    ""
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "WortalSDK::FlushDataAsync"
+                  },
+                  "parameters": [
+                    "",
+                    ""
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "PanelSpriteButton::PanelSpriteButton::IsClicked"
+                  },
+                  "parameters": [
+                    "SubcsribeBotAsyncButton",
+                    ""
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "WortalSDK::CanSubscribeBotAsync"
+                  },
+                  "parameters": [
+                    "",
+                    "CanSub",
+                    ""
+                  ]
+                }
+              ],
+              "events": [
+                {
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [
+                    {
+                      "type": {
+                        "value": "BooleanVariable"
+                      },
+                      "parameters": [
+                        "CanSub",
+                        "True",
+                        ""
+                      ]
+                    }
+                  ],
+                  "actions": [
+                    {
+                      "type": {
+                        "value": "WortalSDK::SubscribeBotAsync"
+                      },
+                      "parameters": [
+                        "",
+                        ""
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "SetStringVariable"
+                      },
+                      "parameters": [
+                        "Output",
+                        "=",
+                        "\"Subscribed\""
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "PanelSpriteButton::PanelSpriteButton::IsClicked"
+                  },
+                  "parameters": [
+                    "GetConnectedPlayerAsyncButton",
+                    ""
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "WortalSDK::GetConnectedPlayersAsync"
+                  },
+                  "parameters": [
+                    "",
+                    "ConnectedPlayersPayload",
+                    "ConnectedPlayers",
+                    ""
+                  ]
+                }
+              ],
+              "events": [
+                {
+                  "type": "BuiltinCommonInstructions::ForEachChildVariable",
+                  "iterableVariableName": "ConnectedPlayers",
+                  "valueIteratorVariableName": "ConnectedPlayer",
+                  "keyIteratorVariableName": "",
+                  "conditions": [],
+                  "actions": [
+                    {
+                      "type": {
+                        "value": "SetStringVariable"
+                      },
+                      "parameters": [
+                        "Output",
+                        "+",
+                        "NewLine() + \"id: \" + ConnectedPlayer[\"id\"] + \nNewLine() + \"name: \" + ConnectedPlayer[\"name\"]"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "PanelSpriteButton::PanelSpriteButton::IsClicked"
+                  },
+                  "parameters": [
+                    "GetASIDAsyncButton",
+                    ""
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "WortalSDK::GetASIDAsync"
+                  },
+                  "parameters": [
+                    "Output",
+                    "PlayerInfo.asid",
+                    "WortalSDK::GetASIDAsync()"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "SetStringVariable"
+                  },
+                  "parameters": [
+                    "Output",
+                    "=",
+                    "PlayerInfo.asid"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "PanelSpriteButton::PanelSpriteButton::IsClicked"
+                  },
+                  "parameters": [
+                    "GetSIgnedASIDAsyncButton",
+                    ""
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "WortalSDK::GetSignedASIDAsync"
+                  },
+                  "parameters": [
+                    "",
+                    "PlayerInfo.SignedASID",
+                    ""
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "PanelSpriteButton::PanelSpriteButton::IsClicked"
+              },
+              "parameters": [
+                "BackButton",
+                ""
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "Scene"
+              },
+              "parameters": [
+                "",
+                "\"Main\"",
+                ""
+              ]
+            }
+          ]
+        }
+      ],
+      "layers": [
+        {
+          "ambientLightColorB": 200,
+          "ambientLightColorG": 200,
+          "ambientLightColorR": 200,
+          "camera3DFarPlaneDistance": 10000,
+          "camera3DFieldOfView": 45,
+          "camera3DNearPlaneDistance": 3,
+          "cameraType": "",
+          "followBaseLayerCamera": false,
+          "isLightingLayer": false,
+          "isLocked": false,
+          "name": "",
+          "renderingType": "",
+          "visibility": true,
+          "cameras": [
+            {
+              "defaultSize": true,
+              "defaultViewport": true,
+              "height": 0,
+              "viewportBottom": 1,
+              "viewportLeft": 0,
+              "viewportRight": 1,
+              "viewportTop": 0,
+              "width": 0
+            }
+          ],
+          "effects": [
+            {
+              "effectType": "Scene3D::HemisphereLight",
+              "name": "3D Light",
+              "doubleParameters": {
+                "elevation": 45,
+                "intensity": 1,
+                "rotation": 0
+              },
+              "stringParameters": {
+                "groundColor": "64;64;64",
+                "skyColor": "255;255;255",
+                "top": "Y-"
+              },
+              "booleanParameters": {}
+            }
+          ]
+        }
+      ],
+      "behaviorsSharedData": [
+        {
+          "name": "Effect",
+          "type": "EffectCapability::EffectBehavior"
+        },
+        {
+          "name": "Flippable",
+          "type": "FlippableCapability::FlippableBehavior"
+        },
+        {
+          "name": "Opacity",
+          "type": "OpacityCapability::OpacityBehavior"
+        },
+        {
+          "name": "Resizable",
+          "type": "ResizableCapability::ResizableBehavior"
+        },
+        {
+          "name": "Scale",
+          "type": "ScalableCapability::ScalableBehavior"
+        },
+        {
+          "name": "Text",
+          "type": "TextContainerCapability::TextContainerBehavior"
+        }
+      ]
+    },
+    {
+      "b": 139,
+      "disableInputWhenNotFocused": true,
+      "mangledName": "Session",
+      "name": "Session",
+      "r": 139,
+      "standardSortMethod": true,
+      "stopSoundsOnStartup": true,
+      "title": "",
+      "v": 139,
+      "uiSettings": {
+        "grid": true,
+        "gridType": "rectangular",
+        "gridWidth": 32,
+        "gridHeight": 32,
+        "gridOffsetX": 0,
+        "gridOffsetY": 0,
+        "gridColor": 10401023,
+        "gridAlpha": 0.8,
+        "snap": true,
+        "zoomFactor": 0.546875,
+        "windowMask": false
+      },
+      "objectsGroups": [],
+      "variables": [
+        {
+          "name": "source",
+          "type": "string",
+          "value": ""
+        },
+        {
+          "name": "childname",
+          "type": "string",
+          "value": ""
+        }
+      ],
+      "instances": [
+        {
+          "angle": 0,
+          "customSize": true,
+          "depth": 1,
+          "height": 227,
+          "keepRatio": true,
+          "layer": "",
+          "name": "OutputText",
+          "persistentUuid": "0a59aca6-c62c-499b-adbd-566e5b4b7587",
+          "width": 814,
+          "x": 224,
+          "y": 416,
+          "zOrder": 14,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "depth": 1,
+          "height": 256,
+          "keepRatio": true,
+          "layer": "",
+          "name": "OutputBorder",
+          "persistentUuid": "4f86fb6b-76c1-40c1-9223-6f311e6c2c00",
+          "width": 896,
+          "x": 192,
+          "y": 416,
+          "zOrder": 2,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "keepRatio": true,
+          "layer": "",
+          "name": "BackButton",
+          "persistentUuid": "8547bdc0-1c8b-47da-abfb-82bbb54f29d8",
+          "width": 0,
+          "x": 544,
+          "y": 320,
+          "zOrder": 15,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "depth": 48,
+          "height": 64,
+          "keepRatio": true,
+          "layer": "",
+          "name": "GamePlayStartButton",
+          "persistentUuid": "eea9bbcd-e802-4948-994e-55c65907dc7a",
+          "width": 192,
+          "x": 256,
+          "y": 32,
+          "zOrder": 16,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "depth": 48,
+          "height": 64,
+          "keepRatio": true,
+          "layer": "",
+          "name": "GamePlayStopButton",
+          "persistentUuid": "d673aa62-ab87-42c4-b31e-5ea75fdca754",
+          "width": 192,
+          "x": 448,
+          "y": 32,
+          "zOrder": 17,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "depth": 48,
+          "height": 64,
+          "keepRatio": true,
+          "layer": "",
+          "name": "GetDeviceButton",
+          "persistentUuid": "ac755b9d-5b3a-41bd-bd7e-ead19039fbc2",
+          "width": 192,
+          "x": 640,
+          "y": 32,
+          "zOrder": 18,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "depth": 48,
+          "height": 64,
+          "keepRatio": true,
+          "layer": "",
+          "name": "GetEntryPointAsyncButton",
+          "persistentUuid": "2f2d3970-73ae-460a-a6d0-208e21f9da09",
+          "width": 224,
+          "x": 256,
+          "y": 96,
+          "zOrder": 19,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "depth": 48,
+          "height": 64,
+          "keepRatio": true,
+          "layer": "",
+          "name": "GetEntryPointDataAsyncButton",
+          "persistentUuid": "3088c4c1-5dbb-4b40-aeba-1576fbcc0691",
+          "width": 256,
+          "x": 480,
+          "y": 96,
+          "zOrder": 20,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "depth": 48,
+          "height": 64,
+          "keepRatio": true,
+          "layer": "",
+          "name": "GetLocaleButton",
+          "persistentUuid": "f39795cc-e364-4df5-8149-6c96584139c8",
+          "width": 192,
+          "x": 736,
+          "y": 96,
+          "zOrder": 21,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "depth": 48,
+          "height": 64,
+          "keepRatio": true,
+          "layer": "",
+          "name": "GetOrientationButton",
+          "persistentUuid": "5fea35e2-bc76-480f-b351-2eef98b6f63f",
+          "width": 192,
+          "x": 256,
+          "y": 160,
+          "zOrder": 22,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "depth": 48,
+          "height": 64,
+          "keepRatio": true,
+          "layer": "",
+          "name": "GetPlatformButton",
+          "persistentUuid": "13f30c44-3a76-45e5-8a68-8cf3ee7956f4",
+          "width": 192,
+          "x": 448,
+          "y": 160,
+          "zOrder": 23,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "depth": 48,
+          "height": 64,
+          "keepRatio": true,
+          "layer": "",
+          "name": "GetTrafficSourceButton",
+          "persistentUuid": "86f97ffd-0fe3-4b3f-a848-f911bf13b494",
+          "width": 192,
+          "x": 640,
+          "y": 160,
+          "zOrder": 24,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "depth": 48,
+          "height": 64,
+          "keepRatio": true,
+          "layer": "",
+          "name": "HappyTimeButton",
+          "persistentUuid": "44f868e4-540f-43e4-8996-a3e7ba461213",
+          "width": 192,
+          "x": 256,
+          "y": 224,
+          "zOrder": 25,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "depth": 48,
+          "height": 64,
+          "keepRatio": true,
+          "layer": "",
+          "name": "SetSessionDataButton",
+          "persistentUuid": "2db66337-bc1b-440e-9e25-f03941829dae",
+          "width": 192,
+          "x": 448,
+          "y": 224,
+          "zOrder": 26,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "depth": 48,
+          "height": 64,
+          "keepRatio": true,
+          "layer": "",
+          "name": "SwitchGameAsyncButton",
+          "persistentUuid": "beb77717-1d13-457b-80aa-ac936fcb357d",
+          "width": 192,
+          "x": 640,
+          "y": 224,
+          "zOrder": 27,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "depth": 48,
+          "height": 64,
+          "keepRatio": true,
+          "layer": "",
+          "name": "IsAudioEnabledButton",
+          "persistentUuid": "32b4f017-b97c-4852-9dd3-bbfebf74232b",
+          "width": 192,
+          "x": 832,
+          "y": 224,
+          "zOrder": 28,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        }
+      ],
+      "objects": [
+        {
+          "assetStoreId": "9cf9ca8be6e98fc23e76b6770d3f4d094dea09f30a49f38ef9a9d2e97c2460be",
+          "name": "GamePlayStartButton",
+          "type": "PanelSpriteButton::PanelSpriteButton",
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "content": {
+            "LeftPadding": 16,
+            "RightPadding": 16,
+            "PressedLabelOffsetY": 3,
+            "BottomPadding": 32,
+            "TopPadding": 32,
+            "HoveredFadeOutDuration": 0.25
+          },
+          "childrenContent": {
+            "Hovered": {
+              "bottomMargin": 16,
+              "height": 69,
+              "leftMargin": 16,
+              "rightMargin": 16,
+              "texture": "Grey Button With Shadow_Hovered.png",
+              "tiled": true,
+              "topMargin": 16,
+              "width": 192
+            },
+            "Idle": {
+              "bottomMargin": 16,
+              "height": 69,
+              "leftMargin": 16,
+              "rightMargin": 16,
+              "texture": "Grey Button With Shadow_Idle.png",
+              "tiled": true,
+              "topMargin": 16,
+              "width": 192
+            },
+            "Label": {
+              "bold": false,
+              "italic": false,
+              "smoothed": true,
+              "underlined": false,
+              "string": "GamePlayStart",
+              "font": "CantoraOne-Regular.ttf",
+              "textAlignment": "center",
+              "characterSize": 20,
+              "color": {
+                "b": 255,
+                "g": 255,
+                "r": 255
+              },
+              "content": {
+                "bold": false,
+                "isOutlineEnabled": false,
+                "isShadowEnabled": false,
+                "italic": false,
+                "outlineColor": "255;255;255",
+                "outlineThickness": 2,
+                "shadowAngle": 90,
+                "shadowBlurRadius": 2,
+                "shadowColor": "0;0;0",
+                "shadowDistance": 4,
+                "shadowOpacity": 127,
+                "smoothed": true,
+                "underlined": false,
+                "text": "GamePlayStart",
+                "font": "CantoraOne-Regular.ttf",
+                "textAlignment": "center",
+                "verticalTextAlignment": "top",
+                "characterSize": 20,
+                "color": "255;255;255"
+              }
+            },
+            "Pressed": {
+              "bottomMargin": 16,
+              "height": 69,
+              "leftMargin": 16,
+              "rightMargin": 16,
+              "texture": "Grey Button With Shadow_Pressed.png",
+              "tiled": true,
+              "topMargin": 16,
+              "width": 192
+            }
+          }
+        },
+        {
+          "assetStoreId": "9cf9ca8be6e98fc23e76b6770d3f4d094dea09f30a49f38ef9a9d2e97c2460be",
+          "name": "GamePlayStopButton",
+          "type": "PanelSpriteButton::PanelSpriteButton",
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "content": {
+            "LeftPadding": 16,
+            "RightPadding": 16,
+            "PressedLabelOffsetY": 3,
+            "BottomPadding": 32,
+            "TopPadding": 32,
+            "HoveredFadeOutDuration": 0.25
+          },
+          "childrenContent": {
+            "Hovered": {
+              "bottomMargin": 16,
+              "height": 69,
+              "leftMargin": 16,
+              "rightMargin": 16,
+              "texture": "Grey Button With Shadow_Hovered.png",
+              "tiled": true,
+              "topMargin": 16,
+              "width": 192
+            },
+            "Idle": {
+              "bottomMargin": 16,
+              "height": 69,
+              "leftMargin": 16,
+              "rightMargin": 16,
+              "texture": "Grey Button With Shadow_Idle.png",
+              "tiled": true,
+              "topMargin": 16,
+              "width": 192
+            },
+            "Label": {
+              "bold": false,
+              "italic": false,
+              "smoothed": true,
+              "underlined": false,
+              "string": "GamePlayStop",
+              "font": "CantoraOne-Regular.ttf",
+              "textAlignment": "center",
+              "characterSize": 20,
+              "color": {
+                "b": 255,
+                "g": 255,
+                "r": 255
+              },
+              "content": {
+                "bold": false,
+                "isOutlineEnabled": false,
+                "isShadowEnabled": false,
+                "italic": false,
+                "outlineColor": "255;255;255",
+                "outlineThickness": 2,
+                "shadowAngle": 90,
+                "shadowBlurRadius": 2,
+                "shadowColor": "0;0;0",
+                "shadowDistance": 4,
+                "shadowOpacity": 127,
+                "smoothed": true,
+                "underlined": false,
+                "text": "GamePlayStop",
+                "font": "CantoraOne-Regular.ttf",
+                "textAlignment": "center",
+                "verticalTextAlignment": "top",
+                "characterSize": 20,
+                "color": "255;255;255"
+              }
+            },
+            "Pressed": {
+              "bottomMargin": 16,
+              "height": 69,
+              "leftMargin": 16,
+              "rightMargin": 16,
+              "texture": "Grey Button With Shadow_Pressed.png",
+              "tiled": true,
+              "topMargin": 16,
+              "width": 192
+            }
+          }
+        },
+        {
+          "assetStoreId": "9cf9ca8be6e98fc23e76b6770d3f4d094dea09f30a49f38ef9a9d2e97c2460be",
+          "name": "GetDeviceButton",
+          "type": "PanelSpriteButton::PanelSpriteButton",
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "content": {
+            "LeftPadding": 16,
+            "RightPadding": 16,
+            "PressedLabelOffsetY": 3,
+            "BottomPadding": 32,
+            "TopPadding": 32,
+            "HoveredFadeOutDuration": 0.25
+          },
+          "childrenContent": {
+            "Hovered": {
+              "bottomMargin": 16,
+              "height": 69,
+              "leftMargin": 16,
+              "rightMargin": 16,
+              "texture": "Grey Button With Shadow_Hovered.png",
+              "tiled": true,
+              "topMargin": 16,
+              "width": 192
+            },
+            "Idle": {
+              "bottomMargin": 16,
+              "height": 69,
+              "leftMargin": 16,
+              "rightMargin": 16,
+              "texture": "Grey Button With Shadow_Idle.png",
+              "tiled": true,
+              "topMargin": 16,
+              "width": 192
+            },
+            "Label": {
+              "bold": false,
+              "italic": false,
+              "smoothed": true,
+              "underlined": false,
+              "string": "GetGameDevice",
+              "font": "CantoraOne-Regular.ttf",
+              "textAlignment": "center",
+              "characterSize": 20,
+              "color": {
+                "b": 255,
+                "g": 255,
+                "r": 255
+              },
+              "content": {
+                "bold": false,
+                "isOutlineEnabled": false,
+                "isShadowEnabled": false,
+                "italic": false,
+                "outlineColor": "255;255;255",
+                "outlineThickness": 2,
+                "shadowAngle": 90,
+                "shadowBlurRadius": 2,
+                "shadowColor": "0;0;0",
+                "shadowDistance": 4,
+                "shadowOpacity": 127,
+                "smoothed": true,
+                "underlined": false,
+                "text": "GetGameDevice",
+                "font": "CantoraOne-Regular.ttf",
+                "textAlignment": "center",
+                "verticalTextAlignment": "top",
+                "characterSize": 20,
+                "color": "255;255;255"
+              }
+            },
+            "Pressed": {
+              "bottomMargin": 16,
+              "height": 69,
+              "leftMargin": 16,
+              "rightMargin": 16,
+              "texture": "Grey Button With Shadow_Pressed.png",
+              "tiled": true,
+              "topMargin": 16,
+              "width": 192
+            }
+          }
+        },
+        {
+          "assetStoreId": "9cf9ca8be6e98fc23e76b6770d3f4d094dea09f30a49f38ef9a9d2e97c2460be",
+          "name": "GetEntryPointAsyncButton",
+          "type": "PanelSpriteButton::PanelSpriteButton",
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "content": {
+            "LeftPadding": 16,
+            "RightPadding": 16,
+            "PressedLabelOffsetY": 3,
+            "BottomPadding": 32,
+            "TopPadding": 32,
+            "HoveredFadeOutDuration": 0.25
+          },
+          "childrenContent": {
+            "Hovered": {
+              "bottomMargin": 16,
+              "height": 69,
+              "leftMargin": 16,
+              "rightMargin": 16,
+              "texture": "Grey Button With Shadow_Hovered.png",
+              "tiled": true,
+              "topMargin": 16,
+              "width": 192
+            },
+            "Idle": {
+              "bottomMargin": 16,
+              "height": 69,
+              "leftMargin": 16,
+              "rightMargin": 16,
+              "texture": "Grey Button With Shadow_Idle.png",
+              "tiled": true,
+              "topMargin": 16,
+              "width": 192
+            },
+            "Label": {
+              "bold": false,
+              "italic": false,
+              "smoothed": true,
+              "underlined": false,
+              "string": "GetEntryPointAsync",
+              "font": "CantoraOne-Regular.ttf",
+              "textAlignment": "center",
+              "characterSize": 20,
+              "color": {
+                "b": 255,
+                "g": 255,
+                "r": 255
+              },
+              "content": {
+                "bold": false,
+                "isOutlineEnabled": false,
+                "isShadowEnabled": false,
+                "italic": false,
+                "outlineColor": "255;255;255",
+                "outlineThickness": 2,
+                "shadowAngle": 90,
+                "shadowBlurRadius": 2,
+                "shadowColor": "0;0;0",
+                "shadowDistance": 4,
+                "shadowOpacity": 127,
+                "smoothed": true,
+                "underlined": false,
+                "text": "GetEntryPointAsync",
+                "font": "CantoraOne-Regular.ttf",
+                "textAlignment": "center",
+                "verticalTextAlignment": "top",
+                "characterSize": 20,
+                "color": "255;255;255"
+              }
+            },
+            "Pressed": {
+              "bottomMargin": 16,
+              "height": 69,
+              "leftMargin": 16,
+              "rightMargin": 16,
+              "texture": "Grey Button With Shadow_Pressed.png",
+              "tiled": true,
+              "topMargin": 16,
+              "width": 192
+            }
+          }
+        },
+        {
+          "assetStoreId": "9cf9ca8be6e98fc23e76b6770d3f4d094dea09f30a49f38ef9a9d2e97c2460be",
+          "name": "GetEntryPointDataAsyncButton",
+          "type": "PanelSpriteButton::PanelSpriteButton",
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "content": {
+            "LeftPadding": 16,
+            "RightPadding": 16,
+            "PressedLabelOffsetY": 3,
+            "BottomPadding": 32,
+            "TopPadding": 32,
+            "HoveredFadeOutDuration": 0.25
+          },
+          "childrenContent": {
+            "Hovered": {
+              "bottomMargin": 16,
+              "height": 69,
+              "leftMargin": 16,
+              "rightMargin": 16,
+              "texture": "Grey Button With Shadow_Hovered.png",
+              "tiled": true,
+              "topMargin": 16,
+              "width": 192
+            },
+            "Idle": {
+              "bottomMargin": 16,
+              "height": 69,
+              "leftMargin": 16,
+              "rightMargin": 16,
+              "texture": "Grey Button With Shadow_Idle.png",
+              "tiled": true,
+              "topMargin": 16,
+              "width": 192
+            },
+            "Label": {
+              "bold": false,
+              "italic": false,
+              "smoothed": true,
+              "underlined": false,
+              "string": "GetEntryPointDataAsync",
+              "font": "CantoraOne-Regular.ttf",
+              "textAlignment": "center",
+              "characterSize": 20,
+              "color": {
+                "b": 255,
+                "g": 255,
+                "r": 255
+              },
+              "content": {
+                "bold": false,
+                "isOutlineEnabled": false,
+                "isShadowEnabled": false,
+                "italic": false,
+                "outlineColor": "255;255;255",
+                "outlineThickness": 2,
+                "shadowAngle": 90,
+                "shadowBlurRadius": 2,
+                "shadowColor": "0;0;0",
+                "shadowDistance": 4,
+                "shadowOpacity": 127,
+                "smoothed": true,
+                "underlined": false,
+                "text": "GetEntryPointDataAsync",
+                "font": "CantoraOne-Regular.ttf",
+                "textAlignment": "center",
+                "verticalTextAlignment": "top",
+                "characterSize": 20,
+                "color": "255;255;255"
+              }
+            },
+            "Pressed": {
+              "bottomMargin": 16,
+              "height": 69,
+              "leftMargin": 16,
+              "rightMargin": 16,
+              "texture": "Grey Button With Shadow_Pressed.png",
+              "tiled": true,
+              "topMargin": 16,
+              "width": 192
+            }
+          }
+        },
+        {
+          "assetStoreId": "9cf9ca8be6e98fc23e76b6770d3f4d094dea09f30a49f38ef9a9d2e97c2460be",
+          "name": "GetLocaleButton",
+          "type": "PanelSpriteButton::PanelSpriteButton",
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "content": {
+            "LeftPadding": 16,
+            "RightPadding": 16,
+            "PressedLabelOffsetY": 3,
+            "BottomPadding": 32,
+            "TopPadding": 32,
+            "HoveredFadeOutDuration": 0.25
+          },
+          "childrenContent": {
+            "Hovered": {
+              "bottomMargin": 16,
+              "height": 69,
+              "leftMargin": 16,
+              "rightMargin": 16,
+              "texture": "Grey Button With Shadow_Hovered.png",
+              "tiled": true,
+              "topMargin": 16,
+              "width": 192
+            },
+            "Idle": {
+              "bottomMargin": 16,
+              "height": 69,
+              "leftMargin": 16,
+              "rightMargin": 16,
+              "texture": "Grey Button With Shadow_Idle.png",
+              "tiled": true,
+              "topMargin": 16,
+              "width": 192
+            },
+            "Label": {
+              "bold": false,
+              "italic": false,
+              "smoothed": true,
+              "underlined": false,
+              "string": "GetLocale",
+              "font": "CantoraOne-Regular.ttf",
+              "textAlignment": "center",
+              "characterSize": 20,
+              "color": {
+                "b": 255,
+                "g": 255,
+                "r": 255
+              },
+              "content": {
+                "bold": false,
+                "isOutlineEnabled": false,
+                "isShadowEnabled": false,
+                "italic": false,
+                "outlineColor": "255;255;255",
+                "outlineThickness": 2,
+                "shadowAngle": 90,
+                "shadowBlurRadius": 2,
+                "shadowColor": "0;0;0",
+                "shadowDistance": 4,
+                "shadowOpacity": 127,
+                "smoothed": true,
+                "underlined": false,
+                "text": "GetLocale",
+                "font": "CantoraOne-Regular.ttf",
+                "textAlignment": "center",
+                "verticalTextAlignment": "top",
+                "characterSize": 20,
+                "color": "255;255;255"
+              }
+            },
+            "Pressed": {
+              "bottomMargin": 16,
+              "height": 69,
+              "leftMargin": 16,
+              "rightMargin": 16,
+              "texture": "Grey Button With Shadow_Pressed.png",
+              "tiled": true,
+              "topMargin": 16,
+              "width": 192
+            }
+          }
+        },
+        {
+          "assetStoreId": "9cf9ca8be6e98fc23e76b6770d3f4d094dea09f30a49f38ef9a9d2e97c2460be",
+          "name": "GetOrientationButton",
+          "type": "PanelSpriteButton::PanelSpriteButton",
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "content": {
+            "LeftPadding": 16,
+            "RightPadding": 16,
+            "PressedLabelOffsetY": 3,
+            "BottomPadding": 32,
+            "TopPadding": 32,
+            "HoveredFadeOutDuration": 0.25
+          },
+          "childrenContent": {
+            "Hovered": {
+              "bottomMargin": 16,
+              "height": 69,
+              "leftMargin": 16,
+              "rightMargin": 16,
+              "texture": "Grey Button With Shadow_Hovered.png",
+              "tiled": true,
+              "topMargin": 16,
+              "width": 192
+            },
+            "Idle": {
+              "bottomMargin": 16,
+              "height": 69,
+              "leftMargin": 16,
+              "rightMargin": 16,
+              "texture": "Grey Button With Shadow_Idle.png",
+              "tiled": true,
+              "topMargin": 16,
+              "width": 192
+            },
+            "Label": {
+              "bold": false,
+              "italic": false,
+              "smoothed": true,
+              "underlined": false,
+              "string": "GetOrientation",
+              "font": "CantoraOne-Regular.ttf",
+              "textAlignment": "center",
+              "characterSize": 20,
+              "color": {
+                "b": 255,
+                "g": 255,
+                "r": 255
+              },
+              "content": {
+                "bold": false,
+                "isOutlineEnabled": false,
+                "isShadowEnabled": false,
+                "italic": false,
+                "outlineColor": "255;255;255",
+                "outlineThickness": 2,
+                "shadowAngle": 90,
+                "shadowBlurRadius": 2,
+                "shadowColor": "0;0;0",
+                "shadowDistance": 4,
+                "shadowOpacity": 127,
+                "smoothed": true,
+                "underlined": false,
+                "text": "GetOrientation",
+                "font": "CantoraOne-Regular.ttf",
+                "textAlignment": "center",
+                "verticalTextAlignment": "top",
+                "characterSize": 20,
+                "color": "255;255;255"
+              }
+            },
+            "Pressed": {
+              "bottomMargin": 16,
+              "height": 69,
+              "leftMargin": 16,
+              "rightMargin": 16,
+              "texture": "Grey Button With Shadow_Pressed.png",
+              "tiled": true,
+              "topMargin": 16,
+              "width": 192
+            }
+          }
+        },
+        {
+          "assetStoreId": "9cf9ca8be6e98fc23e76b6770d3f4d094dea09f30a49f38ef9a9d2e97c2460be",
+          "name": "GetPlatformButton",
+          "type": "PanelSpriteButton::PanelSpriteButton",
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "content": {
+            "LeftPadding": 16,
+            "RightPadding": 16,
+            "PressedLabelOffsetY": 3,
+            "BottomPadding": 32,
+            "TopPadding": 32,
+            "HoveredFadeOutDuration": 0.25
+          },
+          "childrenContent": {
+            "Hovered": {
+              "bottomMargin": 16,
+              "height": 69,
+              "leftMargin": 16,
+              "rightMargin": 16,
+              "texture": "Grey Button With Shadow_Hovered.png",
+              "tiled": true,
+              "topMargin": 16,
+              "width": 192
+            },
+            "Idle": {
+              "bottomMargin": 16,
+              "height": 69,
+              "leftMargin": 16,
+              "rightMargin": 16,
+              "texture": "Grey Button With Shadow_Idle.png",
+              "tiled": true,
+              "topMargin": 16,
+              "width": 192
+            },
+            "Label": {
+              "bold": false,
+              "italic": false,
+              "smoothed": true,
+              "underlined": false,
+              "string": "GetPlatform",
+              "font": "CantoraOne-Regular.ttf",
+              "textAlignment": "center",
+              "characterSize": 20,
+              "color": {
+                "b": 255,
+                "g": 255,
+                "r": 255
+              },
+              "content": {
+                "bold": false,
+                "isOutlineEnabled": false,
+                "isShadowEnabled": false,
+                "italic": false,
+                "outlineColor": "255;255;255",
+                "outlineThickness": 2,
+                "shadowAngle": 90,
+                "shadowBlurRadius": 2,
+                "shadowColor": "0;0;0",
+                "shadowDistance": 4,
+                "shadowOpacity": 127,
+                "smoothed": true,
+                "underlined": false,
+                "text": "GetPlatform",
+                "font": "CantoraOne-Regular.ttf",
+                "textAlignment": "center",
+                "verticalTextAlignment": "top",
+                "characterSize": 20,
+                "color": "255;255;255"
+              }
+            },
+            "Pressed": {
+              "bottomMargin": 16,
+              "height": 69,
+              "leftMargin": 16,
+              "rightMargin": 16,
+              "texture": "Grey Button With Shadow_Pressed.png",
+              "tiled": true,
+              "topMargin": 16,
+              "width": 192
+            }
+          }
+        },
+        {
+          "assetStoreId": "9cf9ca8be6e98fc23e76b6770d3f4d094dea09f30a49f38ef9a9d2e97c2460be",
+          "name": "GetTrafficSourceButton",
+          "type": "PanelSpriteButton::PanelSpriteButton",
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "content": {
+            "LeftPadding": 16,
+            "RightPadding": 16,
+            "PressedLabelOffsetY": 3,
+            "BottomPadding": 32,
+            "TopPadding": 32,
+            "HoveredFadeOutDuration": 0.25
+          },
+          "childrenContent": {
+            "Hovered": {
+              "bottomMargin": 16,
+              "height": 69,
+              "leftMargin": 16,
+              "rightMargin": 16,
+              "texture": "Grey Button With Shadow_Hovered.png",
+              "tiled": true,
+              "topMargin": 16,
+              "width": 192
+            },
+            "Idle": {
+              "bottomMargin": 16,
+              "height": 69,
+              "leftMargin": 16,
+              "rightMargin": 16,
+              "texture": "Grey Button With Shadow_Idle.png",
+              "tiled": true,
+              "topMargin": 16,
+              "width": 192
+            },
+            "Label": {
+              "bold": false,
+              "italic": false,
+              "smoothed": true,
+              "underlined": false,
+              "string": "GetTrafficSource",
+              "font": "CantoraOne-Regular.ttf",
+              "textAlignment": "center",
+              "characterSize": 20,
+              "color": {
+                "b": 255,
+                "g": 255,
+                "r": 255
+              },
+              "content": {
+                "bold": false,
+                "isOutlineEnabled": false,
+                "isShadowEnabled": false,
+                "italic": false,
+                "outlineColor": "255;255;255",
+                "outlineThickness": 2,
+                "shadowAngle": 90,
+                "shadowBlurRadius": 2,
+                "shadowColor": "0;0;0",
+                "shadowDistance": 4,
+                "shadowOpacity": 127,
+                "smoothed": true,
+                "underlined": false,
+                "text": "GetTrafficSource",
+                "font": "CantoraOne-Regular.ttf",
+                "textAlignment": "center",
+                "verticalTextAlignment": "top",
+                "characterSize": 20,
+                "color": "255;255;255"
+              }
+            },
+            "Pressed": {
+              "bottomMargin": 16,
+              "height": 69,
+              "leftMargin": 16,
+              "rightMargin": 16,
+              "texture": "Grey Button With Shadow_Pressed.png",
+              "tiled": true,
+              "topMargin": 16,
+              "width": 192
+            }
+          }
+        },
+        {
+          "assetStoreId": "9cf9ca8be6e98fc23e76b6770d3f4d094dea09f30a49f38ef9a9d2e97c2460be",
+          "name": "HappyTimeButton",
+          "type": "PanelSpriteButton::PanelSpriteButton",
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "content": {
+            "LeftPadding": 16,
+            "RightPadding": 16,
+            "PressedLabelOffsetY": 3,
+            "BottomPadding": 32,
+            "TopPadding": 32,
+            "HoveredFadeOutDuration": 0.25
+          },
+          "childrenContent": {
+            "Hovered": {
+              "bottomMargin": 16,
+              "height": 69,
+              "leftMargin": 16,
+              "rightMargin": 16,
+              "texture": "Grey Button With Shadow_Hovered.png",
+              "tiled": true,
+              "topMargin": 16,
+              "width": 192
+            },
+            "Idle": {
+              "bottomMargin": 16,
+              "height": 69,
+              "leftMargin": 16,
+              "rightMargin": 16,
+              "texture": "Grey Button With Shadow_Idle.png",
+              "tiled": true,
+              "topMargin": 16,
+              "width": 192
+            },
+            "Label": {
+              "bold": false,
+              "italic": false,
+              "smoothed": true,
+              "underlined": false,
+              "string": "HappyTime",
+              "font": "CantoraOne-Regular.ttf",
+              "textAlignment": "center",
+              "characterSize": 20,
+              "color": {
+                "b": 255,
+                "g": 255,
+                "r": 255
+              },
+              "content": {
+                "bold": false,
+                "isOutlineEnabled": false,
+                "isShadowEnabled": false,
+                "italic": false,
+                "outlineColor": "255;255;255",
+                "outlineThickness": 2,
+                "shadowAngle": 90,
+                "shadowBlurRadius": 2,
+                "shadowColor": "0;0;0",
+                "shadowDistance": 4,
+                "shadowOpacity": 127,
+                "smoothed": true,
+                "underlined": false,
+                "text": "HappyTime",
+                "font": "CantoraOne-Regular.ttf",
+                "textAlignment": "center",
+                "verticalTextAlignment": "top",
+                "characterSize": 20,
+                "color": "255;255;255"
+              }
+            },
+            "Pressed": {
+              "bottomMargin": 16,
+              "height": 69,
+              "leftMargin": 16,
+              "rightMargin": 16,
+              "texture": "Grey Button With Shadow_Pressed.png",
+              "tiled": true,
+              "topMargin": 16,
+              "width": 192
+            }
+          }
+        },
+        {
+          "assetStoreId": "9cf9ca8be6e98fc23e76b6770d3f4d094dea09f30a49f38ef9a9d2e97c2460be",
+          "name": "SetSessionDataButton",
+          "type": "PanelSpriteButton::PanelSpriteButton",
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "content": {
+            "LeftPadding": 16,
+            "RightPadding": 16,
+            "PressedLabelOffsetY": 3,
+            "BottomPadding": 32,
+            "TopPadding": 32,
+            "HoveredFadeOutDuration": 0.25
+          },
+          "childrenContent": {
+            "Hovered": {
+              "bottomMargin": 16,
+              "height": 69,
+              "leftMargin": 16,
+              "rightMargin": 16,
+              "texture": "Grey Button With Shadow_Hovered.png",
+              "tiled": true,
+              "topMargin": 16,
+              "width": 192
+            },
+            "Idle": {
+              "bottomMargin": 16,
+              "height": 69,
+              "leftMargin": 16,
+              "rightMargin": 16,
+              "texture": "Grey Button With Shadow_Idle.png",
+              "tiled": true,
+              "topMargin": 16,
+              "width": 192
+            },
+            "Label": {
+              "bold": false,
+              "italic": false,
+              "smoothed": true,
+              "underlined": false,
+              "string": "SetSessionData",
+              "font": "CantoraOne-Regular.ttf",
+              "textAlignment": "center",
+              "characterSize": 20,
+              "color": {
+                "b": 255,
+                "g": 255,
+                "r": 255
+              },
+              "content": {
+                "bold": false,
+                "isOutlineEnabled": false,
+                "isShadowEnabled": false,
+                "italic": false,
+                "outlineColor": "255;255;255",
+                "outlineThickness": 2,
+                "shadowAngle": 90,
+                "shadowBlurRadius": 2,
+                "shadowColor": "0;0;0",
+                "shadowDistance": 4,
+                "shadowOpacity": 127,
+                "smoothed": true,
+                "underlined": false,
+                "text": "SetSessionData",
+                "font": "CantoraOne-Regular.ttf",
+                "textAlignment": "center",
+                "verticalTextAlignment": "top",
+                "characterSize": 20,
+                "color": "255;255;255"
+              }
+            },
+            "Pressed": {
+              "bottomMargin": 16,
+              "height": 69,
+              "leftMargin": 16,
+              "rightMargin": 16,
+              "texture": "Grey Button With Shadow_Pressed.png",
+              "tiled": true,
+              "topMargin": 16,
+              "width": 192
+            }
+          }
+        },
+        {
+          "assetStoreId": "9cf9ca8be6e98fc23e76b6770d3f4d094dea09f30a49f38ef9a9d2e97c2460be",
+          "name": "SwitchGameAsyncButton",
+          "type": "PanelSpriteButton::PanelSpriteButton",
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "content": {
+            "LeftPadding": 16,
+            "RightPadding": 16,
+            "PressedLabelOffsetY": 3,
+            "BottomPadding": 32,
+            "TopPadding": 32,
+            "HoveredFadeOutDuration": 0.25
+          },
+          "childrenContent": {
+            "Hovered": {
+              "bottomMargin": 16,
+              "height": 69,
+              "leftMargin": 16,
+              "rightMargin": 16,
+              "texture": "Grey Button With Shadow_Hovered.png",
+              "tiled": true,
+              "topMargin": 16,
+              "width": 192
+            },
+            "Idle": {
+              "bottomMargin": 16,
+              "height": 69,
+              "leftMargin": 16,
+              "rightMargin": 16,
+              "texture": "Grey Button With Shadow_Idle.png",
+              "tiled": true,
+              "topMargin": 16,
+              "width": 192
+            },
+            "Label": {
+              "bold": false,
+              "italic": false,
+              "smoothed": true,
+              "underlined": false,
+              "string": "SwitchGameAsync",
+              "font": "CantoraOne-Regular.ttf",
+              "textAlignment": "center",
+              "characterSize": 20,
+              "color": {
+                "b": 255,
+                "g": 255,
+                "r": 255
+              },
+              "content": {
+                "bold": false,
+                "isOutlineEnabled": false,
+                "isShadowEnabled": false,
+                "italic": false,
+                "outlineColor": "255;255;255",
+                "outlineThickness": 2,
+                "shadowAngle": 90,
+                "shadowBlurRadius": 2,
+                "shadowColor": "0;0;0",
+                "shadowDistance": 4,
+                "shadowOpacity": 127,
+                "smoothed": true,
+                "underlined": false,
+                "text": "SwitchGameAsync",
+                "font": "CantoraOne-Regular.ttf",
+                "textAlignment": "center",
+                "verticalTextAlignment": "top",
+                "characterSize": 20,
+                "color": "255;255;255"
+              }
+            },
+            "Pressed": {
+              "bottomMargin": 16,
+              "height": 69,
+              "leftMargin": 16,
+              "rightMargin": 16,
+              "texture": "Grey Button With Shadow_Pressed.png",
+              "tiled": true,
+              "topMargin": 16,
+              "width": 192
+            }
+          }
+        },
+        {
+          "assetStoreId": "9cf9ca8be6e98fc23e76b6770d3f4d094dea09f30a49f38ef9a9d2e97c2460be",
+          "name": "IsAudioEnabledButton",
+          "type": "PanelSpriteButton::PanelSpriteButton",
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "content": {
+            "LeftPadding": 16,
+            "RightPadding": 16,
+            "PressedLabelOffsetY": 3,
+            "BottomPadding": 32,
+            "TopPadding": 32,
+            "HoveredFadeOutDuration": 0.25
+          },
+          "childrenContent": {
+            "Hovered": {
+              "bottomMargin": 16,
+              "height": 69,
+              "leftMargin": 16,
+              "rightMargin": 16,
+              "texture": "Grey Button With Shadow_Hovered.png",
+              "tiled": true,
+              "topMargin": 16,
+              "width": 192
+            },
+            "Idle": {
+              "bottomMargin": 16,
+              "height": 69,
+              "leftMargin": 16,
+              "rightMargin": 16,
+              "texture": "Grey Button With Shadow_Idle.png",
+              "tiled": true,
+              "topMargin": 16,
+              "width": 192
+            },
+            "Label": {
+              "bold": false,
+              "italic": false,
+              "smoothed": true,
+              "underlined": false,
+              "string": "IsAudioEnabled",
+              "font": "CantoraOne-Regular.ttf",
+              "textAlignment": "center",
+              "characterSize": 20,
+              "color": {
+                "b": 255,
+                "g": 255,
+                "r": 255
+              },
+              "content": {
+                "bold": false,
+                "isOutlineEnabled": false,
+                "isShadowEnabled": false,
+                "italic": false,
+                "outlineColor": "255;255;255",
+                "outlineThickness": 2,
+                "shadowAngle": 90,
+                "shadowBlurRadius": 2,
+                "shadowColor": "0;0;0",
+                "shadowDistance": 4,
+                "shadowOpacity": 127,
+                "smoothed": true,
+                "underlined": false,
+                "text": "IsAudioEnabled",
+                "font": "CantoraOne-Regular.ttf",
+                "textAlignment": "center",
+                "verticalTextAlignment": "top",
+                "characterSize": 20,
+                "color": "255;255;255"
+              }
+            },
+            "Pressed": {
+              "bottomMargin": 16,
+              "height": 69,
+              "leftMargin": 16,
+              "rightMargin": 16,
+              "texture": "Grey Button With Shadow_Pressed.png",
+              "tiled": true,
+              "topMargin": 16,
+              "width": 192
+            }
+          }
+        }
+      ],
+      "objectsFolderStructure": {
+        "folderName": "__ROOT",
+        "children": [
+          {
+            "objectName": "GamePlayStartButton"
+          },
+          {
+            "objectName": "GamePlayStopButton"
+          },
+          {
+            "objectName": "GetDeviceButton"
+          },
+          {
+            "objectName": "GetEntryPointAsyncButton"
+          },
+          {
+            "objectName": "GetEntryPointDataAsyncButton"
+          },
+          {
+            "objectName": "GetLocaleButton"
+          },
+          {
+            "objectName": "GetOrientationButton"
+          },
+          {
+            "objectName": "GetPlatformButton"
+          },
+          {
+            "objectName": "GetTrafficSourceButton"
+          },
+          {
+            "objectName": "HappyTimeButton"
+          },
+          {
+            "objectName": "SetSessionDataButton"
+          },
+          {
+            "objectName": "SwitchGameAsyncButton"
+          },
+          {
+            "objectName": "IsAudioEnabledButton"
+          }
+        ]
+      },
+      "events": [
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "WortalSDK::IsWortalInitialized"
+              },
+              "parameters": [
+                "",
+                ""
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "TextContainerCapability::TextContainerBehavior::SetValue"
+              },
+              "parameters": [
+                "OutputText",
+                "Text",
+                "=",
+                "Output"
+              ]
+            }
+          ],
+          "events": [
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "PanelSpriteButton::PanelSpriteButton::IsClicked"
+                  },
+                  "parameters": [
+                    "GamePlayStartButton",
+                    ""
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "WortalSDK::GamePlayStart"
+                  },
+                  "parameters": [
+                    "",
+                    ""
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "PanelSpriteButton::PanelSpriteButton::IsClicked"
+                  },
+                  "parameters": [
+                    "GamePlayStopButton",
+                    ""
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "WortalSDK::GamePlayStop"
+                  },
+                  "parameters": [
+                    "",
+                    ""
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "PanelSpriteButton::PanelSpriteButton::IsClicked"
+                  },
+                  "parameters": [
+                    "GetDeviceButton",
+                    ""
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "SetStringVariable"
+                  },
+                  "parameters": [
+                    "Output",
+                    "=",
+                    "WortalSDK::GetDevice()"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "PanelSpriteButton::PanelSpriteButton::IsClicked"
+                  },
+                  "parameters": [
+                    "GetLocaleButton",
+                    ""
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "SetStringVariable"
+                  },
+                  "parameters": [
+                    "Output",
+                    "=",
+                    "WortalSDK::GetLocale()"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "PanelSpriteButton::PanelSpriteButton::IsClicked"
+                  },
+                  "parameters": [
+                    "GetOrientationButton",
+                    ""
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "SetStringVariable"
+                  },
+                  "parameters": [
+                    "Output",
+                    "=",
+                    "WortalSDK::GetOrientation()"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "PanelSpriteButton::PanelSpriteButton::IsClicked"
+                  },
+                  "parameters": [
+                    "GetPlatformButton",
+                    ""
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "SetStringVariable"
+                  },
+                  "parameters": [
+                    "Output",
+                    "=",
+                    "WortalSDK::GetPlatform()"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "PanelSpriteButton::PanelSpriteButton::IsClicked"
+                  },
+                  "parameters": [
+                    "GetTrafficSourceButton",
+                    ""
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "WortalSDK::GetTrafficSource"
+                  },
+                  "parameters": [
+                    "Output",
+                    "TrafficSource",
+                    "WortalSDK::GetTrafficSource()"
+                  ]
+                }
+              ],
+              "events": [
+                {
+                  "type": "BuiltinCommonInstructions::ForEachChildVariable",
+                  "iterableVariableName": "TrafficSource",
+                  "valueIteratorVariableName": "source",
+                  "keyIteratorVariableName": "childname",
+                  "conditions": [],
+                  "actions": [
+                    {
+                      "type": {
+                        "value": "SetStringVariable"
+                      },
+                      "parameters": [
+                        "Output",
+                        "+",
+                        "NewLine() + childname + \": \" + source"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "PanelSpriteButton::PanelSpriteButton::IsClicked"
+                  },
+                  "parameters": [
+                    "HappyTimeButton",
+                    ""
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "WortalSDK::HappyTime"
+                  },
+                  "parameters": [
+                    "",
+                    ""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "SetStringVariable"
+                  },
+                  "parameters": [
+                    "Output",
+                    "=",
+                    "\"Happy time ...\""
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "PanelSpriteButton::PanelSpriteButton::IsClicked"
+                  },
+                  "parameters": [
+                    "IsAudioEnabledButton",
+                    ""
+                  ]
+                }
+              ],
+              "actions": [],
+              "events": [
+                {
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [
+                    {
+                      "type": {
+                        "value": "WortalSDK::IsAudioEnabled"
+                      },
+                      "parameters": [
+                        "",
+                        ""
+                      ]
+                    }
+                  ],
+                  "actions": [
+                    {
+                      "type": {
+                        "value": "SetStringVariable"
+                      },
+                      "parameters": [
+                        "Output",
+                        "=",
+                        "\"Yes, audio enabled\""
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "PanelSpriteButton::PanelSpriteButton::IsClicked"
+                  },
+                  "parameters": [
+                    "GetEntryPointAsyncButton",
+                    ""
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "WortalSDK::GetEntryPointAsync"
+                  },
+                  "parameters": [
+                    "",
+                    "PlayerInfo.Entrypoint",
+                    ""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "SetStringVariable"
+                  },
+                  "parameters": [
+                    "Output",
+                    "=",
+                    "PlayerInfo.Entrypoint"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "PanelSpriteButton::PanelSpriteButton::IsClicked"
+                  },
+                  "parameters": [
+                    "GetEntryPointDataAsyncButton",
+                    ""
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "WortalSDK::GetEntryPointData"
+                  },
+                  "parameters": [
+                    "",
+                    "PlayerInfo.EntryPointData",
+                    ""
+                  ]
+                }
+              ],
+              "events": [
+                {
+                  "type": "BuiltinCommonInstructions::ForEachChildVariable",
+                  "iterableVariableName": "PlayerInfo.EntryPointData",
+                  "valueIteratorVariableName": "source",
+                  "keyIteratorVariableName": "childname",
+                  "conditions": [],
+                  "actions": [
+                    {
+                      "type": {
+                        "value": "SetStringVariable"
+                      },
+                      "parameters": [
+                        "Output",
+                        "+",
+                        "NewLine() + childname+ \": \" + source"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "PanelSpriteButton::PanelSpriteButton::IsClicked"
+              },
+              "parameters": [
+                "BackButton",
+                ""
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "Scene"
+              },
+              "parameters": [
+                "",
+                "\"Main\"",
+                ""
+              ]
+            }
+          ]
+        }
+      ],
+      "layers": [
+        {
+          "ambientLightColorB": 200,
+          "ambientLightColorG": 200,
+          "ambientLightColorR": 200,
+          "camera3DFarPlaneDistance": 10000,
+          "camera3DFieldOfView": 45,
+          "camera3DNearPlaneDistance": 3,
+          "cameraType": "",
+          "followBaseLayerCamera": false,
+          "isLightingLayer": false,
+          "isLocked": false,
+          "name": "",
+          "renderingType": "",
+          "visibility": true,
+          "cameras": [
+            {
+              "defaultSize": true,
+              "defaultViewport": true,
+              "height": 0,
+              "viewportBottom": 1,
+              "viewportLeft": 0,
+              "viewportRight": 1,
+              "viewportTop": 0,
+              "width": 0
+            }
+          ],
+          "effects": [
+            {
+              "effectType": "Scene3D::HemisphereLight",
+              "name": "3D Light",
+              "doubleParameters": {
+                "elevation": 45,
+                "intensity": 1,
+                "rotation": 0
+              },
+              "stringParameters": {
+                "groundColor": "64;64;64",
+                "skyColor": "255;255;255",
+                "top": "Y-"
+              },
+              "booleanParameters": {}
+            }
+          ]
+        }
+      ],
+      "behaviorsSharedData": [
+        {
+          "name": "Effect",
+          "type": "EffectCapability::EffectBehavior"
+        },
+        {
+          "name": "Flippable",
+          "type": "FlippableCapability::FlippableBehavior"
+        },
+        {
+          "name": "Opacity",
+          "type": "OpacityCapability::OpacityBehavior"
+        },
+        {
+          "name": "Resizable",
+          "type": "ResizableCapability::ResizableBehavior"
+        },
+        {
+          "name": "Scale",
+          "type": "ScalableCapability::ScalableBehavior"
+        },
+        {
+          "name": "Text",
+          "type": "TextContainerCapability::TextContainerBehavior"
+        }
+      ]
     }
   ],
   "externalEvents": [],
@@ -3495,7 +7182,6 @@
               "inlineCode": [
                 "const gdevelopToJsObject = (structureVar) => {",
                 "    const result = {};",
-                "",
                 "    for (const key in structureVar._children) {",
                 "        if (structureVar.hasChild(key)) {",
                 "            const child = structureVar.getChild(key);",
@@ -3517,6 +7203,7 @@
                 "    Object.keys(result).forEach(key => {",
                 "        const value = result[key];",
                 "        const valueType = typeof value;",
+                "        console.log(key, value, valueType);",
                 "        switch(valueType) {",
                 "            case \"string\":",
                 "                resultVarChild.getChild(key).setString(value);",
@@ -3526,6 +7213,9 @@
                 "                break;",
                 "            case \"boolean\":",
                 "                resultVarChild.getChild(key).setBoolean(value);",
+                "                break;",
+                "            case \"object\":",
+                "                setResultValues(resultVarChild, value);",
                 "                break;",
                 "            default:",
                 "                console.warn(`Unsupported data type for key: ${key}`);",
@@ -3550,6 +7240,7 @@
                 "    gdevelopToJsObject,",
                 "    isObjectEmpty,",
                 "    setResultToVarableCallback,",
+                "    setResultValues,",
                 "};",
                 "const script = document.createElement('script');",
                 "script.src = 'https://storage.googleapis.com/cdn-wortal-ai/v2/wortal-core.js';",
@@ -3744,42 +7435,19 @@
           "async": true,
           "description": "Get entry point that the game was launched from asynchronously",
           "fullName": "Get entry point asynchronously",
-          "functionType": "StringExpression",
+          "functionType": "Action",
           "group": "Session",
           "name": "GetEntryPointAsync",
-          "sentence": "Get entry point that the game asynchronously",
+          "sentence": "Get entry point that the game was launched from and set it to _PARAM1_",
           "events": [
-            {
-              "type": "BuiltinCommonInstructions::Standard",
-              "conditions": [
-                {
-                  "type": {
-                    "inverted": true,
-                    "value": "WortalSDK::IsWortalInitialized"
-                  },
-                  "parameters": [
-                    "",
-                    ""
-                  ]
-                }
-              ],
-              "actions": [
-                {
-                  "type": {
-                    "value": "BuiltinAsync::ResolveAsyncEventsFunction"
-                  },
-                  "parameters": [
-                    ""
-                  ]
-                }
-              ]
-            },
             {
               "type": "BuiltinCommonInstructions::JsCode",
               "inlineCode": [
                 "Wortal.session.getEntryPointAsync().then((entryPoint) => {",
-                "    eventsFunctionContext.returnValue = entryPoint;",
-                "});",
+                "    const resultVar = eventsFunctionContext.getArgument(\"Result\");",
+                "    resultVar.setString(entryPoint);",
+                "})",
+                ".finally(() => eventsFunctionContext.task.resolve());",
                 ""
               ],
               "parameterObjects": "",
@@ -3787,10 +7455,13 @@
               "eventsSheetExpanded": false
             }
           ],
-          "expressionType": {
-            "type": "string"
-          },
-          "parameters": [],
+          "parameters": [
+            {
+              "description": "String variable callback",
+              "name": "Result",
+              "type": "variable"
+            }
+          ],
           "objectGroups": []
         },
         {
@@ -3805,8 +7476,8 @@
               "type": "BuiltinCommonInstructions::JsCode",
               "inlineCode": [
                 "const entryPointData = Wortal.session.getEntryPointData();\r",
-                "const jsonString = JSON.stringify(entryPointData);\r",
-                "eventsFunctionContext.getArgument(\"EntryPointJsonStringVariable\").setString(jsonString);"
+                "const resultVar = eventsFunctionContext.getArgument(\"Result\");\r",
+                "gdjs._wortalExtension.setResultValues(resultVar, entryPointData);"
               ],
               "parameterObjects": "",
               "useStrict": true,
@@ -3815,8 +7486,8 @@
           ],
           "parameters": [
             {
-              "description": "",
-              "name": "EntryPointJsonStringVariable",
+              "description": "Structure variable callback to set the result",
+              "name": "Result",
               "type": "variable"
             }
           ],
@@ -3891,23 +7562,30 @@
         {
           "description": "Gets the traffic source info for the game. This is useful for tracking where players are coming from.",
           "fullName": "Get traffic source",
-          "functionType": "StringExpression",
+          "functionType": "Action",
           "group": "Session",
           "name": "GetTrafficSource",
-          "sentence": "Get traffic source",
+          "sentence": "Get traffic source and set it to _PARAM1_",
           "events": [
             {
               "type": "BuiltinCommonInstructions::JsCode",
-              "inlineCode": "eventsFunctionContext.returnValue = Wortal.session.getTrafficSource();",
+              "inlineCode": [
+                "const resultVariable = eventsFunctionContext.getArgument(\"Result\");\r",
+                "const data = Wortal.session.getTrafficSource();\r",
+                "gdjs._wortalExtension.setResultValues(resultVariable, data);"
+              ],
               "parameterObjects": "",
               "useStrict": true,
               "eventsSheetExpanded": false
             }
           ],
-          "expressionType": {
-            "type": "string"
-          },
-          "parameters": [],
+          "parameters": [
+            {
+              "description": "Structure variable to set traffic source",
+              "name": "Result",
+              "type": "variable"
+            }
+          ],
           "objectGroups": []
         },
         {
@@ -3940,14 +7618,9 @@
             {
               "type": "BuiltinCommonInstructions::JsCode",
               "inlineCode": [
-                "try {\r",
-                "    let jsonString = eventsFunctionContext.getArgument(\"dataAsJsonString\");\r",
-                "    jsonString = jsonString.replace(/'/g, '\"');\r",
-                "    const data = JSON.parse(jsonString);\r",
-                "    Wortal.session.setSessionData(data);\r",
-                "} catch (error) {\r",
-                "    console.error(\"Invalid JSON format:\", error);\r",
-                "}"
+                "const dataAsStructure = eventsFunctionContext.getArgument(\"Data\");\r",
+                "const dataAsObj = gdjs._wortalExtension.gdevelopToJsObject(dataAsStructure);\r",
+                "Wortal.session.setSessionData(dataAsObj);"
               ],
               "parameterObjects": "",
               "useStrict": true,
@@ -3956,9 +7629,9 @@
           ],
           "parameters": [
             {
-              "description": "",
-              "name": "dataAsJsonString",
-              "type": "string"
+              "description": "Structure Variable to set the session data",
+              "name": "Data",
+              "type": "variable"
             }
           ],
           "objectGroups": []
@@ -3975,18 +7648,11 @@
             {
               "type": "BuiltinCommonInstructions::JsCode",
               "inlineCode": [
-                "let jsonString = eventsFunctionContext.getArgument(\"dataAsJsonString\");",
+                "const dataAsStructure = eventsFunctionContext.getArgument(\"Payload\");",
+                "const dataAsObj = gdjs._wortalExtension.gdevelopToJsObject(dataAsStructure);",
                 "const gameID = eventsFunctionContext.getArgument(\"GameID\");",
-                "try {",
-                "    if (jsonString) {",
-                "        jsonString = jsonString.replace(/'/g, '\"');",
-                "        const data = JSON.parse(jsonString);",
-                "        return Wortal.session.switchGameAsync(gameID, data);",
-                "    }",
-                "    Wortal.session.switchGameAsync(gameID);",
-                "} catch (error) {",
-                "    console.error(\"Invalid JSON format:\", error);",
-                "}"
+                "Wortal.session.switchGameAsync(gameID, dataAsObj)",
+                ".finally(() => eventsFunctionContext.task.resolve());"
               ],
               "parameterObjects": "",
               "useStrict": true,
@@ -4000,11 +7666,30 @@
               "type": "string"
             },
             {
-              "description": "",
-              "name": "dataAsJsonString",
-              "type": "string"
+              "description": "Optional payload structure variable",
+              "name": "Payload",
+              "type": "variable"
             }
           ],
+          "objectGroups": []
+        },
+        {
+          "description": "Returns whether the audio is enabled for the player",
+          "fullName": "Is audio enabled",
+          "functionType": "Condition",
+          "group": "Session",
+          "name": "IsAudioEnabled",
+          "sentence": "Is audio enabled",
+          "events": [
+            {
+              "type": "BuiltinCommonInstructions::JsCode",
+              "inlineCode": "eventsFunctionContext.returnValue = Wortal.session.isAudioEnabled();",
+              "parameterObjects": "",
+              "useStrict": true,
+              "eventsSheetExpanded": false
+            }
+          ],
+          "parameters": [],
           "objectGroups": []
         },
         {
@@ -4093,23 +7778,32 @@
           "async": true,
           "description": "Checks if the current user can subscribe to the game's bot.",
           "fullName": "Can subscribe to bot asynchronously",
-          "functionType": "Condition",
+          "functionType": "Action",
           "group": "Player",
           "name": "CanSubscribeBotAsync",
-          "sentence": "Can subscribe to bot asynchronously",
+          "sentence": "Check if player can subscribe to bot and set it to _PARAM1_",
           "events": [
             {
               "type": "BuiltinCommonInstructions::JsCode",
               "inlineCode": [
+                "console.log(\"Can you?\");",
+                "const canSub = eventsFunctionContext.getArgument(\"Result\");",
                 "Wortal.player.canSubscribeBotAsync()",
-                ".then(canSubscribe => eventsFunctionContext.returnValue = canSubscribe);"
+                ".then(canSubscribe => canSub.setBoolean(canSubscribe))",
+                ".finally(() => eventsFunctionContext.task.resolve());"
               ],
               "parameterObjects": "",
               "useStrict": true,
               "eventsSheetExpanded": false
             }
           ],
-          "parameters": [],
+          "parameters": [
+            {
+              "description": "Boolean variable to set the result",
+              "name": "Result",
+              "type": "variable"
+            }
+          ],
           "objectGroups": []
         },
         {
@@ -4123,7 +7817,7 @@
           "events": [
             {
               "type": "BuiltinCommonInstructions::JsCode",
-              "inlineCode": "Wortal.player.flushDataAsync().then(() => console.log(\"Data flushed.\"));",
+              "inlineCode": "Wortal.player.flushDataAsync().then(() => console.log(\"Data flushed.\")).finally(() => eventsFunctionContext.task.resolve());",
               "parameterObjects": "",
               "useStrict": true,
               "eventsSheetExpanded": false
@@ -4136,23 +7830,33 @@
           "async": true,
           "description": "A unique identifier for the player. This is the standard Facebook Application-Scoped ID which is used for all Graph API calls. If your game shares an AppID with a native game this is the ID you will see in the native game too.",
           "fullName": "Get ASID asynchronously",
-          "functionType": "StringExpression",
+          "functionType": "Action",
           "group": "Player",
           "name": "GetASIDAsync",
-          "sentence": "",
+          "sentence": "Get ASID and set the result to _PARAM1_",
           "events": [
             {
               "type": "BuiltinCommonInstructions::JsCode",
-              "inlineCode": "Wortal.player.getASIDAsync().then(asid => eventsFunctionContext.returnValue = asid);",
+              "inlineCode": [
+                "Wortal.player.getASIDAsync()\r",
+                ".then((asid) => {\r",
+                "    const asidVar = eventsFunctionContext.getArgument(\"ASIDVariable\");\r",
+                "    asidVar.setString(asid);\r",
+                "})\r",
+                ".finally(() => eventsFunctionContext.task.resolve());"
+              ],
               "parameterObjects": "",
               "useStrict": true,
               "eventsSheetExpanded": false
             }
           ],
-          "expressionType": {
-            "type": "string"
-          },
-          "parameters": [],
+          "parameters": [
+            {
+              "description": "String variable to save ASID",
+              "name": "ASIDVariable",
+              "type": "variable"
+            }
+          ],
           "objectGroups": []
         },
         {
@@ -4167,21 +7871,18 @@
             {
               "type": "BuiltinCommonInstructions::JsCode",
               "inlineCode": [
-                "const payloadVar = eventsFunctionContext.getArgument(\"ConnectedPlayerPayloadVariable\");",
-                "const playersVar = eventsFunctionContext.getArgument(\"ConnectedPlayersVariable\");",
-                "Wortal.player.getConnectedPlayersAsync(payloadVar).then((players) => {",
-                "    if(players && players.length) {",
-                "        playersVar.clearChildren();",
-                "        playersVar.forEach((player, index) => {",
-                "            const playerVar = playersVar.getChild(index.toString());",
-                "            playerVar.getChild(\"id\").setString(player.id || \"\");",
-                "            playerVar.getChild(\"name\").setString(player.name || \"\");",
-                "            playerVar.getChild(\"photo\").setString(player.photo || \"\");",
-                "            playerVar.getChild(\"isFirstPlay\").setNumber(player.isFirstPlay || 0);",
-                "            playerVar.getChild(\"daysSinceFirstPlay\").setNumber(player.daysSinceFirstPlay || 0);",
-                "        });        ",
-                "    }",
-                "});"
+                "const payloadVar = eventsFunctionContext.getArgument(\"Payload\");",
+                "const dataAdObj = gdjs._wortalExtension.gdevelopToJsObject(payloadVar);",
+                "const resultsVar = eventsFunctionContext.getArgument(\"Result\");",
+                "Wortal.player.getConnectedPlayersAsync(payloadVar)",
+                ".then(results => {",
+                "    const resultsVar = eventsFunctionContext.getArgument(\"Result\");",
+                "    gdjs._wortalExtension.setResultToVarableCallback(results, resultsVar);",
+                "})",
+                ".catch(error => {",
+                "    console.warn(\"Error while get connected players:\", error);",
+                "})",
+                ".finally(() => eventsFunctionContext.task.resolve());"
               ],
               "parameterObjects": "",
               "useStrict": true,
@@ -4191,12 +7892,12 @@
           "parameters": [
             {
               "description": "Payload variable with structure type",
-              "name": "ConnectedPlayerPayloadVariable",
+              "name": "Payload",
               "type": "variable"
             },
             {
               "description": "Array of connected player",
-              "name": "ConnectedPlayersVariable2",
+              "name": "Result",
               "type": "variable"
             }
           ],
@@ -4212,83 +7913,35 @@
           "sentence": "Get player data with keys in _PARAM1_ and set the result to _PARAM2_",
           "events": [
             {
-              "type": "BuiltinCommonInstructions::Standard",
-              "conditions": [
-                {
-                  "type": {
-                    "inverted": true,
-                    "value": "WortalSDK::IsWortalInitialized"
-                  },
-                  "parameters": [
-                    "",
-                    ""
-                  ]
-                }
+              "type": "BuiltinCommonInstructions::JsCode",
+              "inlineCode": [
+                "const keyString = eventsFunctionContext.getArgument(\"DataKeyString\");",
+                "const keys = keyString.split(\",\");",
+                "const resultVariable = eventsFunctionContext.getArgument(\"Result\");",
+                "Wortal.player.getDataAsync(keys)",
+                ".then((data) => {",
+                "    gdjs._wortalExtension.setResultValues(resultVariable, data);",
+                "})",
+                ".catch((error) => {",
+                "    console.log(\"Failed to get data: \", error)",
+                "})",
+                ".finally(() => eventsFunctionContext.task.resolve());",
+                ""
               ],
-              "actions": [
-                {
-                  "type": {
-                    "value": "BuiltinAsync::ResolveAsyncEventsFunction"
-                  },
-                  "parameters": [
-                    ""
-                  ]
-                }
-              ]
-            },
-            {
-              "type": "BuiltinCommonInstructions::Standard",
-              "conditions": [
-                {
-                  "type": {
-                    "value": "WortalSDK::IsWortalInitialized"
-                  },
-                  "parameters": [
-                    "",
-                    ""
-                  ]
-                }
-              ],
-              "actions": [],
-              "events": [
-                {
-                  "type": "BuiltinCommonInstructions::JsCode",
-                  "inlineCode": [
-                    "const keyString = eventsFunctionContext.getArgument(\"DataKeyStringVariable\");",
-                    "const keys = keyString.getValue().split(\",\");",
-                    "const resultVariable = eventsFunctionContext.getArgument(\"ResultVariable\");",
-                    "Wortal.player.getDataAsync(keys)",
-                    ".then((data) => {",
-                    "    keys.forEach((key) => {",
-                    "        if (data[key] !== undefined) {",
-                    "            resultVariable.getChild(key).setValue(data[key]);",
-                    "        } else {",
-                    "            resultVariable.getChild(key).setString(\"\");",
-                    "        }",
-                    "    });",
-                    "    eventsFunctionContext.task.resolve();",
-                    "})",
-                    ".catch((error) => {",
-                    "    eventsFunctionContext.task.resolve();",
-                    "})",
-                    ""
-                  ],
-                  "parameterObjects": "",
-                  "useStrict": true,
-                  "eventsSheetExpanded": false
-                }
-              ]
+              "parameterObjects": "",
+              "useStrict": true,
+              "eventsSheetExpanded": false
             }
           ],
           "parameters": [
             {
-              "description": "",
-              "name": "DataKeyStringVariable",
-              "type": "variable"
+              "description": "String of data keys (separated them with comma for multiple data points)",
+              "name": "DataKeyString",
+              "type": "string"
             },
             {
-              "description": "",
-              "name": "ResultVariable",
+              "description": "Variable to save data received from server",
+              "name": "Result",
               "type": "variable"
             }
           ],
@@ -4342,6 +7995,7 @@
           "description": "Gets the player's photo from the platform.",
           "fullName": "Get player photo url",
           "functionType": "StringExpression",
+          "group": "Player",
           "name": "GetPhoto",
           "sentence": "",
           "events": [
@@ -4363,35 +8017,30 @@
           "async": true,
           "description": "A unique identifier for the player. This is the standard Facebook Application-Scoped ID which is used for all Graph API calls. If your game shares an AppID with a native game this is the ID you will see in the native game too.",
           "fullName": "Get signed ASID async",
-          "functionType": "StringExpression",
+          "functionType": "Action",
+          "group": "Player",
           "name": "GetSignedASIDAsync",
-          "sentence": "",
+          "sentence": "Get signed asid and set the result to _PARAM1_",
           "events": [
             {
               "type": "BuiltinCommonInstructions::JsCode",
               "inlineCode": [
-                "const signedASIDVar = eventsFunctionContext.getArgument(\"SignedASIDResultVariable\");\r",
-                "Wortal.player.getSignedASIDAsync().then((info) => {\r",
-                "    signedASIDVar.clearChildren();\r",
-                "    Object.keys(info).forEach((key) => {\r",
-                "        const value = info[key];\r",
-                "        const itemVar = signedASIDVar.getChild(key);\r",
-                "        itemVar.setValue(value);\r",
-                "    });  \r",
-                "});"
+                "const resultVariable = eventsFunctionContext.getArgument(\"Result\");\r",
+                "Wortal.player.getSignedASIDAsync()\r",
+                ".then(result => {\r",
+                "    gdjs._wortalExtension.setResultValues(resultVariable, result);\r",
+                "})\r",
+                ".finally(() => eventsFunctionContext.task.resolve());"
               ],
               "parameterObjects": "",
               "useStrict": true,
               "eventsSheetExpanded": false
             }
           ],
-          "expressionType": {
-            "type": "string"
-          },
           "parameters": [
             {
-              "description": "",
-              "name": "SignedASIDResultVariable",
+              "description": "Signed ASID Structure variable callback",
+              "name": "Result",
               "type": "variable"
             }
           ],
@@ -4407,97 +8056,49 @@
           "sentence": "Save data _PARAM1_ async",
           "events": [
             {
-              "type": "BuiltinCommonInstructions::Standard",
-              "conditions": [
-                {
-                  "type": {
-                    "inverted": true,
-                    "value": "WortalSDK::IsWortalInitialized"
-                  },
-                  "parameters": [
-                    "",
-                    ""
-                  ]
-                }
+              "type": "BuiltinCommonInstructions::JsCode",
+              "inlineCode": [
+                "const dataAsStructure = eventsFunctionContext.getArgument(\"Data\");\r",
+                "const dataAdObj = gdjs._wortalExtension.gdevelopToJsObject(dataAsStructure);\r",
+                "Wortal.player.setDataAsync(dataAdObj)\r",
+                ".then(() => {\r",
+                "  console.log(\"Success to set data\");\r",
+                "})\r",
+                ".catch((error) => {\r",
+                "    console.log(\"Failed to set data: \", error);\r",
+                "})\r",
+                ".finally(() => eventsFunctionContext.task.resolve());"
               ],
-              "actions": [
-                {
-                  "type": {
-                    "value": "BuiltinAsync::ResolveAsyncEventsFunction"
-                  },
-                  "parameters": [
-                    ""
-                  ]
-                }
-              ]
-            },
-            {
-              "type": "BuiltinCommonInstructions::Standard",
-              "conditions": [
-                {
-                  "type": {
-                    "value": "WortalSDK::IsWortalInitialized"
-                  },
-                  "parameters": [
-                    "",
-                    ""
-                  ]
-                }
-              ],
-              "actions": [],
-              "events": [
-                {
-                  "type": "BuiltinCommonInstructions::JsCode",
-                  "inlineCode": [
-                    "const dataAsStructure = eventsFunctionContext.getArgument(\"DataStructureVariable\");\r",
-                    "const dataAdObj = gdjs._wortalExtension.gdevelopToJsObject(dataAsStructure);\r",
-                    "Wortal.player.setDataAsync(dataAdObj)\r",
-                    "  .then(() => {\r",
-                    "    eventsFunctionContext.task.resolve();\r",
-                    "  })\r",
-                    "  .catch((error) => {\r",
-                    "    eventsFunctionContext.task.resolve();\r",
-                    "  });\r",
-                    ""
-                  ],
-                  "parameterObjects": "",
-                  "useStrict": true,
-                  "eventsSheetExpanded": true
-                }
-              ]
+              "parameterObjects": "",
+              "useStrict": true,
+              "eventsSheetExpanded": true
             }
           ],
           "parameters": [
             {
-              "description": "",
-              "name": "DataStructureVariable",
+              "description": "Game progress structure variable",
+              "name": "Data",
               "type": "variable"
             }
           ],
           "objectGroups": []
         },
         {
-          "description": "Checks and return 1 or 0 whether this is the first time the player has played this game.",
+          "description": "Checks whether this is the first time the player has played this game.",
           "fullName": "Is first play",
-          "functionType": "Expression",
+          "functionType": "Condition",
           "group": "Player",
           "name": "IsFirstPlay",
-          "sentence": "",
+          "sentence": "Is first play",
           "events": [
             {
               "type": "BuiltinCommonInstructions::JsCode",
-              "inlineCode": [
-                "isFirstPlayInNumber = Wortal.player.isFirstPlay() ? 1 : 0;",
-                "eventsFunctionContext.returnValue = isFirstPlayInNumber;"
-              ],
+              "inlineCode": "eventsFunctionContext.returnValue = Wortal.player.isFirstPlay();",
               "parameterObjects": "",
               "useStrict": true,
               "eventsSheetExpanded": false
             }
           ],
-          "expressionType": {
-            "type": "expression"
-          },
           "parameters": [],
           "objectGroups": []
         },
@@ -4515,31 +8116,6 @@
               "conditions": [
                 {
                   "type": {
-                    "inverted": true,
-                    "value": "WortalSDK::IsWortalInitialized"
-                  },
-                  "parameters": [
-                    "",
-                    ""
-                  ]
-                }
-              ],
-              "actions": [
-                {
-                  "type": {
-                    "value": "BuiltinAsync::ResolveAsyncEventsFunction"
-                  },
-                  "parameters": [
-                    ""
-                  ]
-                }
-              ]
-            },
-            {
-              "type": "BuiltinCommonInstructions::Standard",
-              "conditions": [
-                {
-                  "type": {
                     "value": "WortalSDK::IsWortalInitialized"
                   },
                   "parameters": [
@@ -4553,13 +8129,8 @@
                 {
                   "type": "BuiltinCommonInstructions::JsCode",
                   "inlineCode": [
-                    "try {",
-                    "    Wortal.player.showAuthPromptAsync()",
-                    "    .then(() => eventsFunctionContext.task.resolve())",
-                    "    .catch(() => eventsFunctionContext.task.resolve())",
-                    "} catch (error) {",
-                    "    eventsFunctionContext.task.resolve();",
-                    "}"
+                    "Wortal.player.showAuthPromptAsync()",
+                    ".finally(() => eventsFunctionContext.task.resolve())"
                   ],
                   "parameterObjects": "",
                   "useStrict": true,
@@ -4585,7 +8156,6 @@
               "conditions": [
                 {
                   "type": {
-                    "inverted": true,
                     "value": "WortalSDK::IsWortalInitialized"
                   },
                   "parameters": [
@@ -4594,46 +8164,20 @@
                   ]
                 }
               ],
-              "actions": [
+              "actions": [],
+              "events": [
                 {
-                  "type": {
-                    "value": "BuiltinAsync::ResolveAsyncEventsFunction"
-                  },
-                  "parameters": [
+                  "type": "BuiltinCommonInstructions::JsCode",
+                  "inlineCode": [
+                    "Wortal.player.showLinkAccountPromptAsync()",
+                    ".finally(() => eventsFunctionContext.task.resolve())",
                     ""
-                  ]
+                  ],
+                  "parameterObjects": "",
+                  "useStrict": true,
+                  "eventsSheetExpanded": false
                 }
               ]
-            },
-            {
-              "type": "BuiltinCommonInstructions::Standard",
-              "conditions": [
-                {
-                  "type": {
-                    "value": "WortalSDK::IsWortalInitialized"
-                  },
-                  "parameters": [
-                    "",
-                    ""
-                  ]
-                }
-              ],
-              "actions": []
-            },
-            {
-              "type": "BuiltinCommonInstructions::JsCode",
-              "inlineCode": [
-                "try {",
-                "    Wortal.player.showLinkAccountPromptAsync()",
-                "    .then(() => eventsFunctionContext.task.resolve())",
-                "    .catch(() => eventsFunctionContext.task.resolve())",
-                "} catch (error) {",
-                "    eventsFunctionContext.task.resolve();",
-                "}"
-              ],
-              "parameterObjects": "",
-              "useStrict": true,
-              "eventsSheetExpanded": false
             }
           ],
           "parameters": [],
@@ -4649,40 +8193,10 @@
           "sentence": "Subscribe to the bot",
           "events": [
             {
-              "type": "BuiltinCommonInstructions::Standard",
-              "conditions": [
-                {
-                  "type": {
-                    "inverted": true,
-                    "value": "WortalSDK::IsWortalInitialized"
-                  },
-                  "parameters": [
-                    "",
-                    ""
-                  ]
-                }
-              ],
-              "actions": [
-                {
-                  "type": {
-                    "value": "BuiltinAsync::ResolveAsyncEventsFunction"
-                  },
-                  "parameters": [
-                    ""
-                  ]
-                }
-              ]
-            },
-            {
               "type": "BuiltinCommonInstructions::JsCode",
               "inlineCode": [
-                "try {",
-                "    Wortal.player.subscribeBotAsync()",
-                "    .then(() => eventsFunctionContext.task.resolve())",
-                "    .catch(() => eventsFunctionContext.task.resolve())",
-                "} catch (error) {",
-                "    eventsFunctionContext.task.resolve();",
-                "}"
+                "Wortal.player.subscribeBotAsync()",
+                ".finally(() => eventsFunctionContext.task.resolve());"
               ],
               "parameterObjects": "",
               "useStrict": true,
@@ -5652,8 +9166,8 @@
             {
               "type": "BuiltinCommonInstructions::JsCode",
               "inlineCode": [
-                "const decision = eventsFunctionContext.getArgument(\"Decision\").getValue();\r",
-                "const choice = eventsFunctionContext.getArgument(\"Choice\").getValue();\r",
+                "const decision = eventsFunctionContext.getArgument(\"Decision\");\r",
+                "const choice = eventsFunctionContext.getArgument(\"Choice\");\r",
                 "Wortal.analytics.logGameChoice(decision, choice);"
               ],
               "parameterObjects": "",
@@ -5686,9 +9200,9 @@
             {
               "type": "BuiltinCommonInstructions::JsCode",
               "inlineCode": [
-                "const level = eventsFunctionContext.getArgument(\"Level\").getValue();",
-                "const score = eventsFunctionContext.getArgument(\"Score\").getValue();",
-                "const wasCompleted = eventsFunctionContext.getArgument(\"WasCompleted\").getValue();",
+                "const level = eventsFunctionContext.getArgument(\"Level\");",
+                "const score = eventsFunctionContext.getArgument(\"Score\");",
+                "const wasCompleted = eventsFunctionContext.getArgument(\"WasCompleted\");",
                 "const wasCompletedBool = (wasCompleted == \"completed\");",
                 "Wortal.analytics.logLevelEnd(level, score, wasCompletedBool);"
               ],
@@ -5728,7 +9242,7 @@
             {
               "type": "BuiltinCommonInstructions::JsCode",
               "inlineCode": [
-                "const level = eventsFunctionContext.getArgument(\"Level\").getValue();\r",
+                "const level = eventsFunctionContext.getArgument(\"Level\");\r",
                 "Wortal.analytics.logLevelStart(level);"
               ],
               "parameterObjects": "",
@@ -5756,7 +9270,7 @@
             {
               "type": "BuiltinCommonInstructions::JsCode",
               "inlineCode": [
-                "const level = eventsFunctionContext.getArgument(\"Level\").getValue();",
+                "const level = eventsFunctionContext.getArgument(\"Level\");",
                 "Wortal.analytics.logLevelUp(level);"
               ],
               "parameterObjects": "",
@@ -5784,7 +9298,7 @@
             {
               "type": "BuiltinCommonInstructions::JsCode",
               "inlineCode": [
-                "const score = eventsFunctionContext.getArgument(\"Score\").getValue();",
+                "const score = eventsFunctionContext.getArgument(\"Score\");",
                 "Wortal.analytics.logScore(score);"
               ],
               "parameterObjects": "",
@@ -5812,7 +9326,7 @@
             {
               "type": "BuiltinCommonInstructions::JsCode",
               "inlineCode": [
-                "const placement = eventsFunctionContext.getArgument(\"Placement\").getValue();",
+                "const placement = eventsFunctionContext.getArgument(\"Placement\");",
                 "Wortal.analytics.logSocialInvite(placement);"
               ],
               "parameterObjects": "",
@@ -5840,7 +9354,7 @@
             {
               "type": "BuiltinCommonInstructions::JsCode",
               "inlineCode": [
-                "const placement = eventsFunctionContext.getArgument(\"Placement\").getValue();\r",
+                "const placement = eventsFunctionContext.getArgument(\"Placement\");\r",
                 "Wortal.analytics.logSocialShare(placement);"
               ],
               "parameterObjects": "",
@@ -5868,8 +9382,8 @@
             {
               "type": "BuiltinCommonInstructions::JsCode",
               "inlineCode": [
-                "const name = eventsFunctionContext.getArgument(\"Name\").getValue();",
-                "const wasCompleted = eventsFunctionContext.getArgument(\"WasCompleted\").getValue();",
+                "const name = eventsFunctionContext.getArgument(\"Name\");",
+                "const wasCompleted = eventsFunctionContext.getArgument(\"WasCompleted\");",
                 "const wasCompletedBool = (wasCompleted == \"completed\");",
                 "Wortal.analytics.logTutorialEnd(name, wasCompletedBool);"
               ],
@@ -5904,7 +9418,7 @@
             {
               "type": "BuiltinCommonInstructions::JsCode",
               "inlineCode": [
-                "const name = eventsFunctionContext.getArgument(\"Name\").getValue();",
+                "const name = eventsFunctionContext.getArgument(\"Name\");",
                 "Wortal.analytics.logTutorialStart(name);"
               ],
               "parameterObjects": "",
