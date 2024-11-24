@@ -460,7 +460,7 @@
       "functionType": "Action",
       "group": "Session",
       "name": "SetSessionData",
-      "sentence": "Set session data _PARAM1_",
+      "sentence": "Set session data to _PARAM1_",
       "events": [
         {
           "type": "BuiltinCommonInstructions::JsCode",
@@ -490,7 +490,7 @@
       "functionType": "Action",
       "group": "Session",
       "name": "SwitchGameAsync",
-      "sentence": "Switch game async with _PARAM1_ and _PARAM2_",
+      "sentence": "Switch game async with with game id _PARAM1_ and optional payload _PARAM2_",
       "events": [
         {
           "type": "BuiltinCommonInstructions::JsCode",
@@ -1563,53 +1563,20 @@
       "sentence": "Gets a player's stats for level _PARAM1_ and period _PARAM2_ and set the result to _PARAM3_",
       "events": [
         {
-          "type": "BuiltinCommonInstructions::Standard",
-          "conditions": [
-            {
-              "type": {
-                "inverted": true,
-                "value": "WortalSDK::IsWortalInitialized"
-              },
-              "parameters": [
-                "",
-                ""
-              ]
-            }
-          ],
-          "actions": [
-            {
-              "type": {
-                "value": "BuiltinAsync::ResolveAsyncEventsFunction"
-              },
-              "parameters": [
-                ""
-              ]
-            }
-          ]
-        },
-        {
           "type": "BuiltinCommonInstructions::JsCode",
           "inlineCode": [
-            "const levelVar = eventsFunctionContext.getArgument(\"Level\");\r",
-            "const level = levelVar.getValue();\r",
-            "const statPeriodVar = eventsFunctionContext.getArgument(\"StatPeriod\");\r",
-            "const statPeriod = statPeriodVar.getValue();\r",
-            "const resultVar = eventsFunctionContext.getArgument(\"ArrayOfStatStructureVariable\");\r",
+            "const level = eventsFunctionContext.getArgument(\"Level\");\r",
+            "const statPeriod = eventsFunctionContext.getArgument(\"StatPeriod\");\r",
             "\r",
             "Wortal.stats.getStatsAsync(level, {\"period\": statPeriod})\r",
-            ".then((stats) => {\r",
-            "    if(stats && stats.length) {\r",
-            "        resultVar.clearChildren();\r",
-            "        stats.forEach((stat, index) => {\r",
-            "            const result = resultVar.getChild(index.toString());\r",
-            "            result.getChild(\"level\").setString(result.level || \"\");\r",
-            "            result.getChild(\"lowerIsBetter\").setBoolean(result.lowerIsBetter || false);\r",
-            "            result.getChild(\"period\").setString(result.period || \"\");\r",
-            "            result.getChild(\"value\").setNumber(result.value || 0);\r",
-            "            result.getChild(\"valueType\").setString(result.valueType || \"\");\r",
-            "        });        \r",
-            "    }\r",
-            "});"
+            ".then(results => {\r",
+            "    const resultsVar = eventsFunctionContext.getArgument(\"Result\");\r",
+            "    gdjs._wortalExtension.setResultToVarableCallback(results, resultsVar);\r",
+            "})\r",
+            ".catch(error => {\r",
+            "    console.warn(\"Failed to retrieve stats:\", error);\r",
+            "})\r",
+            ".finally(() => eventsFunctionContext.task.resolve());"
           ],
           "parameterObjects": "",
           "useStrict": true,
@@ -1623,14 +1590,14 @@
           "type": "string"
         },
         {
-          "description": "",
+          "description": "Period of stat",
           "name": "StatPeriod",
           "supplementaryInformation": "[\"alltime\",\"daily\",\"monthly\",\"weekly\"]",
           "type": "stringWithSelector"
         },
         {
-          "description": "",
-          "name": "ArrayOfStatStructureVariable",
+          "description": "Variable to save the result (Array)",
+          "name": "Result",
           "type": "variable"
         }
       ],
@@ -1646,35 +1613,10 @@
       "sentence": "Posts a stat for level _PARAM1_ with value _PARAM2_ and additional payload _PARAM3_",
       "events": [
         {
-          "type": "BuiltinCommonInstructions::Standard",
-          "conditions": [
-            {
-              "type": {
-                "inverted": true,
-                "value": "WortalSDK::IsWortalInitialized"
-              },
-              "parameters": [
-                "",
-                ""
-              ]
-            }
-          ],
-          "actions": [
-            {
-              "type": {
-                "value": "BuiltinAsync::ResolveAsyncEventsFunction"
-              },
-              "parameters": [
-                ""
-              ]
-            }
-          ]
-        },
-        {
           "type": "BuiltinCommonInstructions::JsCode",
           "inlineCode": [
-            "const level = eventsFunctionContext.getArgument(\"Level\").getValue();",
-            "const value = eventsFunctionContext.getArgument(\"Value\").getValue();",
+            "const level = eventsFunctionContext.getArgument(\"Level\");",
+            "const value = eventsFunctionContext.getArgument(\"Value\");",
             "const payloadVar = eventsFunctionContext.getArgument(\"Payload\");",
             "const payloadAsObj = gdjs._wortalExtension.gdevelopToJsObject(payloadVar);",
             "",
@@ -1725,35 +1667,10 @@
       "sentence": "Cancel all notifications with optional label _PARAM1_",
       "events": [
         {
-          "type": "BuiltinCommonInstructions::Standard",
-          "conditions": [
-            {
-              "type": {
-                "inverted": true,
-                "value": "WortalSDK::IsWortalInitialized"
-              },
-              "parameters": [
-                "",
-                ""
-              ]
-            }
-          ],
-          "actions": [
-            {
-              "type": {
-                "value": "BuiltinAsync::ResolveAsyncEventsFunction"
-              },
-              "parameters": [
-                ""
-              ]
-            }
-          ]
-        },
-        {
           "type": "BuiltinCommonInstructions::JsCode",
           "inlineCode": [
             "const labelVar = eventsFunctionContext.getArgument(\"Label\");",
-            "const label = labelVar ? labelVar.getValue() : undefined;",
+            "const label = labelVar ? labelVar : undefined;",
             "",
             "const cancelNotifications = label => {",
             "    const cancelPromise = label ",
@@ -1796,34 +1713,9 @@
       "sentence": "Cancel notification with ID _PARAM1_",
       "events": [
         {
-          "type": "BuiltinCommonInstructions::Standard",
-          "conditions": [
-            {
-              "type": {
-                "inverted": true,
-                "value": "WortalSDK::IsWortalInitialized"
-              },
-              "parameters": [
-                "",
-                ""
-              ]
-            }
-          ],
-          "actions": [
-            {
-              "type": {
-                "value": "BuiltinAsync::ResolveAsyncEventsFunction"
-              },
-              "parameters": [
-                ""
-              ]
-            }
-          ]
-        },
-        {
           "type": "BuiltinCommonInstructions::JsCode",
           "inlineCode": [
-            "const id = eventsFunctionContext.getArgument(\"ID\").getValue();",
+            "const id = eventsFunctionContext.getArgument(\"ID\");",
             "",
             "Wortal.notifications.cancelAsync(id)",
             "    .then(result => {",
@@ -1858,48 +1750,16 @@
       "sentence": "Get notification history and set it to _PARAM1_",
       "events": [
         {
-          "type": "BuiltinCommonInstructions::Standard",
-          "conditions": [
-            {
-              "type": {
-                "inverted": true,
-                "value": "WortalSDK::IsWortalInitialized"
-              },
-              "parameters": [
-                "",
-                ""
-              ]
-            }
-          ],
-          "actions": [
-            {
-              "type": {
-                "value": "BuiltinAsync::ResolveAsyncEventsFunction"
-              },
-              "parameters": [
-                ""
-              ]
-            }
-          ]
-        },
-        {
           "type": "BuiltinCommonInstructions::JsCode",
           "inlineCode": [
-            "const historiesVar = eventsFunctionContext.getArgument(\"ArrayOfNotificationResultVariable\");\r",
+            "const historiesVar = eventsFunctionContext.getArgument(\"Result\");\r",
             "Wortal.notifications.getHistoryAsync()\r",
             ".then(histories => {\r",
             "    if (!histories || histories.length === 0) {\r",
             "        console.log(\"No scheduled notifications found.\");\r",
             "    } else {\r",
             "        console.log(`Found ${histories.length} scheduled notifications:`);\r",
-            "        historiesVar.clearChildren();\r",
-            "        histories.forEach((history, index) => {\r",
-            "            const result = historiesVar.getChild(index.toString());\r",
-            "            result.getChild(\"id\").setString(history.id || \"\");\r",
-            "            result.getChild(\"label\").setString(history.label || \"\");\r",
-            "            result.getChild(\"status\").setString(history.status || \"\");\r",
-            "            result.getChild(\"createdTime\").setString(history.createdTime || \"\");\r",
-            "        });         \r",
+            "        gdjs._wortalExtension.setResultToVarableCallback(histories, historiesVar); \r",
             "    }\r",
             "})\r",
             ".catch(error => {\r",
@@ -1915,7 +1775,7 @@
       "parameters": [
         {
           "description": "Variable callback to save the notification",
-          "name": "ArrayOfNotificationResultVariable",
+          "name": "Result",
           "type": "variable"
         }
       ],
@@ -1931,48 +1791,16 @@
       "sentence": "Schedule a notification with payload _PARAM1_ and set the result to _PARAM2_",
       "events": [
         {
-          "type": "BuiltinCommonInstructions::Standard",
-          "conditions": [
-            {
-              "type": {
-                "inverted": true,
-                "value": "WortalSDK::IsWortalInitialized"
-              },
-              "parameters": [
-                "",
-                ""
-              ]
-            }
-          ],
-          "actions": [
-            {
-              "type": {
-                "value": "BuiltinAsync::ResolveAsyncEventsFunction"
-              },
-              "parameters": [
-                ""
-              ]
-            }
-          ]
-        },
-        {
           "type": "BuiltinCommonInstructions::JsCode",
           "inlineCode": [
-            "const payloadVar = eventsFunctionContext.getArgument(\"PayloadVariable\");",
+            "const payloadVar = eventsFunctionContext.getArgument(\"Payload\");",
             "const payloadAsObj = gdjs._wortalExtension.gdevelopToJsObject(payloadVar);",
-            "const resultVariable = eventsFunctionContext.getArgument(\"ScheduleResult\");",
+            "const resultVariable = eventsFunctionContext.getArgument(\"Result\");",
             "",
             "Wortal.notifications.scheduleAsync(payloadAsObj)",
             ".then(result => {",
             "    if (result.success) {",
-            "        const keys = Object.keys(result);",
-            "        keys.forEach((key) => {",
-            "            if (result[key] !== undefined) {",
-            "                resultVariable.getChild(key).setValue(result[key]);",
-            "            } else {",
-            "                resultVariable.getChild(key).setString(\"\");",
-            "            }",
-            "        });            ",
+            "        gdjs._wortalExtension.setResultValues(resultVariable, result);            ",
             "        console.log(`Notification scheduled successfully with ID: ${result.id}`);",
             "    } else {",
             "        console.warn(\"Notification scheduling failed.\");",
@@ -1991,12 +1819,12 @@
       "parameters": [
         {
           "description": "Notification payload structure variable",
-          "name": "PayloadVariable",
+          "name": "Payload",
           "type": "variable"
         },
         {
           "description": "Schedule result structure variable",
-          "name": "ScheduleResult",
+          "name": "Result",
           "type": "variable"
         }
       ],
@@ -2292,51 +2120,17 @@
       "sentence": "Gets connected player's for leaderboard _PARAM1_ with total entries _PARAM2_ offset _PARAM3_ and set the result to _PARAM4_",
       "events": [
         {
-          "type": "BuiltinCommonInstructions::Standard",
-          "conditions": [
-            {
-              "type": {
-                "inverted": true,
-                "value": "WortalSDK::IsWortalInitialized"
-              },
-              "parameters": [
-                "",
-                ""
-              ]
-            }
-          ],
-          "actions": [
-            {
-              "type": {
-                "value": "BuiltinAsync::ResolveAsyncEventsFunction"
-              },
-              "parameters": [
-                ""
-              ]
-            }
-          ]
-        },
-        {
           "type": "BuiltinCommonInstructions::JsCode",
           "inlineCode": [
-            "const name = eventsFunctionContext.getArgument(\"Name\").getValue();",
-            "const count = eventsFunctionContext.getArgument(\"Count\").getValue();",
-            "const offset = eventsFunctionContext.getArgument(\"Offset\").getValue();",
+            "const name = eventsFunctionContext.getArgument(\"Name\");",
+            "const count = eventsFunctionContext.getArgument(\"Count\");",
+            "const offset = eventsFunctionContext.getArgument(\"Offset\");",
             "const resultVariable = eventsFunctionContext.getArgument(\"Result\");",
             "",
             "Wortal.leaderboard.getConnectedPlayersEntriesAsync(name, count, offset)",
             ".then(entries => {",
             "    if(entries && entries.length) {",
-            "        resultVariable.clearChildren();",
-            "        entries.forEach((entry, index) => {",
-            "            const result = resultVariable.getChild(index.toString());",
-            "            result.getChild(\"Details\").setString(entry.details || \"\");",
-            "            result.getChild(\"FormattedScore\").setString(entry.formattedScore || \"\");",
-            "            result.getChild(\"Player\").setString(entry.player || \"\");",
-            "            result.getChild(\"Rank\").setNumber(entry.rank || 0);",
-            "            result.getChild(\"Score\").setNumber(entry.score || 0);",
-            "            result.getChild(\"Timestamp\").setNumber(entry.timestamp || 0);",
-            "        });        ",
+            "        gdjs._wortalExtension.setResultToVarableCallback(entries, resultVariable);       ",
             "    }    ",
             "})",
             ".catch(error => {",
@@ -2383,36 +2177,11 @@
       "sentence": "Gets entries for leaderboard _PARAM1_ with total entries _PARAM2_ offset _PARAM3_ and set the result to _PARAM4_",
       "events": [
         {
-          "type": "BuiltinCommonInstructions::Standard",
-          "conditions": [
-            {
-              "type": {
-                "inverted": true,
-                "value": "WortalSDK::IsWortalInitialized"
-              },
-              "parameters": [
-                "",
-                ""
-              ]
-            }
-          ],
-          "actions": [
-            {
-              "type": {
-                "value": "BuiltinAsync::ResolveAsyncEventsFunction"
-              },
-              "parameters": [
-                ""
-              ]
-            }
-          ]
-        },
-        {
           "type": "BuiltinCommonInstructions::JsCode",
           "inlineCode": [
-            "const name = eventsFunctionContext.getArgument(\"Name\").getValue();",
-            "const count = eventsFunctionContext.getArgument(\"Count\").getValue();",
-            "const offset = eventsFunctionContext.getArgument(\"Offset\").getValue();",
+            "const name = eventsFunctionContext.getArgument(\"Name\");",
+            "const count = eventsFunctionContext.getArgument(\"Count\");",
+            "const offset = eventsFunctionContext.getArgument(\"Offset\");",
             "const resultVariable = eventsFunctionContext.getArgument(\"Result\");",
             "",
             "Wortal.leaderboard.getConnectedPlayersEntriesAsync(name, count, offset)",
@@ -2464,34 +2233,9 @@
       "sentence": "",
       "events": [
         {
-          "type": "BuiltinCommonInstructions::Standard",
-          "conditions": [
-            {
-              "type": {
-                "inverted": true,
-                "value": "WortalSDK::IsWortalInitialized"
-              },
-              "parameters": [
-                "",
-                ""
-              ]
-            }
-          ],
-          "actions": [
-            {
-              "type": {
-                "value": "BuiltinAsync::ResolveAsyncEventsFunction"
-              },
-              "parameters": [
-                ""
-              ]
-            }
-          ]
-        },
-        {
           "type": "BuiltinCommonInstructions::JsCode",
           "inlineCode": [
-            "const name = eventsFunctionContext.getArgument(\"Name\").getValue();\r",
+            "const name = eventsFunctionContext.getArgument(\"Name\");\r",
             "Wortal.leaderboard.getEntryCountAsync(name)\r",
             ".then(entries => {\r",
             "    eventsFunctionContext.returnValue = entries;\r",
@@ -2528,49 +2272,17 @@
       "sentence": "Fetch a specific leaderboard belonging to this game with name _PARAM1_ and set the result to _PARAM2_",
       "events": [
         {
-          "type": "BuiltinCommonInstructions::Standard",
-          "conditions": [
-            {
-              "type": {
-                "inverted": true,
-                "value": "WortalSDK::IsWortalInitialized"
-              },
-              "parameters": [
-                "",
-                ""
-              ]
-            }
-          ],
-          "actions": [
-            {
-              "type": {
-                "value": "BuiltinAsync::ResolveAsyncEventsFunction"
-              },
-              "parameters": [
-                ""
-              ]
-            }
-          ]
-        },
-        {
           "type": "BuiltinCommonInstructions::JsCode",
           "inlineCode": [
-            "const name = eventsFunctionContext.getArgument(\"Name\").getValue();",
+            "const name = eventsFunctionContext.getArgument(\"Name\");",
             "const resultVariable = eventsFunctionContext.getArgument(\"Result\");",
             "",
             "Wortal.notifications.getLeaderboardAsync(name)",
             ".then(result => {",
             "    if (result) {",
-            "        keys.forEach((key) => {",
-            "            const keys = Object.keys(result);",
-            "            if (result[key] !== undefined) {",
-            "                resultVariable.getChild(key).setValue(result[key]);",
-            "            } else {",
-            "                resultVariable.getChild(key).setString(\"\");",
-            "            }",
-            "        });            ",
+            "        gdjs._wortalExtension.setResultValues(resultVariable, result);          ",
             "    } else {",
-            "        console.warn(\"Failed to get leaderboard.\");",
+            "        console.warn(\"No leaderboard fetched.\");",
             "    }",
             "})",
             ".catch(error => {",
@@ -2607,46 +2319,15 @@
       "sentence": "Gets current player's entry for leaderboard _PARAM1_ and set the result to _PARAM2_",
       "events": [
         {
-          "type": "BuiltinCommonInstructions::Standard",
-          "conditions": [
-            {
-              "type": {
-                "inverted": true,
-                "value": "WortalSDK::IsWortalInitialized"
-              },
-              "parameters": [
-                "",
-                ""
-              ]
-            }
-          ],
-          "actions": [
-            {
-              "type": {
-                "value": "BuiltinAsync::ResolveAsyncEventsFunction"
-              },
-              "parameters": [
-                ""
-              ]
-            }
-          ]
-        },
-        {
           "type": "BuiltinCommonInstructions::JsCode",
           "inlineCode": [
-            "const name = eventsFunctionContext.getArgument(\"Name\").getValue();\r",
+            "const name = eventsFunctionContext.getArgument(\"Name\");\r",
             "const resultVariable = eventsFunctionContext.getArgument(\"Result\");\r",
             "\r",
             "Wortal.notifications.getPlayerEntryAsync(name)\r",
             ".then(result => {\r",
             "    if (result) {\r",
-            "        keys.forEach((key) => {\r",
-            "            if (result[key] !== undefined) {\r",
-            "                resultVariable.getChild(key).setValue(result[key]);\r",
-            "            } else {\r",
-            "                resultVariable.getChild(key).setString(\"\");\r",
-            "            }\r",
-            "        });            \r",
+            "        gdjs._wortalExtension.setResultValues(resultVariable, result);            \r",
             "    } else {\r",
             "        console.warn(\"Failed to get leaderboard entry for current player.\");\r",
             "    }\r",
@@ -2685,31 +2366,6 @@
       "sentence": "Send player entry for leaderboard _PARAM1_ with score _PARAM2_ and set the result to _PARAM3_",
       "events": [
         {
-          "type": "BuiltinCommonInstructions::Standard",
-          "conditions": [
-            {
-              "type": {
-                "inverted": true,
-                "value": "WortalSDK::IsWortalInitialized"
-              },
-              "parameters": [
-                "",
-                ""
-              ]
-            }
-          ],
-          "actions": [
-            {
-              "type": {
-                "value": "BuiltinAsync::ResolveAsyncEventsFunction"
-              },
-              "parameters": [
-                ""
-              ]
-            }
-          ]
-        },
-        {
           "type": "BuiltinCommonInstructions::JsCode",
           "inlineCode": [
             "const name = eventsFunctionContext.getArgument(\"Name\").getValue();",
@@ -2719,13 +2375,7 @@
             "Wortal.notifications.sendEntryAsync(name, score)",
             ".then(result => {",
             "    if (result) {",
-            "        keys.forEach((key) => {",
-            "            if (result[key] !== undefined) {",
-            "                resultVariable.getChild(key).setValue(result[key]);",
-            "            } else {",
-            "                resultVariable.getChild(key).setString(\"\");",
-            "            }",
-            "        });            ",
+            "        gdjs._wortalExtension.setResultValues(resultVariable, result);            ",
             "    } else {",
             "        console.warn(\"Failed to send leaderboard entry.\");",
             "    }",

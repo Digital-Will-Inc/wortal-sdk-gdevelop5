@@ -365,6 +365,11 @@
           "value": ""
         },
         {
+          "name": "SessionData",
+          "type": "structure",
+          "children": []
+        },
+        {
           "name": "SignedASID",
           "type": "structure",
           "children": []
@@ -415,6 +420,21 @@
     {
       "name": "TrafficSource",
       "type": "structure",
+      "children": []
+    },
+    {
+      "name": "Stats",
+      "type": "array",
+      "children": []
+    },
+    {
+      "name": "SwitchGamePayload",
+      "type": "structure",
+      "children": []
+    },
+    {
+      "name": "Notifications",
+      "type": "array",
       "children": []
     }
   ],
@@ -1761,6 +1781,58 @@
                   "parameters": [
                     "",
                     "\"Session\"",
+                    ""
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "PanelSpriteButton::PanelSpriteButton::IsClicked"
+                  },
+                  "parameters": [
+                    "StatButton",
+                    ""
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "Scene"
+                  },
+                  "parameters": [
+                    "",
+                    "\"Stats\"",
+                    ""
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "PanelSpriteButton::PanelSpriteButton::IsClicked"
+                  },
+                  "parameters": [
+                    "NotificationButton",
+                    ""
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "Scene"
+                  },
+                  "parameters": [
+                    "",
+                    "\"Notification\"",
                     ""
                   ]
                 }
@@ -7045,6 +7117,59 @@
                   ]
                 }
               ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "PanelSpriteButton::PanelSpriteButton::IsClicked"
+                  },
+                  "parameters": [
+                    "SetSessionDataButton",
+                    ""
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "WortalSDK::SetSessionData"
+                  },
+                  "parameters": [
+                    "",
+                    "PlayerInfo.SessionData",
+                    ""
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "PanelSpriteButton::PanelSpriteButton::IsClicked"
+                  },
+                  "parameters": [
+                    "SwitchGameAsyncButton",
+                    ""
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "WortalSDK::SwitchGameAsync"
+                  },
+                  "parameters": [
+                    "",
+                    "\"GameID\"",
+                    "SwitchGamePayload",
+                    ""
+                  ]
+                }
+              ]
             }
           ]
         },
@@ -7070,6 +7195,1392 @@
                 "",
                 "\"Main\"",
                 ""
+              ]
+            }
+          ]
+        }
+      ],
+      "layers": [
+        {
+          "ambientLightColorB": 200,
+          "ambientLightColorG": 200,
+          "ambientLightColorR": 200,
+          "camera3DFarPlaneDistance": 10000,
+          "camera3DFieldOfView": 45,
+          "camera3DNearPlaneDistance": 3,
+          "cameraType": "",
+          "followBaseLayerCamera": false,
+          "isLightingLayer": false,
+          "isLocked": false,
+          "name": "",
+          "renderingType": "",
+          "visibility": true,
+          "cameras": [
+            {
+              "defaultSize": true,
+              "defaultViewport": true,
+              "height": 0,
+              "viewportBottom": 1,
+              "viewportLeft": 0,
+              "viewportRight": 1,
+              "viewportTop": 0,
+              "width": 0
+            }
+          ],
+          "effects": [
+            {
+              "effectType": "Scene3D::HemisphereLight",
+              "name": "3D Light",
+              "doubleParameters": {
+                "elevation": 45,
+                "intensity": 1,
+                "rotation": 0
+              },
+              "stringParameters": {
+                "groundColor": "64;64;64",
+                "skyColor": "255;255;255",
+                "top": "Y-"
+              },
+              "booleanParameters": {}
+            }
+          ]
+        }
+      ],
+      "behaviorsSharedData": [
+        {
+          "name": "Effect",
+          "type": "EffectCapability::EffectBehavior"
+        },
+        {
+          "name": "Flippable",
+          "type": "FlippableCapability::FlippableBehavior"
+        },
+        {
+          "name": "Opacity",
+          "type": "OpacityCapability::OpacityBehavior"
+        },
+        {
+          "name": "Resizable",
+          "type": "ResizableCapability::ResizableBehavior"
+        },
+        {
+          "name": "Scale",
+          "type": "ScalableCapability::ScalableBehavior"
+        },
+        {
+          "name": "Text",
+          "type": "TextContainerCapability::TextContainerBehavior"
+        }
+      ]
+    },
+    {
+      "b": 139,
+      "disableInputWhenNotFocused": true,
+      "mangledName": "Stats",
+      "name": "Stats",
+      "r": 139,
+      "standardSortMethod": true,
+      "stopSoundsOnStartup": true,
+      "title": "",
+      "v": 139,
+      "uiSettings": {
+        "grid": true,
+        "gridType": "rectangular",
+        "gridWidth": 32,
+        "gridHeight": 32,
+        "gridOffsetX": 0,
+        "gridOffsetY": 0,
+        "gridColor": 10401023,
+        "gridAlpha": 0.8,
+        "snap": true,
+        "zoomFactor": 0.6040838749988866,
+        "windowMask": false
+      },
+      "objectsGroups": [],
+      "variables": [
+        {
+          "name": "Variable",
+          "type": "number",
+          "value": 0
+        },
+        {
+          "name": "stat",
+          "type": "structure",
+          "children": []
+        },
+        {
+          "name": "child",
+          "type": "number",
+          "value": 0
+        },
+        {
+          "name": "KeyName",
+          "type": "number",
+          "value": 0
+        },
+        {
+          "name": "StatValue",
+          "type": "number",
+          "value": 0
+        },
+        {
+          "name": "StatKey",
+          "type": "number",
+          "value": 0
+        },
+        {
+          "name": "PostStatPayload",
+          "type": "structure",
+          "children": []
+        }
+      ],
+      "instances": [
+        {
+          "angle": 0,
+          "customSize": true,
+          "depth": 1,
+          "height": 227,
+          "keepRatio": true,
+          "layer": "",
+          "name": "OutputText",
+          "persistentUuid": "1822c377-47ca-4a6e-8a25-274ff2995ab3",
+          "width": 814,
+          "x": 224,
+          "y": 432,
+          "zOrder": 14,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "depth": 1,
+          "height": 256,
+          "keepRatio": true,
+          "layer": "",
+          "name": "OutputBorder",
+          "persistentUuid": "0458caf4-6516-4c73-affd-dce1fb39a28d",
+          "width": 896,
+          "x": 192,
+          "y": 416,
+          "zOrder": 13,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "depth": 48,
+          "height": 64,
+          "keepRatio": true,
+          "layer": "",
+          "name": "GetStatsAsyncButton",
+          "persistentUuid": "cb9db390-8329-43f5-84b6-a5894f218968",
+          "width": 192,
+          "x": 544,
+          "y": 32,
+          "zOrder": 15,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "depth": 48,
+          "height": 64,
+          "keepRatio": true,
+          "layer": "",
+          "name": "PostStatAsyncButton",
+          "persistentUuid": "74458abc-35a3-46aa-89ee-3d270864db33",
+          "width": 192,
+          "x": 544,
+          "y": 128,
+          "zOrder": 16,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "depth": 48,
+          "height": 64,
+          "keepRatio": true,
+          "layer": "",
+          "name": "BackButton",
+          "persistentUuid": "1eff7e2b-f724-4ca4-8c77-e6a6d8da5016",
+          "width": 192,
+          "x": 544,
+          "y": 256,
+          "zOrder": 17,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        }
+      ],
+      "objects": [
+        {
+          "assetStoreId": "9cf9ca8be6e98fc23e76b6770d3f4d094dea09f30a49f38ef9a9d2e97c2460be",
+          "name": "GetStatsAsyncButton",
+          "type": "PanelSpriteButton::PanelSpriteButton",
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "content": {
+            "LeftPadding": 16,
+            "RightPadding": 16,
+            "PressedLabelOffsetY": 3,
+            "BottomPadding": 32,
+            "TopPadding": 32,
+            "HoveredFadeOutDuration": 0.25
+          },
+          "childrenContent": {
+            "Hovered": {
+              "bottomMargin": 16,
+              "height": 69,
+              "leftMargin": 16,
+              "rightMargin": 16,
+              "texture": "Grey Button With Shadow_Hovered.png",
+              "tiled": true,
+              "topMargin": 16,
+              "width": 192
+            },
+            "Idle": {
+              "bottomMargin": 16,
+              "height": 69,
+              "leftMargin": 16,
+              "rightMargin": 16,
+              "texture": "Grey Button With Shadow_Idle.png",
+              "tiled": true,
+              "topMargin": 16,
+              "width": 192
+            },
+            "Label": {
+              "bold": false,
+              "italic": false,
+              "smoothed": true,
+              "underlined": false,
+              "string": "GetStatsAsync",
+              "font": "CantoraOne-Regular.ttf",
+              "textAlignment": "center",
+              "characterSize": 20,
+              "color": {
+                "b": 255,
+                "g": 255,
+                "r": 255
+              },
+              "content": {
+                "bold": false,
+                "isOutlineEnabled": false,
+                "isShadowEnabled": false,
+                "italic": false,
+                "outlineColor": "255;255;255",
+                "outlineThickness": 2,
+                "shadowAngle": 90,
+                "shadowBlurRadius": 2,
+                "shadowColor": "0;0;0",
+                "shadowDistance": 4,
+                "shadowOpacity": 127,
+                "smoothed": true,
+                "underlined": false,
+                "text": "GetStatsAsync",
+                "font": "CantoraOne-Regular.ttf",
+                "textAlignment": "center",
+                "verticalTextAlignment": "top",
+                "characterSize": 20,
+                "color": "255;255;255"
+              }
+            },
+            "Pressed": {
+              "bottomMargin": 16,
+              "height": 69,
+              "leftMargin": 16,
+              "rightMargin": 16,
+              "texture": "Grey Button With Shadow_Pressed.png",
+              "tiled": true,
+              "topMargin": 16,
+              "width": 192
+            }
+          }
+        },
+        {
+          "assetStoreId": "9cf9ca8be6e98fc23e76b6770d3f4d094dea09f30a49f38ef9a9d2e97c2460be",
+          "name": "PostStatAsyncButton",
+          "type": "PanelSpriteButton::PanelSpriteButton",
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "content": {
+            "LeftPadding": 16,
+            "RightPadding": 16,
+            "PressedLabelOffsetY": 3,
+            "BottomPadding": 32,
+            "TopPadding": 32,
+            "HoveredFadeOutDuration": 0.25
+          },
+          "childrenContent": {
+            "Hovered": {
+              "bottomMargin": 16,
+              "height": 69,
+              "leftMargin": 16,
+              "rightMargin": 16,
+              "texture": "Grey Button With Shadow_Hovered.png",
+              "tiled": true,
+              "topMargin": 16,
+              "width": 192
+            },
+            "Idle": {
+              "bottomMargin": 16,
+              "height": 69,
+              "leftMargin": 16,
+              "rightMargin": 16,
+              "texture": "Grey Button With Shadow_Idle.png",
+              "tiled": true,
+              "topMargin": 16,
+              "width": 192
+            },
+            "Label": {
+              "bold": false,
+              "italic": false,
+              "smoothed": true,
+              "underlined": false,
+              "string": "PostStatAsync",
+              "font": "CantoraOne-Regular.ttf",
+              "textAlignment": "center",
+              "characterSize": 20,
+              "color": {
+                "b": 255,
+                "g": 255,
+                "r": 255
+              },
+              "content": {
+                "bold": false,
+                "isOutlineEnabled": false,
+                "isShadowEnabled": false,
+                "italic": false,
+                "outlineColor": "255;255;255",
+                "outlineThickness": 2,
+                "shadowAngle": 90,
+                "shadowBlurRadius": 2,
+                "shadowColor": "0;0;0",
+                "shadowDistance": 4,
+                "shadowOpacity": 127,
+                "smoothed": true,
+                "underlined": false,
+                "text": "PostStatAsync",
+                "font": "CantoraOne-Regular.ttf",
+                "textAlignment": "center",
+                "verticalTextAlignment": "top",
+                "characterSize": 20,
+                "color": "255;255;255"
+              }
+            },
+            "Pressed": {
+              "bottomMargin": 16,
+              "height": 69,
+              "leftMargin": 16,
+              "rightMargin": 16,
+              "texture": "Grey Button With Shadow_Pressed.png",
+              "tiled": true,
+              "topMargin": 16,
+              "width": 192
+            }
+          }
+        }
+      ],
+      "objectsFolderStructure": {
+        "folderName": "__ROOT",
+        "children": [
+          {
+            "objectName": "GetStatsAsyncButton"
+          },
+          {
+            "objectName": "PostStatAsyncButton"
+          }
+        ]
+      },
+      "events": [
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "WortalSDK::IsWortalInitialized"
+              },
+              "parameters": [
+                "",
+                ""
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "TextContainerCapability::TextContainerBehavior::SetValue"
+              },
+              "parameters": [
+                "OutputText",
+                "Text",
+                "=",
+                "Output"
+              ]
+            }
+          ],
+          "events": [
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "PanelSpriteButton::PanelSpriteButton::IsClicked"
+                  },
+                  "parameters": [
+                    "GetStatsAsyncButton",
+                    ""
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "WortalSDK::GetStatsAsync"
+                  },
+                  "parameters": [
+                    "",
+                    "\"1\"",
+                    "\"daily\"",
+                    "Stats",
+                    ""
+                  ]
+                }
+              ],
+              "events": [
+                {
+                  "type": "BuiltinCommonInstructions::ForEachChildVariable",
+                  "iterableVariableName": "Stats",
+                  "valueIteratorVariableName": "stat",
+                  "keyIteratorVariableName": "",
+                  "conditions": [],
+                  "actions": [],
+                  "events": [
+                    {
+                      "type": "BuiltinCommonInstructions::ForEachChildVariable",
+                      "iterableVariableName": "stat",
+                      "valueIteratorVariableName": "StatValue",
+                      "keyIteratorVariableName": "StatKey",
+                      "conditions": [],
+                      "actions": [
+                        {
+                          "type": {
+                            "value": "SetStringVariable"
+                          },
+                          "parameters": [
+                            "Output",
+                            "+",
+                            "StatKey + \": \" + StatValue + \", \""
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "PanelSpriteButton::PanelSpriteButton::IsClicked"
+                  },
+                  "parameters": [
+                    "PostStatAsyncButton",
+                    ""
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "WortalSDK::PostStatsAsync"
+                  },
+                  "parameters": [
+                    "",
+                    "\"Level 1\"",
+                    "200",
+                    "PostStatPayload",
+                    ""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "SetStringVariable"
+                  },
+                  "parameters": [
+                    "Output",
+                    "=",
+                    "\"Stat posted\""
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "PanelSpriteButton::PanelSpriteButton::IsClicked"
+              },
+              "parameters": [
+                "BackButton",
+                ""
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "Scene"
+              },
+              "parameters": [
+                "",
+                "\"Main\"",
+                ""
+              ]
+            }
+          ]
+        }
+      ],
+      "layers": [
+        {
+          "ambientLightColorB": 200,
+          "ambientLightColorG": 200,
+          "ambientLightColorR": 200,
+          "camera3DFarPlaneDistance": 10000,
+          "camera3DFieldOfView": 45,
+          "camera3DNearPlaneDistance": 3,
+          "cameraType": "",
+          "followBaseLayerCamera": false,
+          "isLightingLayer": false,
+          "isLocked": false,
+          "name": "",
+          "renderingType": "",
+          "visibility": true,
+          "cameras": [
+            {
+              "defaultSize": true,
+              "defaultViewport": true,
+              "height": 0,
+              "viewportBottom": 1,
+              "viewportLeft": 0,
+              "viewportRight": 1,
+              "viewportTop": 0,
+              "width": 0
+            }
+          ],
+          "effects": [
+            {
+              "effectType": "Scene3D::HemisphereLight",
+              "name": "3D Light",
+              "doubleParameters": {
+                "elevation": 45,
+                "intensity": 1,
+                "rotation": 0
+              },
+              "stringParameters": {
+                "groundColor": "64;64;64",
+                "skyColor": "255;255;255",
+                "top": "Y-"
+              },
+              "booleanParameters": {}
+            }
+          ]
+        }
+      ],
+      "behaviorsSharedData": [
+        {
+          "name": "Effect",
+          "type": "EffectCapability::EffectBehavior"
+        },
+        {
+          "name": "Flippable",
+          "type": "FlippableCapability::FlippableBehavior"
+        },
+        {
+          "name": "Opacity",
+          "type": "OpacityCapability::OpacityBehavior"
+        },
+        {
+          "name": "Resizable",
+          "type": "ResizableCapability::ResizableBehavior"
+        },
+        {
+          "name": "Scale",
+          "type": "ScalableCapability::ScalableBehavior"
+        },
+        {
+          "name": "Text",
+          "type": "TextContainerCapability::TextContainerBehavior"
+        }
+      ]
+    },
+    {
+      "b": 139,
+      "disableInputWhenNotFocused": true,
+      "mangledName": "Notification",
+      "name": "Notification",
+      "r": 139,
+      "standardSortMethod": true,
+      "stopSoundsOnStartup": true,
+      "title": "",
+      "v": 139,
+      "uiSettings": {
+        "grid": true,
+        "gridType": "rectangular",
+        "gridWidth": 32,
+        "gridHeight": 32,
+        "gridOffsetX": 0,
+        "gridOffsetY": 0,
+        "gridColor": 10401023,
+        "gridAlpha": 0.8,
+        "snap": true,
+        "zoomFactor": 0.5843784410740926,
+        "windowMask": false
+      },
+      "objectsGroups": [],
+      "variables": [
+        {
+          "name": "Variable",
+          "type": "number",
+          "value": 0
+        },
+        {
+          "name": "Notification",
+          "type": "structure",
+          "children": []
+        },
+        {
+          "name": "Value",
+          "type": "string",
+          "value": ""
+        },
+        {
+          "name": "Key",
+          "type": "string",
+          "value": ""
+        },
+        {
+          "name": "NotificationPayload",
+          "type": "structure",
+          "children": [
+            {
+              "name": "body",
+              "type": "string",
+              "value": "Come back and claim daily rewards"
+            },
+            {
+              "name": "scheduleInterval",
+              "type": "number",
+              "value": 1000
+            },
+            {
+              "name": "title",
+              "type": "string",
+              "value": "Daily Reward"
+            }
+          ]
+        }
+      ],
+      "instances": [
+        {
+          "angle": 0,
+          "customSize": true,
+          "depth": 1,
+          "height": 227,
+          "keepRatio": true,
+          "layer": "",
+          "name": "OutputText",
+          "persistentUuid": "a8d7ddd7-1c5c-4bef-8c44-1217f75a361a",
+          "width": 814,
+          "x": 224,
+          "y": 430,
+          "zOrder": 14,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "depth": 1,
+          "height": 256,
+          "keepRatio": true,
+          "layer": "",
+          "name": "OutputBorder",
+          "persistentUuid": "0c3d62ad-8989-4101-a8c7-d70efce2c603",
+          "width": 896,
+          "x": 192,
+          "y": 416,
+          "zOrder": 13,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "depth": 48,
+          "height": 64,
+          "keepRatio": true,
+          "layer": "",
+          "name": "BackButton",
+          "persistentUuid": "bccb1f21-8380-415c-be5f-9276a5dfe2d0",
+          "width": 192,
+          "x": 512,
+          "y": 320,
+          "zOrder": 15,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "depth": 48,
+          "height": 64,
+          "keepRatio": true,
+          "layer": "",
+          "name": "CancelAllNotificationsAsyncButton",
+          "persistentUuid": "ba7727a6-cd26-46da-8465-c4eaf19b3ea8",
+          "width": 320,
+          "x": 448,
+          "y": 32,
+          "zOrder": 16,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "depth": 48,
+          "height": 64,
+          "keepRatio": true,
+          "layer": "",
+          "name": "CancelNotificationAsyncButton",
+          "persistentUuid": "7b704798-4f27-4db7-9ec3-03af7a09c93f",
+          "width": 320,
+          "x": 448,
+          "y": 96,
+          "zOrder": 17,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "depth": 48,
+          "height": 64,
+          "keepRatio": true,
+          "layer": "",
+          "name": "GetNotificationHistoryAsyncButton",
+          "persistentUuid": "82ca56cc-629e-4c52-a6e4-bc847c7e6728",
+          "width": 320,
+          "x": 448,
+          "y": 160,
+          "zOrder": 18,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "depth": 48,
+          "height": 64,
+          "keepRatio": true,
+          "layer": "",
+          "name": "ScheduleNotificationAsyncButton",
+          "persistentUuid": "4d14fa36-abea-47e7-8924-57f90bde2d79",
+          "width": 320,
+          "x": 448,
+          "y": 224,
+          "zOrder": 19,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        }
+      ],
+      "objects": [
+        {
+          "assetStoreId": "9cf9ca8be6e98fc23e76b6770d3f4d094dea09f30a49f38ef9a9d2e97c2460be",
+          "name": "CancelAllNotificationsAsyncButton",
+          "type": "PanelSpriteButton::PanelSpriteButton",
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "content": {
+            "LeftPadding": 16,
+            "RightPadding": 16,
+            "PressedLabelOffsetY": 3,
+            "BottomPadding": 32,
+            "TopPadding": 32,
+            "HoveredFadeOutDuration": 0.25
+          },
+          "childrenContent": {
+            "Hovered": {
+              "bottomMargin": 16,
+              "height": 69,
+              "leftMargin": 16,
+              "rightMargin": 16,
+              "texture": "Grey Button With Shadow_Hovered.png",
+              "tiled": true,
+              "topMargin": 16,
+              "width": 192
+            },
+            "Idle": {
+              "bottomMargin": 16,
+              "height": 69,
+              "leftMargin": 16,
+              "rightMargin": 16,
+              "texture": "Grey Button With Shadow_Idle.png",
+              "tiled": true,
+              "topMargin": 16,
+              "width": 192
+            },
+            "Label": {
+              "bold": false,
+              "italic": false,
+              "smoothed": true,
+              "underlined": false,
+              "string": "CancelAllNotificationsAsync",
+              "font": "CantoraOne-Regular.ttf",
+              "textAlignment": "center",
+              "characterSize": 20,
+              "color": {
+                "b": 255,
+                "g": 255,
+                "r": 255
+              },
+              "content": {
+                "bold": false,
+                "isOutlineEnabled": false,
+                "isShadowEnabled": false,
+                "italic": false,
+                "outlineColor": "255;255;255",
+                "outlineThickness": 2,
+                "shadowAngle": 90,
+                "shadowBlurRadius": 2,
+                "shadowColor": "0;0;0",
+                "shadowDistance": 4,
+                "shadowOpacity": 127,
+                "smoothed": true,
+                "underlined": false,
+                "text": "CancelAllNotificationsAsync",
+                "font": "CantoraOne-Regular.ttf",
+                "textAlignment": "center",
+                "verticalTextAlignment": "top",
+                "characterSize": 20,
+                "color": "255;255;255"
+              }
+            },
+            "Pressed": {
+              "bottomMargin": 16,
+              "height": 69,
+              "leftMargin": 16,
+              "rightMargin": 16,
+              "texture": "Grey Button With Shadow_Pressed.png",
+              "tiled": true,
+              "topMargin": 16,
+              "width": 192
+            }
+          }
+        },
+        {
+          "assetStoreId": "9cf9ca8be6e98fc23e76b6770d3f4d094dea09f30a49f38ef9a9d2e97c2460be",
+          "name": "CancelNotificationAsyncButton",
+          "type": "PanelSpriteButton::PanelSpriteButton",
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "content": {
+            "LeftPadding": 16,
+            "RightPadding": 16,
+            "PressedLabelOffsetY": 3,
+            "BottomPadding": 32,
+            "TopPadding": 32,
+            "HoveredFadeOutDuration": 0.25
+          },
+          "childrenContent": {
+            "Hovered": {
+              "bottomMargin": 16,
+              "height": 69,
+              "leftMargin": 16,
+              "rightMargin": 16,
+              "texture": "Grey Button With Shadow_Hovered.png",
+              "tiled": true,
+              "topMargin": 16,
+              "width": 192
+            },
+            "Idle": {
+              "bottomMargin": 16,
+              "height": 69,
+              "leftMargin": 16,
+              "rightMargin": 16,
+              "texture": "Grey Button With Shadow_Idle.png",
+              "tiled": true,
+              "topMargin": 16,
+              "width": 192
+            },
+            "Label": {
+              "bold": false,
+              "italic": false,
+              "smoothed": true,
+              "underlined": false,
+              "string": "CancelNotificationAsync",
+              "font": "CantoraOne-Regular.ttf",
+              "textAlignment": "center",
+              "characterSize": 20,
+              "color": {
+                "b": 255,
+                "g": 255,
+                "r": 255
+              },
+              "content": {
+                "bold": false,
+                "isOutlineEnabled": false,
+                "isShadowEnabled": false,
+                "italic": false,
+                "outlineColor": "255;255;255",
+                "outlineThickness": 2,
+                "shadowAngle": 90,
+                "shadowBlurRadius": 2,
+                "shadowColor": "0;0;0",
+                "shadowDistance": 4,
+                "shadowOpacity": 127,
+                "smoothed": true,
+                "underlined": false,
+                "text": "CancelNotificationAsync",
+                "font": "CantoraOne-Regular.ttf",
+                "textAlignment": "center",
+                "verticalTextAlignment": "top",
+                "characterSize": 20,
+                "color": "255;255;255"
+              }
+            },
+            "Pressed": {
+              "bottomMargin": 16,
+              "height": 69,
+              "leftMargin": 16,
+              "rightMargin": 16,
+              "texture": "Grey Button With Shadow_Pressed.png",
+              "tiled": true,
+              "topMargin": 16,
+              "width": 192
+            }
+          }
+        },
+        {
+          "assetStoreId": "9cf9ca8be6e98fc23e76b6770d3f4d094dea09f30a49f38ef9a9d2e97c2460be",
+          "name": "GetNotificationHistoryAsyncButton",
+          "type": "PanelSpriteButton::PanelSpriteButton",
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "content": {
+            "LeftPadding": 16,
+            "RightPadding": 16,
+            "PressedLabelOffsetY": 3,
+            "BottomPadding": 32,
+            "TopPadding": 32,
+            "HoveredFadeOutDuration": 0.25
+          },
+          "childrenContent": {
+            "Hovered": {
+              "bottomMargin": 16,
+              "height": 69,
+              "leftMargin": 16,
+              "rightMargin": 16,
+              "texture": "Grey Button With Shadow_Hovered.png",
+              "tiled": true,
+              "topMargin": 16,
+              "width": 192
+            },
+            "Idle": {
+              "bottomMargin": 16,
+              "height": 69,
+              "leftMargin": 16,
+              "rightMargin": 16,
+              "texture": "Grey Button With Shadow_Idle.png",
+              "tiled": true,
+              "topMargin": 16,
+              "width": 192
+            },
+            "Label": {
+              "bold": false,
+              "italic": false,
+              "smoothed": true,
+              "underlined": false,
+              "string": "GetNotificationHistoryAsync",
+              "font": "CantoraOne-Regular.ttf",
+              "textAlignment": "center",
+              "characterSize": 20,
+              "color": {
+                "b": 255,
+                "g": 255,
+                "r": 255
+              },
+              "content": {
+                "bold": false,
+                "isOutlineEnabled": false,
+                "isShadowEnabled": false,
+                "italic": false,
+                "outlineColor": "255;255;255",
+                "outlineThickness": 2,
+                "shadowAngle": 90,
+                "shadowBlurRadius": 2,
+                "shadowColor": "0;0;0",
+                "shadowDistance": 4,
+                "shadowOpacity": 127,
+                "smoothed": true,
+                "underlined": false,
+                "text": "GetNotificationHistoryAsync",
+                "font": "CantoraOne-Regular.ttf",
+                "textAlignment": "center",
+                "verticalTextAlignment": "top",
+                "characterSize": 20,
+                "color": "255;255;255"
+              }
+            },
+            "Pressed": {
+              "bottomMargin": 16,
+              "height": 69,
+              "leftMargin": 16,
+              "rightMargin": 16,
+              "texture": "Grey Button With Shadow_Pressed.png",
+              "tiled": true,
+              "topMargin": 16,
+              "width": 192
+            }
+          }
+        },
+        {
+          "assetStoreId": "9cf9ca8be6e98fc23e76b6770d3f4d094dea09f30a49f38ef9a9d2e97c2460be",
+          "name": "ScheduleNotificationAsyncButton",
+          "type": "PanelSpriteButton::PanelSpriteButton",
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "content": {
+            "LeftPadding": 16,
+            "RightPadding": 16,
+            "PressedLabelOffsetY": 3,
+            "BottomPadding": 32,
+            "TopPadding": 32,
+            "HoveredFadeOutDuration": 0.25
+          },
+          "childrenContent": {
+            "Hovered": {
+              "bottomMargin": 16,
+              "height": 69,
+              "leftMargin": 16,
+              "rightMargin": 16,
+              "texture": "Grey Button With Shadow_Hovered.png",
+              "tiled": true,
+              "topMargin": 16,
+              "width": 192
+            },
+            "Idle": {
+              "bottomMargin": 16,
+              "height": 69,
+              "leftMargin": 16,
+              "rightMargin": 16,
+              "texture": "Grey Button With Shadow_Idle.png",
+              "tiled": true,
+              "topMargin": 16,
+              "width": 192
+            },
+            "Label": {
+              "bold": false,
+              "italic": false,
+              "smoothed": true,
+              "underlined": false,
+              "string": "ScheduleNotificationAsync",
+              "font": "CantoraOne-Regular.ttf",
+              "textAlignment": "center",
+              "characterSize": 20,
+              "color": {
+                "b": 255,
+                "g": 255,
+                "r": 255
+              },
+              "content": {
+                "bold": false,
+                "isOutlineEnabled": false,
+                "isShadowEnabled": false,
+                "italic": false,
+                "outlineColor": "255;255;255",
+                "outlineThickness": 2,
+                "shadowAngle": 90,
+                "shadowBlurRadius": 2,
+                "shadowColor": "0;0;0",
+                "shadowDistance": 4,
+                "shadowOpacity": 127,
+                "smoothed": true,
+                "underlined": false,
+                "text": "ScheduleNotificationAsync",
+                "font": "CantoraOne-Regular.ttf",
+                "textAlignment": "center",
+                "verticalTextAlignment": "top",
+                "characterSize": 20,
+                "color": "255;255;255"
+              }
+            },
+            "Pressed": {
+              "bottomMargin": 16,
+              "height": 69,
+              "leftMargin": 16,
+              "rightMargin": 16,
+              "texture": "Grey Button With Shadow_Pressed.png",
+              "tiled": true,
+              "topMargin": 16,
+              "width": 192
+            }
+          }
+        }
+      ],
+      "objectsFolderStructure": {
+        "folderName": "__ROOT",
+        "children": [
+          {
+            "objectName": "CancelAllNotificationsAsyncButton"
+          },
+          {
+            "objectName": "CancelNotificationAsyncButton"
+          },
+          {
+            "objectName": "GetNotificationHistoryAsyncButton"
+          },
+          {
+            "objectName": "ScheduleNotificationAsyncButton"
+          }
+        ]
+      },
+      "events": [
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "WortalSDK::IsWortalInitialized"
+              },
+              "parameters": [
+                "",
+                ""
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "TextContainerCapability::TextContainerBehavior::SetValue"
+              },
+              "parameters": [
+                "OutputText",
+                "Text",
+                "=",
+                "Output"
+              ]
+            }
+          ],
+          "events": [
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "PanelSpriteButton::PanelSpriteButton::IsClicked"
+                  },
+                  "parameters": [
+                    "CancelAllNotificationsAsyncButton",
+                    ""
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "WortalSDK::CancelAllNotificationsAsync"
+                  },
+                  "parameters": [
+                    "",
+                    "\"\"",
+                    ""
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "PanelSpriteButton::PanelSpriteButton::IsClicked"
+                  },
+                  "parameters": [
+                    "CancelNotificationAsyncButton",
+                    ""
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "WortalSDK::CancelNotificationAsync"
+                  },
+                  "parameters": [
+                    "",
+                    "\"notif1\"",
+                    ""
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "PanelSpriteButton::PanelSpriteButton::IsClicked"
+                  },
+                  "parameters": [
+                    "GetNotificationHistoryAsyncButton",
+                    ""
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "WortalSDK::GetNotificationHistoryAsync"
+                  },
+                  "parameters": [
+                    "",
+                    "Notifications",
+                    ""
+                  ]
+                }
+              ],
+              "events": [
+                {
+                  "type": "BuiltinCommonInstructions::ForEachChildVariable",
+                  "iterableVariableName": "Notifications",
+                  "valueIteratorVariableName": "Notification",
+                  "keyIteratorVariableName": "",
+                  "conditions": [],
+                  "actions": [],
+                  "events": [
+                    {
+                      "type": "BuiltinCommonInstructions::ForEachChildVariable",
+                      "iterableVariableName": "Notification",
+                      "valueIteratorVariableName": "Value",
+                      "keyIteratorVariableName": "Key",
+                      "conditions": [],
+                      "actions": [
+                        {
+                          "type": {
+                            "value": "SetStringVariable"
+                          },
+                          "parameters": [
+                            "Output",
+                            "+",
+                            "Key + \": \" + Value + \" \""
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "PanelSpriteButton::PanelSpriteButton::IsClicked"
+              },
+              "parameters": [
+                "BackButton",
+                ""
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "Scene"
+              },
+              "parameters": [
+                "",
+                "\"Main\"",
+                ""
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "PanelSpriteButton::PanelSpriteButton::IsClicked"
+              },
+              "parameters": [
+                "ScheduleNotificationAsyncButton",
+                ""
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "WortalSDK::ScheduleNotificationAsync"
+              },
+              "parameters": [
+                "",
+                "NotificationPayload",
+                "Notification",
+                ""
+              ]
+            }
+          ],
+          "events": [
+            {
+              "type": "BuiltinCommonInstructions::ForEachChildVariable",
+              "iterableVariableName": "Notification",
+              "valueIteratorVariableName": "Value",
+              "keyIteratorVariableName": "Key",
+              "conditions": [],
+              "actions": [
+                {
+                  "type": {
+                    "value": "SetStringVariable"
+                  },
+                  "parameters": [
+                    "Output",
+                    "+",
+                    "Key + \": \" + Value + \" \""
+                  ]
+                }
               ]
             }
           ]
@@ -7613,7 +9124,7 @@
           "functionType": "Action",
           "group": "Session",
           "name": "SetSessionData",
-          "sentence": "Set session data _PARAM1_",
+          "sentence": "Set session data to _PARAM1_",
           "events": [
             {
               "type": "BuiltinCommonInstructions::JsCode",
@@ -7643,7 +9154,7 @@
           "functionType": "Action",
           "group": "Session",
           "name": "SwitchGameAsync",
-          "sentence": "Switch game async with _PARAM1_ and _PARAM2_",
+          "sentence": "Switch game async with with game id _PARAM1_ and optional payload _PARAM2_",
           "events": [
             {
               "type": "BuiltinCommonInstructions::JsCode",
@@ -8716,53 +10227,20 @@
           "sentence": "Gets a player's stats for level _PARAM1_ and period _PARAM2_ and set the result to _PARAM3_",
           "events": [
             {
-              "type": "BuiltinCommonInstructions::Standard",
-              "conditions": [
-                {
-                  "type": {
-                    "inverted": true,
-                    "value": "WortalSDK::IsWortalInitialized"
-                  },
-                  "parameters": [
-                    "",
-                    ""
-                  ]
-                }
-              ],
-              "actions": [
-                {
-                  "type": {
-                    "value": "BuiltinAsync::ResolveAsyncEventsFunction"
-                  },
-                  "parameters": [
-                    ""
-                  ]
-                }
-              ]
-            },
-            {
               "type": "BuiltinCommonInstructions::JsCode",
               "inlineCode": [
-                "const levelVar = eventsFunctionContext.getArgument(\"Level\");\r",
-                "const level = levelVar.getValue();\r",
-                "const statPeriodVar = eventsFunctionContext.getArgument(\"StatPeriod\");\r",
-                "const statPeriod = statPeriodVar.getValue();\r",
-                "const resultVar = eventsFunctionContext.getArgument(\"ArrayOfStatStructureVariable\");\r",
+                "const level = eventsFunctionContext.getArgument(\"Level\");\r",
+                "const statPeriod = eventsFunctionContext.getArgument(\"StatPeriod\");\r",
                 "\r",
                 "Wortal.stats.getStatsAsync(level, {\"period\": statPeriod})\r",
-                ".then((stats) => {\r",
-                "    if(stats && stats.length) {\r",
-                "        resultVar.clearChildren();\r",
-                "        stats.forEach((stat, index) => {\r",
-                "            const result = resultVar.getChild(index.toString());\r",
-                "            result.getChild(\"level\").setString(result.level || \"\");\r",
-                "            result.getChild(\"lowerIsBetter\").setBoolean(result.lowerIsBetter || false);\r",
-                "            result.getChild(\"period\").setString(result.period || \"\");\r",
-                "            result.getChild(\"value\").setNumber(result.value || 0);\r",
-                "            result.getChild(\"valueType\").setString(result.valueType || \"\");\r",
-                "        });        \r",
-                "    }\r",
-                "});"
+                ".then(results => {\r",
+                "    const resultsVar = eventsFunctionContext.getArgument(\"Result\");\r",
+                "    gdjs._wortalExtension.setResultToVarableCallback(results, resultsVar);\r",
+                "})\r",
+                ".catch(error => {\r",
+                "    console.warn(\"Failed to retrieve stats:\", error);\r",
+                "})\r",
+                ".finally(() => eventsFunctionContext.task.resolve());"
               ],
               "parameterObjects": "",
               "useStrict": true,
@@ -8776,14 +10254,14 @@
               "type": "string"
             },
             {
-              "description": "",
+              "description": "Period of stat",
               "name": "StatPeriod",
               "supplementaryInformation": "[\"alltime\",\"daily\",\"monthly\",\"weekly\"]",
               "type": "stringWithSelector"
             },
             {
-              "description": "",
-              "name": "ArrayOfStatStructureVariable",
+              "description": "Variable to save the result (Array)",
+              "name": "Result",
               "type": "variable"
             }
           ],
@@ -8799,35 +10277,10 @@
           "sentence": "Posts a stat for level _PARAM1_ with value _PARAM2_ and additional payload _PARAM3_",
           "events": [
             {
-              "type": "BuiltinCommonInstructions::Standard",
-              "conditions": [
-                {
-                  "type": {
-                    "inverted": true,
-                    "value": "WortalSDK::IsWortalInitialized"
-                  },
-                  "parameters": [
-                    "",
-                    ""
-                  ]
-                }
-              ],
-              "actions": [
-                {
-                  "type": {
-                    "value": "BuiltinAsync::ResolveAsyncEventsFunction"
-                  },
-                  "parameters": [
-                    ""
-                  ]
-                }
-              ]
-            },
-            {
               "type": "BuiltinCommonInstructions::JsCode",
               "inlineCode": [
-                "const level = eventsFunctionContext.getArgument(\"Level\").getValue();",
-                "const value = eventsFunctionContext.getArgument(\"Value\").getValue();",
+                "const level = eventsFunctionContext.getArgument(\"Level\");",
+                "const value = eventsFunctionContext.getArgument(\"Value\");",
                 "const payloadVar = eventsFunctionContext.getArgument(\"Payload\");",
                 "const payloadAsObj = gdjs._wortalExtension.gdevelopToJsObject(payloadVar);",
                 "",
@@ -8878,35 +10331,10 @@
           "sentence": "Cancel all notifications with optional label _PARAM1_",
           "events": [
             {
-              "type": "BuiltinCommonInstructions::Standard",
-              "conditions": [
-                {
-                  "type": {
-                    "inverted": true,
-                    "value": "WortalSDK::IsWortalInitialized"
-                  },
-                  "parameters": [
-                    "",
-                    ""
-                  ]
-                }
-              ],
-              "actions": [
-                {
-                  "type": {
-                    "value": "BuiltinAsync::ResolveAsyncEventsFunction"
-                  },
-                  "parameters": [
-                    ""
-                  ]
-                }
-              ]
-            },
-            {
               "type": "BuiltinCommonInstructions::JsCode",
               "inlineCode": [
                 "const labelVar = eventsFunctionContext.getArgument(\"Label\");",
-                "const label = labelVar ? labelVar.getValue() : undefined;",
+                "const label = labelVar ? labelVar : undefined;",
                 "",
                 "const cancelNotifications = label => {",
                 "    const cancelPromise = label ",
@@ -8949,34 +10377,9 @@
           "sentence": "Cancel notification with ID _PARAM1_",
           "events": [
             {
-              "type": "BuiltinCommonInstructions::Standard",
-              "conditions": [
-                {
-                  "type": {
-                    "inverted": true,
-                    "value": "WortalSDK::IsWortalInitialized"
-                  },
-                  "parameters": [
-                    "",
-                    ""
-                  ]
-                }
-              ],
-              "actions": [
-                {
-                  "type": {
-                    "value": "BuiltinAsync::ResolveAsyncEventsFunction"
-                  },
-                  "parameters": [
-                    ""
-                  ]
-                }
-              ]
-            },
-            {
               "type": "BuiltinCommonInstructions::JsCode",
               "inlineCode": [
-                "const id = eventsFunctionContext.getArgument(\"ID\").getValue();",
+                "const id = eventsFunctionContext.getArgument(\"ID\");",
                 "",
                 "Wortal.notifications.cancelAsync(id)",
                 "    .then(result => {",
@@ -9011,48 +10414,16 @@
           "sentence": "Get notification history and set it to _PARAM1_",
           "events": [
             {
-              "type": "BuiltinCommonInstructions::Standard",
-              "conditions": [
-                {
-                  "type": {
-                    "inverted": true,
-                    "value": "WortalSDK::IsWortalInitialized"
-                  },
-                  "parameters": [
-                    "",
-                    ""
-                  ]
-                }
-              ],
-              "actions": [
-                {
-                  "type": {
-                    "value": "BuiltinAsync::ResolveAsyncEventsFunction"
-                  },
-                  "parameters": [
-                    ""
-                  ]
-                }
-              ]
-            },
-            {
               "type": "BuiltinCommonInstructions::JsCode",
               "inlineCode": [
-                "const historiesVar = eventsFunctionContext.getArgument(\"ArrayOfNotificationResultVariable\");\r",
+                "const historiesVar = eventsFunctionContext.getArgument(\"Result\");\r",
                 "Wortal.notifications.getHistoryAsync()\r",
                 ".then(histories => {\r",
                 "    if (!histories || histories.length === 0) {\r",
                 "        console.log(\"No scheduled notifications found.\");\r",
                 "    } else {\r",
                 "        console.log(`Found ${histories.length} scheduled notifications:`);\r",
-                "        historiesVar.clearChildren();\r",
-                "        histories.forEach((history, index) => {\r",
-                "            const result = historiesVar.getChild(index.toString());\r",
-                "            result.getChild(\"id\").setString(history.id || \"\");\r",
-                "            result.getChild(\"label\").setString(history.label || \"\");\r",
-                "            result.getChild(\"status\").setString(history.status || \"\");\r",
-                "            result.getChild(\"createdTime\").setString(history.createdTime || \"\");\r",
-                "        });         \r",
+                "        gdjs._wortalExtension.setResultToVarableCallback(histories, historiesVar); \r",
                 "    }\r",
                 "})\r",
                 ".catch(error => {\r",
@@ -9068,7 +10439,7 @@
           "parameters": [
             {
               "description": "Variable callback to save the notification",
-              "name": "ArrayOfNotificationResultVariable",
+              "name": "Result",
               "type": "variable"
             }
           ],
@@ -9084,48 +10455,16 @@
           "sentence": "Schedule a notification with payload _PARAM1_ and set the result to _PARAM2_",
           "events": [
             {
-              "type": "BuiltinCommonInstructions::Standard",
-              "conditions": [
-                {
-                  "type": {
-                    "inverted": true,
-                    "value": "WortalSDK::IsWortalInitialized"
-                  },
-                  "parameters": [
-                    "",
-                    ""
-                  ]
-                }
-              ],
-              "actions": [
-                {
-                  "type": {
-                    "value": "BuiltinAsync::ResolveAsyncEventsFunction"
-                  },
-                  "parameters": [
-                    ""
-                  ]
-                }
-              ]
-            },
-            {
               "type": "BuiltinCommonInstructions::JsCode",
               "inlineCode": [
-                "const payloadVar = eventsFunctionContext.getArgument(\"PayloadVariable\");",
+                "const payloadVar = eventsFunctionContext.getArgument(\"Payload\");",
                 "const payloadAsObj = gdjs._wortalExtension.gdevelopToJsObject(payloadVar);",
-                "const resultVariable = eventsFunctionContext.getArgument(\"ScheduleResult\");",
+                "const resultVariable = eventsFunctionContext.getArgument(\"Result\");",
                 "",
                 "Wortal.notifications.scheduleAsync(payloadAsObj)",
                 ".then(result => {",
                 "    if (result.success) {",
-                "        const keys = Object.keys(result);",
-                "        keys.forEach((key) => {",
-                "            if (result[key] !== undefined) {",
-                "                resultVariable.getChild(key).setValue(result[key]);",
-                "            } else {",
-                "                resultVariable.getChild(key).setString(\"\");",
-                "            }",
-                "        });            ",
+                "        gdjs._wortalExtension.setResultValues(resultVariable, result);            ",
                 "        console.log(`Notification scheduled successfully with ID: ${result.id}`);",
                 "    } else {",
                 "        console.warn(\"Notification scheduling failed.\");",
@@ -9144,12 +10483,12 @@
           "parameters": [
             {
               "description": "Notification payload structure variable",
-              "name": "PayloadVariable",
+              "name": "Payload",
               "type": "variable"
             },
             {
               "description": "Schedule result structure variable",
-              "name": "ScheduleResult",
+              "name": "Result",
               "type": "variable"
             }
           ],
@@ -9445,51 +10784,17 @@
           "sentence": "Gets connected player's for leaderboard _PARAM1_ with total entries _PARAM2_ offset _PARAM3_ and set the result to _PARAM4_",
           "events": [
             {
-              "type": "BuiltinCommonInstructions::Standard",
-              "conditions": [
-                {
-                  "type": {
-                    "inverted": true,
-                    "value": "WortalSDK::IsWortalInitialized"
-                  },
-                  "parameters": [
-                    "",
-                    ""
-                  ]
-                }
-              ],
-              "actions": [
-                {
-                  "type": {
-                    "value": "BuiltinAsync::ResolveAsyncEventsFunction"
-                  },
-                  "parameters": [
-                    ""
-                  ]
-                }
-              ]
-            },
-            {
               "type": "BuiltinCommonInstructions::JsCode",
               "inlineCode": [
-                "const name = eventsFunctionContext.getArgument(\"Name\").getValue();",
-                "const count = eventsFunctionContext.getArgument(\"Count\").getValue();",
-                "const offset = eventsFunctionContext.getArgument(\"Offset\").getValue();",
+                "const name = eventsFunctionContext.getArgument(\"Name\");",
+                "const count = eventsFunctionContext.getArgument(\"Count\");",
+                "const offset = eventsFunctionContext.getArgument(\"Offset\");",
                 "const resultVariable = eventsFunctionContext.getArgument(\"Result\");",
                 "",
                 "Wortal.leaderboard.getConnectedPlayersEntriesAsync(name, count, offset)",
                 ".then(entries => {",
                 "    if(entries && entries.length) {",
-                "        resultVariable.clearChildren();",
-                "        entries.forEach((entry, index) => {",
-                "            const result = resultVariable.getChild(index.toString());",
-                "            result.getChild(\"Details\").setString(entry.details || \"\");",
-                "            result.getChild(\"FormattedScore\").setString(entry.formattedScore || \"\");",
-                "            result.getChild(\"Player\").setString(entry.player || \"\");",
-                "            result.getChild(\"Rank\").setNumber(entry.rank || 0);",
-                "            result.getChild(\"Score\").setNumber(entry.score || 0);",
-                "            result.getChild(\"Timestamp\").setNumber(entry.timestamp || 0);",
-                "        });        ",
+                "        gdjs._wortalExtension.setResultToVarableCallback(entries, resultVariable);       ",
                 "    }    ",
                 "})",
                 ".catch(error => {",
@@ -9536,36 +10841,11 @@
           "sentence": "Gets entries for leaderboard _PARAM1_ with total entries _PARAM2_ offset _PARAM3_ and set the result to _PARAM4_",
           "events": [
             {
-              "type": "BuiltinCommonInstructions::Standard",
-              "conditions": [
-                {
-                  "type": {
-                    "inverted": true,
-                    "value": "WortalSDK::IsWortalInitialized"
-                  },
-                  "parameters": [
-                    "",
-                    ""
-                  ]
-                }
-              ],
-              "actions": [
-                {
-                  "type": {
-                    "value": "BuiltinAsync::ResolveAsyncEventsFunction"
-                  },
-                  "parameters": [
-                    ""
-                  ]
-                }
-              ]
-            },
-            {
               "type": "BuiltinCommonInstructions::JsCode",
               "inlineCode": [
-                "const name = eventsFunctionContext.getArgument(\"Name\").getValue();",
-                "const count = eventsFunctionContext.getArgument(\"Count\").getValue();",
-                "const offset = eventsFunctionContext.getArgument(\"Offset\").getValue();",
+                "const name = eventsFunctionContext.getArgument(\"Name\");",
+                "const count = eventsFunctionContext.getArgument(\"Count\");",
+                "const offset = eventsFunctionContext.getArgument(\"Offset\");",
                 "const resultVariable = eventsFunctionContext.getArgument(\"Result\");",
                 "",
                 "Wortal.leaderboard.getConnectedPlayersEntriesAsync(name, count, offset)",
@@ -9617,34 +10897,9 @@
           "sentence": "",
           "events": [
             {
-              "type": "BuiltinCommonInstructions::Standard",
-              "conditions": [
-                {
-                  "type": {
-                    "inverted": true,
-                    "value": "WortalSDK::IsWortalInitialized"
-                  },
-                  "parameters": [
-                    "",
-                    ""
-                  ]
-                }
-              ],
-              "actions": [
-                {
-                  "type": {
-                    "value": "BuiltinAsync::ResolveAsyncEventsFunction"
-                  },
-                  "parameters": [
-                    ""
-                  ]
-                }
-              ]
-            },
-            {
               "type": "BuiltinCommonInstructions::JsCode",
               "inlineCode": [
-                "const name = eventsFunctionContext.getArgument(\"Name\").getValue();\r",
+                "const name = eventsFunctionContext.getArgument(\"Name\");\r",
                 "Wortal.leaderboard.getEntryCountAsync(name)\r",
                 ".then(entries => {\r",
                 "    eventsFunctionContext.returnValue = entries;\r",
@@ -9681,49 +10936,17 @@
           "sentence": "Fetch a specific leaderboard belonging to this game with name _PARAM1_ and set the result to _PARAM2_",
           "events": [
             {
-              "type": "BuiltinCommonInstructions::Standard",
-              "conditions": [
-                {
-                  "type": {
-                    "inverted": true,
-                    "value": "WortalSDK::IsWortalInitialized"
-                  },
-                  "parameters": [
-                    "",
-                    ""
-                  ]
-                }
-              ],
-              "actions": [
-                {
-                  "type": {
-                    "value": "BuiltinAsync::ResolveAsyncEventsFunction"
-                  },
-                  "parameters": [
-                    ""
-                  ]
-                }
-              ]
-            },
-            {
               "type": "BuiltinCommonInstructions::JsCode",
               "inlineCode": [
-                "const name = eventsFunctionContext.getArgument(\"Name\").getValue();",
+                "const name = eventsFunctionContext.getArgument(\"Name\");",
                 "const resultVariable = eventsFunctionContext.getArgument(\"Result\");",
                 "",
                 "Wortal.notifications.getLeaderboardAsync(name)",
                 ".then(result => {",
                 "    if (result) {",
-                "        keys.forEach((key) => {",
-                "            const keys = Object.keys(result);",
-                "            if (result[key] !== undefined) {",
-                "                resultVariable.getChild(key).setValue(result[key]);",
-                "            } else {",
-                "                resultVariable.getChild(key).setString(\"\");",
-                "            }",
-                "        });            ",
+                "        gdjs._wortalExtension.setResultValues(resultVariable, result);          ",
                 "    } else {",
-                "        console.warn(\"Failed to get leaderboard.\");",
+                "        console.warn(\"No leaderboard fetched.\");",
                 "    }",
                 "})",
                 ".catch(error => {",
@@ -9760,46 +10983,15 @@
           "sentence": "Gets current player's entry for leaderboard _PARAM1_ and set the result to _PARAM2_",
           "events": [
             {
-              "type": "BuiltinCommonInstructions::Standard",
-              "conditions": [
-                {
-                  "type": {
-                    "inverted": true,
-                    "value": "WortalSDK::IsWortalInitialized"
-                  },
-                  "parameters": [
-                    "",
-                    ""
-                  ]
-                }
-              ],
-              "actions": [
-                {
-                  "type": {
-                    "value": "BuiltinAsync::ResolveAsyncEventsFunction"
-                  },
-                  "parameters": [
-                    ""
-                  ]
-                }
-              ]
-            },
-            {
               "type": "BuiltinCommonInstructions::JsCode",
               "inlineCode": [
-                "const name = eventsFunctionContext.getArgument(\"Name\").getValue();\r",
+                "const name = eventsFunctionContext.getArgument(\"Name\");\r",
                 "const resultVariable = eventsFunctionContext.getArgument(\"Result\");\r",
                 "\r",
                 "Wortal.notifications.getPlayerEntryAsync(name)\r",
                 ".then(result => {\r",
                 "    if (result) {\r",
-                "        keys.forEach((key) => {\r",
-                "            if (result[key] !== undefined) {\r",
-                "                resultVariable.getChild(key).setValue(result[key]);\r",
-                "            } else {\r",
-                "                resultVariable.getChild(key).setString(\"\");\r",
-                "            }\r",
-                "        });            \r",
+                "        gdjs._wortalExtension.setResultValues(resultVariable, result);            \r",
                 "    } else {\r",
                 "        console.warn(\"Failed to get leaderboard entry for current player.\");\r",
                 "    }\r",
@@ -9838,31 +11030,6 @@
           "sentence": "Send player entry for leaderboard _PARAM1_ with score _PARAM2_ and set the result to _PARAM3_",
           "events": [
             {
-              "type": "BuiltinCommonInstructions::Standard",
-              "conditions": [
-                {
-                  "type": {
-                    "inverted": true,
-                    "value": "WortalSDK::IsWortalInitialized"
-                  },
-                  "parameters": [
-                    "",
-                    ""
-                  ]
-                }
-              ],
-              "actions": [
-                {
-                  "type": {
-                    "value": "BuiltinAsync::ResolveAsyncEventsFunction"
-                  },
-                  "parameters": [
-                    ""
-                  ]
-                }
-              ]
-            },
-            {
               "type": "BuiltinCommonInstructions::JsCode",
               "inlineCode": [
                 "const name = eventsFunctionContext.getArgument(\"Name\").getValue();",
@@ -9872,13 +11039,7 @@
                 "Wortal.notifications.sendEntryAsync(name, score)",
                 ".then(result => {",
                 "    if (result) {",
-                "        keys.forEach((key) => {",
-                "            if (result[key] !== undefined) {",
-                "                resultVariable.getChild(key).setValue(result[key]);",
-                "            } else {",
-                "                resultVariable.getChild(key).setString(\"\");",
-                "            }",
-                "        });            ",
+                "        gdjs._wortalExtension.setResultValues(resultVariable, result);            ",
                 "    } else {",
                 "        console.warn(\"Failed to send leaderboard entry.\");",
                 "    }",
