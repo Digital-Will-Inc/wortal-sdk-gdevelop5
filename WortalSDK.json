@@ -4,13 +4,31 @@
   "extensionNamespace": "",
   "fullName": "Wortal SDK",
   "helpPath": "https://docs.games-api.ai",
-  "iconUrl": "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAyMy4wLjMsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iSWNvbnMiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4Ig0KCSB2aWV3Qm94PSIwIDAgMzIgMzIiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDMyIDMyOyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+DQo8c3R5bGUgdHlwZT0idGV4dC9jc3MiPg0KCS5zdDB7ZmlsbDpub25lO3N0cm9rZTojMDAwMDAwO3N0cm9rZS13aWR0aDoyO3N0cm9rZS1saW5lY2FwOnJvdW5kO3N0cm9rZS1saW5lam9pbjpyb3VuZDtzdHJva2UtbWl0ZXJsaW1pdDoxMDt9DQo8L3N0eWxlPg0KPHBvbHlnb24gY2xhc3M9InN0MCIgcG9pbnRzPSIxNywzIDgsMyA0LDEzIDgsMjkgMTcsMjkgMjEsMTMgIi8+DQo8cG9seWxpbmUgY2xhc3M9InN0MCIgcG9pbnRzPSIxNywyOSAyNCwyOSAyOCwxMyAyNCwzIDE3LDMgIi8+DQo8bGluZSBjbGFzcz0ic3QwIiB4MT0iMTIiIHkxPSI3IiB4Mj0iMTIiIHkyPSIyNSIvPg0KPGxpbmUgY2xhc3M9InN0MCIgeDE9IjgiIHkxPSIxMyIgeDI9IjE2IiB5Mj0iMTMiLz4NCjwvc3ZnPg0K",
+  "iconUrl": "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjIwMCIgaGVpZ2h0PSIxNjgiPgo8cGF0aCBkPSJNMCAwIEM0LjQxODkzNDYxIDEuMDMzNTA1NTcgNi4wNzQ2MTY2MiAzLjcxOTk1MjgyIDguNTI3MzQzNzUgNy4yODUxNTYyNSBDOS4wMzQ2NzA0MSA3Ljk5MzMzNDk2IDkuNTQxOTk3MDcgOC43MDE1MTM2NyAxMC4wNjQ2OTcyNyA5LjQzMTE1MjM0IEMxMS43NzA2MzE3OSAxMS44NDE3Mzk5NiAxMy40MzQ3ODQwNiAxNC4yNzY4NzY4OSAxNS4wODk4NDM3NSAxNi43MjI2NTYyNSBDMTUuNjg1MzkwNjIgMTcuNjAwNjY4OTUgMTYuMjgwOTM3NSAxOC40Nzg2ODE2NCAxNi44OTQ1MzEyNSAxOS4zODMzMDA3OCBDMjYuMTc4MDkwMTUgMzMuMTY5MDkxOTcgMzQuODQ0MjYwOTUgNDcuMjk1MzIwMTEgNDMuMDg5ODQzNzUgNjEuNzIyNjU2MjUgQzQzLjY5NzYzNjcyIDYyLjc3MzI0MjE5IDQ0LjMwNTQyOTY5IDYzLjgyMzgyODEyIDQ0LjkzMTY0MDYyIDY0LjkwNjI1IEM0Ni43OTc4ODE5MyA2OC4xNDU2OTA1MiA0OC42MzUwOTA3OSA3MS4zOTk5OTEzIDUwLjQ2NDg0Mzc1IDc0LjY2MDE1NjI1IEM1MS4wNDMxNDk0MSA3NS42NjEwMzI3MSA1MS42MjE0NTUwOCA3Ni42NjE5MDkxOCA1Mi4yMTcyODUxNiA3Ny42OTMxMTUyMyBDNTQuNTQ4NzQyMTYgODEuOTE3ODQ3NiA1Ni4wODA3Mzg4NiA4NC43MTgwODMyOSA1Ni4xMjUgODkuNjAxNTYyNSBDNTIuNjQyOTgxNzUgMTAwLjEwMDE3NjAyIDQ0LjgzOTc4NzYzIDEwNi4yNDM0MDE0NyAzNS4zMDg1OTM3NSAxMTEuMTU2MjUgQzI1LjMxNTkxNzQ4IDExNS42ODI1MDI1NiAxNC4wOTc0MTM2NyAxMTguMzk2NTg5MSAzLjA4OTg0Mzc1IDExNy43MjI2NTYyNSBDMi4zMTQ1NTg5NiAxMTQuMjk2OTE2ODggMS45NzA2NTU5NyAxMTEuMTUwMjYzOCAxLjk5MjE4NzUgMTA3LjY0MDYyNSBDMS45OTU0MTAxNiAxMDYuNzA5Mjc3MzQgMS45OTg2MzI4MSAxMDUuNzc3OTI5NjkgMi4wMDE5NTMxMiAxMDQuODE4MzU5MzggQzIuMDE0NTIxNDggMTAzLjM3ODc5ODgzIDIuMDE0NTIxNDggMTAzLjM3ODc5ODgzIDIuMDI3MzQzNzUgMTAxLjkxMDE1NjI1IEMyLjAzMTg1NTQ3IDEwMC45MzExMTMyOCAyLjAzNjM2NzE5IDk5Ljk1MjA3MDMxIDIuMDQxMDE1NjIgOTguOTQzMzU5MzggQzIuMDUyNzU2OTEgOTYuNTM2Mzk1MTQgMi4wNjkxNzk1NiA5NC4xMjk1NTc2OCAyLjA4OTg0Mzc1IDkxLjcyMjY1NjI1IEMyLjc0NDI4NDY3IDkxLjU0NTI0OTAyIDMuMzk4NzI1NTkgOTEuMzY3ODQxOCA0LjA3Mjk5ODA1IDkxLjE4NTA1ODU5IEMxMy42NjUyMTI3MiA4OC40Njg2MzIzNiAyMS4yNTEzMDg3OCA4NC4wMDIzODcwMiAyOC4wODk4NDM3NSA3Ni43MjI2NTYyNSBDMjguNzQ5ODQzNzUgNzYuNzIyNjU2MjUgMjkuNDA5ODQzNzUgNzYuNzIyNjU2MjUgMzAuMDg5ODQzNzUgNzYuNzIyNjU2MjUgQzIzLjYxMjg4MDA2IDYyLjY1MTI5NzQzIDE1LjQ1MzgxMDMxIDQ5LjczNjk3ODY4IDcuMDg5ODQzNzUgMzYuNzIyNjU2MjUgQzYuNjE4NTMwMjcgMzUuOTgyMDg5ODQgNi4xNDcyMTY4IDM1LjI0MTUyMzQ0IDUuNjYxNjIxMDkgMzQuNDc4NTE1NjIgQzIuNTQ0MzEwMzEgMjkuNDgxNTcwNzYgMi41NDQzMTAzMSAyOS40ODE1NzA3NiAtMC45MTAxNTYyNSAyNC43MjI2NTYyNSBDLTEuNTcwMTU2MjUgMjQuNzIyNjU2MjUgLTIuMjMwMTU2MjUgMjQuNzIyNjU2MjUgLTIuOTEwMTU2MjUgMjQuNzIyNjU2MjUgQy00LjQ2NzY0MTYyIDI2LjY2NTU2Mzk2IC01Ljg1MDkzNzkgMjguNTg4Njc1MjcgLTcuMjIyNjU2MjUgMzAuNjYwMTU2MjUgQy03Ljg2NjY2MzgyIDMxLjYyOTAwNzU3IC03Ljg2NjY2MzgyIDMxLjYyOTAwNzU3IC04LjUyMzY4MTY0IDMyLjYxNzQzMTY0IEMtMTIuNjk2NDMyMDIgMzkuMDgzODI3NzEgLTE2LjI5NDIwMTI2IDQ1LjgzODY2MjMzIC0xOS44NDc2NTYyNSA1Mi42NjAxNTYyNSBDLTIwLjY4MDY3MjYxIDU0LjI1ODE1MDYzIC0yMC42ODA2NzI2MSA1NC4yNTgxNTA2MyAtMjEuNTMwNTE3NTggNTUuODg4NDI3NzMgQy0yNi44MjYwMjgxMyA2NS4yMzc5MjYgLTI2LjgyNjAyODEzIDY1LjIzNzkyNiAtMjguODA4NTkzNzUgNzUuNTA3ODEyNSBDLTI1LjY4MzQzMDIyIDgzLjIxMjAxOTk4IC0xNS44Nzk1Mzk3OCA4Ny4yMjUxNTMxMiAtOC45MTAxNTYyNSA5MC43MjI2NTYyNSBDLTguODUxODgwNjcgOTQuMjg1MDg3MDUgLTguODE2NDY3NCA5Ny44NDczOTQ0NCAtOC43ODUxNTYyNSAxMDEuNDEwMTU2MjUgQy04Ljc2ODM5ODQ0IDEwMi40MTc1NTg1OSAtOC43NTE2NDA2MiAxMDMuNDI0OTYwOTQgLTguNzM0Mzc1IDEwNC40NjI4OTA2MiBDLTguNzI0NzA3MDMgMTA1LjkyNzU4Nzg5IC04LjcyNDcwNzAzIDEwNS45Mjc1ODc4OSAtOC43MTQ4NDM3NSAxMDcuNDIxODc1IEMtOC42OTkxMzMzIDEwOC43NjUxMTg0MSAtOC42OTkxMzMzIDEwOC43NjUxMTg0MSAtOC42ODMxMDU0NyAxMTAuMTM1NDk4MDUgQy04LjkzMzEyMTY5IDExMi45ODQzMzg4MiAtOS43Mjk5OTExMyAxMTUuMTMxNjAxNjggLTEwLjkxMDE1NjI1IDExNy43MjI2NTYyNSBDLTIzLjg4NTc4ODg2IDExNC44NjE0OTE2MSAtMzMuNjIyNzQ2NjcgMTA5LjI0MTgzNzE5IC00Mi45MTAxNTYyNSA5OS43MjI2NTYyNSBDLTQ0LjA5MTU4MjAzIDk4LjU3MDIzNDM3IC00NC4wOTE1ODIwMyA5OC41NzAyMzQzNyAtNDUuMjk2ODc1IDk3LjM5NDUzMTI1IEMtNDYuOTEwMTU2MjUgOTQuNzIyNjU2MjUgLTQ2LjkxMDE1NjI1IDk0LjcyMjY1NjI1IC00Ni41NTg1OTM3NSA5MS40Mjk2ODc1IEMtNDYuMTYzMjE0MiA5MC4xMjIzNTM4MyAtNDUuNzM1ODgyOTggODguODI0NDU1MTcgLTQ1LjI4NTE1NjI1IDg3LjUzNTE1NjI1IEMtNDUuMDQ5MzM4MzggODYuODA4MTI1IC00NC44MTM1MjA1MSA4Ni4wODEwOTM3NSAtNDQuNTcwNTU2NjQgODUuMzMyMDMxMjUgQy00My43MjEzNDcxNCA4Mi43ODA5ODgwNSAtNDIuODIxNDA4MjkgODAuMjUyMTg5ODEgLTQxLjkxMDE1NjI1IDc3LjcyMjY1NjI1IEMtNDEuNTY2MTM3NyA3Ni43NTUwNTM3MSAtNDEuMjIyMTE5MTQgNzUuNzg3NDUxMTcgLTQwLjg2NzY3NTc4IDc0Ljc5MDUyNzM0IEMtMzIuMTA3ODMzODIgNTAuNDIyNTIgLTIxLjM5NTcwOTYgMjcuMjM4NTg4MTMgLTYuOTEwMTU2MjUgNS43MjI2NTYyNSBDLTYuMjUwMTU2MjUgNC43MDY4NzUgLTUuNTkwMTU2MjUgMy42OTEwOTM3NSAtNC45MTAxNTYyNSAyLjY0NDUzMTI1IEMtMi45MTAxNTYyNSAwLjcyMjY1NjI1IC0yLjkxMDE1NjI1IDAuNzIyNjU2MjUgMCAwIFogIiBmaWxsPSIjMUMxRDIyIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg5Ni45MTAxNTYyNSwtMC43MjI2NTYyNSkiLz4KPHBhdGggZD0iTTAgMCBDNS4yOCAwIDEwLjU2IDAgMTYgMCBDMTYuMzMgMS45OCAxNi42NiAzLjk2IDE3IDYgQzE3Ljk5IDQuMDIgMTguOTggMi4wNCAyMCAwIEMyMy4zIDAgMjYuNiAwIDMwIDAgQzMwLjIyNzg2NDU4IDIuMDUwNzgxMjUgMzAuNDU1NzI5MTcgNC4xMDE1NjI1IDMwLjY4MzU5Mzc1IDYuMTUyMzQzNzUgQzMwLjgxODg2NjE0IDguMDExNDAyMjkgMzAuODE4ODY2MTQgOC4wMTE0MDIyOSAzMiA5IEMzMi45OSA2LjAzIDMzLjk4IDMuMDYgMzUgMCBDNjkuMzMzMzMzMzMgMCAxMDMuNjY2NjY2NjcgMCAxMzggMCBDMTM3LjY3IDIuMzEgMTM3LjM0IDQuNjIgMTM3IDcgQzEzNC42OSA3IDEzMi4zOCA3IDEzMCA3IEMxMjkuOTI2NTIzNDQgOC4zMDMyNDIxOSAxMjkuOTI2NTIzNDQgOC4zMDMyNDIxOSAxMjkuODUxNTYyNSA5LjYzMjgxMjUgQzEyOS43NzY3OTY4OCAxMC43ODUyMzQzNyAxMjkuNzAyMDMxMjUgMTEuOTM3NjU2MjUgMTI5LjYyNSAxMy4xMjUgQzEyOS41NTUzOTA2MyAxNC4yNjE5NTMxMiAxMjkuNDg1NzgxMjUgMTUuMzk4OTA2MjUgMTI5LjQxNDA2MjUgMTYuNTcwMzEyNSBDMTI4Ljk4NzkwMjI1IDIwLjEwMDIwNTkgMTI4LjYxMzE1MTkxIDIyLjgxOTkxODI5IDEyNyAyNiBDMTI0LjA2NjQwNjI1IDI3LjI0MjE4NzUgMTI0LjA2NjQwNjI1IDI3LjI0MjE4NzUgMTIwLjU2MjUgMjcuODc1IEMxMTkuNDA4Nzg5MDYgMjguMDk5Mjk2ODcgMTE4LjI1NTA3ODEyIDI4LjMyMzU5Mzc1IDExNy4wNjY0MDYyNSAyOC41NTQ2ODc1IEMxMTQgMjkgMTE0IDI5IDExMSAyOSBDMTExLjk5IDIxLjc0IDExMi45OCAxNC40OCAxMTQgNyBDMTEyLjM1IDcgMTEwLjcgNyAxMDkgNyBDMTA4LjYyODc1IDguMTQ0Njg3NSAxMDguNjI4NzUgOC4xNDQ2ODc1IDEwOC4yNSA5LjMxMjUgQzEwNi44OTAwNDQ0MiAxMi4yMzY0MDQ1IDEwNS42ODQxNDE3NCAxMy4zMDAwNDM1NiAxMDMgMTUgQzEwMy4yODg3NSAxNS41NDI2OTUzMSAxMDMuNTc3NSAxNi4wODUzOTA2MyAxMDMuODc1IDE2LjY0NDUzMTI1IEMxMDQuMjQ2MjUgMTcuMzU5OTYwOTQgMTA0LjYxNzUgMTguMDc1MzkwNjMgMTA1IDE4LjgxMjUgQzEwNS4zNzEyNSAxOS41MjAxOTUzMSAxMDUuNzQyNSAyMC4yMjc4OTA2MiAxMDYuMTI1IDIwLjk1NzAzMTI1IEMxMDcgMjMgMTA3IDIzIDEwNyAyNiBDMTAxLjkyNTIzMjA2IDI3LjI2MzA1MzM1IDk3LjI3MjAzNjQ2IDI4LjI3MDM2MDg0IDkyIDI4IEM5MS4wMSAyNS4zNiA5MC4wMiAyMi43MiA4OSAyMCBDODguODE4MjQyMTkgMjAuOTM5NzI2NTYgODguODE4MjQyMTkgMjAuOTM5NzI2NTYgODguNjMyODEyNSAyMS44OTg0Mzc1IEM4OC40NjUyMzQzNyAyMi43MTU3MDMxMyA4OC4yOTc2NTYyNSAyMy41MzI5Njg3NSA4OC4xMjUgMjQuMzc1IEM4Ny45NjI1NzgxMiAyNS4xODcxMDkzOCA4Ny44MDAxNTYyNSAyNS45OTkyMTg3NSA4Ny42MzI4MTI1IDI2LjgzNTkzNzUgQzg3IDI5IDg3IDI5IDg1IDMxIEM4MC4wODM5MzM3NyAzMi41OTI4MDU0NiA3NS4xNjM0MjQxMyAzMy4yNjQ3OTA5OCA3MCAzMyBDNzAgMzAuMzYgNzAgMjcuNzIgNzAgMjUgQzY4LjUxNSAyNS40OTUgNjguNTE1IDI1LjQ5NSA2NyAyNiBDNjIuODU4NDIwOTEgMjYuMjU5NDYyOTUgNTguNzExMzM3NjYgMjYuMjMxMzg0OTEgNTQuNTYyNSAyNi4yNSBDNTMuNDE3MTY3OTcgMjYuMjcwNjI1IDUyLjI3MTgzNTk0IDI2LjI5MTI1IDUxLjA5MTc5Njg4IDI2LjMxMjUgQzQ5Ljk5MDI5Mjk3IDI2LjMxNzY1NjI1IDQ4Ljg4ODc4OTA2IDI2LjMyMjgxMjUgNDcuNzUzOTA2MjUgMjYuMzI4MTI1IEM0Ni4yNDI5MjM1OCAyNi4zNDIxNDM1NSA0Ni4yNDI5MjM1OCAyNi4zNDIxNDM1NSA0NC43MDE0MTYwMiAyNi4zNTY0NDUzMSBDNDEuNTg4NDgzODEgMjUuOTQ1NzAxNDMgNDAuMjEzMzE1MDMgMjUuMjAxODk0NDIgMzggMjMgQzM3Ljc1IDIwLjMxMjUgMzcuNzUgMjAuMzEyNSAzOCAxOCBDMzcuNTYzMDQyMDMgMjIuNjMxNzU0NSAzNy41NjMwNDIwMyAyMi42MzE3NTQ1IDM2IDI1IEMzMS4xNTg0Mzg5OSAyNy4yNDY0ODQzMSAyNi4zMDMzMTgxIDI4IDIxIDI4IEMyMC42NyAyNS4wMyAyMC4zNCAyMi4wNiAyMCAxOSBDMTcuMjI1MjA1NjQgMjEuNzc0Nzk0MzYgMTYuNDI0NTMxMjMgMjMuMTMwNDU0NTQgMTQuOTM3NSAyNi41NjI1IEMxMy40MTgyOTY2IDI5LjM5ODM0NjM0IDEyLjYzNDU2MTU5IDMwLjcxOTg1OTEgOS42NjQwNjI1IDMyLjAzMTI1IEM1LjE0MTIxNzc4IDMyLjk1NDgzMzkxIDAuNjEzODUyOSAzMy4yNDI4MzQzNiAtNCAzMyBDLTQuMjQ5MzM4NjEgMjUuNTg5OTY4MjkgLTMuMzAwMDAwNDkgMTguNzIzNjUxNCAtMiAxMS40Mzc1IEMtMS44MDkyMTg3NSAxMC4zMzM0MTc5NyAtMS42MTg0Mzc1IDkuMjI5MzM1OTQgLTEuNDIxODc1IDguMDkxNzk2ODggQy0wLjk1NDYxMzczIDUuMzkzMzYzMDIgLTAuNDc4MjQwODIgMi42OTY1MDk2MSAwIDAgWiBNNTYgNSBDNTUuMzQgOS45NSA1NC42OCAxNC45IDU0IDIwIEM1NC45OSAyMCA1NS45OCAyMCA1NyAyMCBDNTcuNjYgMTUuMDUgNTguMzIgMTAuMSA1OSA1IEM1OC4wMSA1IDU3LjAyIDUgNTYgNSBaIE05MCA1IEM4OS42NyA2Ljk4IDg5LjM0IDguOTYgODkgMTEgQzg5Ljk5IDExIDkwLjk4IDExIDkyIDExIEM5Mi4zMyA5LjAyIDkyLjY2IDcuMDQgOTMgNSBDOTIuMDEgNSA5MS4wMiA1IDkwIDUgWiBNMTUgOCBDMTYgMTAgMTYgMTAgMTYgMTAgWiBNMzkgMTEgQzQwIDEzIDQwIDEzIDQwIDEzIFogIiBmaWxsPSIjMUMxRDIyIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg0LDEzNSkiLz4KPHBhdGggZD0iTTAgMCBDMC42MzQ3NTczIDEuNTM4MDY1NzggMS4yMDE0MjM1NiAzLjEwNDczNTg1IDEuNzI2NTYyNSA0LjY4MzU5Mzc1IEMyLjAzNTkzNzUgNS42MTEwNzQyMiAyLjM0NTMxMjUgNi41Mzg1NTQ2OSAyLjY2NDA2MjUgNy40OTQxNDA2MiBDMi45ODExNzE4OCA4LjQ2NTQ0OTIyIDMuMjk4MjgxMjUgOS40MzY3NTc4MSAzLjYyNSAxMC40Mzc1IEM0LjExMjI2NTYyIDExLjg4ODY2MjExIDQuMTEyMjY1NjIgMTEuODg4NjYyMTEgNC42MDkzNzUgMTMuMzY5MTQwNjIgQzcgMjAuNjA2MzA1OCA3IDIwLjYwNjMwNTggNyAyNCBDNy42NiAyNCA4LjMyIDI0IDkgMjQgQzkuMDQ4OTg0MzggMjMuMTY1OTc2NTYgOS4wOTc5Njg3NSAyMi4zMzE5NTMxMiA5LjE0ODQzNzUgMjEuNDcyNjU2MjUgQzkuNTkzMTcyNjggMTQuNzc4NjI0OTkgMTAuMzQ2ODIwNCA4LjUwMjUwNjQxIDEyIDIgQzE0LjA2MDgxMzYxIDEuNDkzMDk0MTYgMTYuMTIzNzM1MjYgMC45OTQ3NTM4MSAxOC4xODc1IDAuNSBDMTkuMzM2MDU0NjkgMC4yMjE1NjI1IDIwLjQ4NDYwOTM3IC0wLjA1Njg3NSAyMS42Njc5Njg3NSAtMC4zNDM3NSBDMjUgLTEgMjUgLTEgMzAgLTEgQzI5LjAxIDUuOTMgMjguMDIgMTIuODYgMjcgMjAgQzI5LjMxIDIwLjMzIDMxLjYyIDIwLjY2IDM0IDIxIEMzNC4wNDI1NDM1NiAyMi45OTk1NDc0NiAzNC4wNDA4MDc4MyAyNS4wMDA0MTYzNiAzNCAyNyBDMzIuNDQzMzQxMiAyOC41NTY2NTg4IDMwLjk1MTQ4MjkxIDI4LjEyNzIxODI5IDI4Ljc4NzM1MzUyIDI4LjEyOTM5NDUzIEMyNy44OTI5NTA1OSAyOC4xMzI1NDY2OSAyNi45OTg1NDc2NyAyOC4xMzU2OTg4NSAyNi4wNzcwNDE2MyAyOC4xMzg5NDY1MyBDMjUuMTA0MTU2OTUgMjguMTM2OTIyMyAyNC4xMzEyNzIyOCAyOC4xMzQ4OTgwNyAyMy4xMjg5MDYyNSAyOC4xMzI4MTI1IEMyMi4xMzYyNDI1MiAyOC4xMzM3NjkyMyAyMS4xNDM1Nzg4IDI4LjEzNDcyNTk1IDIwLjEyMDgzNDM1IDI4LjEzNTcxMTY3IEMxOC4wMTY2NzIxMyAyOC4xMzYzOTM2NiAxNS45MTI1MDc4MiAyOC4xMzQ1MzgwNiAxMy44MDgzNDk2MSAyOC4xMzAzNzEwOSBDMTAuNTc5ODY3NCAyOC4xMjUwMjg3NCA3LjM1MTUyNDY5IDI4LjEzMDMxMjU1IDQuMTIzMDQ2ODggMjguMTM2NzE4NzUgQzIuMDgzMzMzMDIgMjguMTM2MDU3ODYgMC4wNDM2MTkyNiAyOC4xMzQ3NzY0OCAtMS45OTYwOTM3NSAyOC4xMzI4MTI1IEMtMi45NjY5NTQxOSAyOC4xMzQ4MzY3MyAtMy45Mzc4MTQ2NCAyOC4xMzY4NjA5NiAtNC45MzgwOTUwOSAyOC4xMzg5NDY1MyBDLTUuODM1NjUwMTggMjguMTM1Nzk0MzcgLTYuNzMzMjA1MjYgMjguMTMyNjQyMjEgLTcuNjU3OTU4OTggMjguMTI5Mzk0NTMgQy04Ljg0NTkwMzA5IDI4LjEyODIwMTE0IC04Ljg0NTkwMzA5IDI4LjEyODIwMTE0IC0xMC4wNTc4NDYwNyAyOC4xMjY5ODM2NCBDLTEyIDI4IC0xMiAyOCAtMTQgMjcgQy0xNCAyNi4wMSAtMTQgMjUuMDIgLTE0IDI0IEMtMTcuNjMgMjQgLTIxLjI2IDI0IC0yNSAyNCBDLTI1LjY2IDI1LjMyIC0yNi4zMiAyNi42NCAtMjcgMjggQy0yOC42NSAyOCAtMzAuMyAyOCAtMzIgMjggQy0zMC40OTc0ODc1NyAxOC42Mjg4NzQ4NSAtMjQuMzY4MzMzOTkgOC45MDcwMjYzMiAtMTggMiBDLTEzLjMyMjU4NjQ4IC0xLjA0MTA2MjU4IC00LjM4NjU4NDg2IC00LjM4NjU4NDg2IDAgMCBaIE0tMTkgMTQgQy0xOS42NiAxNS42NSAtMjAuMzIgMTcuMyAtMjEgMTkgQy0xOS4zNSAxOSAtMTcuNyAxOSAtMTYgMTkgQy0xNi42NiAxNy4zNSAtMTcuMzIgMTUuNyAtMTggMTQgQy0xOC4zMyAxNCAtMTguNjYgMTQgLTE5IDE0IFogIiBmaWxsPSIjMUMxRDIyIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxNjYsMTMzKSIvPgo8cGF0aCBkPSJNMCAwIEMxLjMyIDAuMzMgMi42NCAwLjY2IDQgMSBDNC43OTk1MzEzOCA0LjI4Njk2MjMzIDUuMDk2NTg5MzYgNS43MTAyMzE5MiA0IDkgQzMuMDEgOS4zMyAyLjAyIDkuNjYgMSAxMCBDMC4zNCA5LjY3IC0wLjMyIDkuMzQgLTEgOSBDLTEuOTQ5MzQyMDIgNi4wNzI4NjIxMiAtMi4yMzE3NjQ3MyA0LjU3MTY4NjMyIC0xLjA2MjUgMS42ODc1IEMtMC43MTE4NzUgMS4xMzA2MjUgLTAuMzYxMjUgMC41NzM3NSAwIDAgWiAiIGZpbGw9IiMxQzFEMjIiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDc3LDU5KSIvPgo8cGF0aCBkPSJNMCAwIEMxLjMyIDAuNjYgMi42NCAxLjMyIDQgMiBDNCAzLjk4IDQgNS45NiA0IDggQzIuMDIgOC45OSAyLjAyIDguOTkgMCAxMCBDLTIuMTQ5MTU3ODUgNi43NzYyNjMyMyAtMi4zODI4NjgwMyA1LjczMjk2MzI2IC0yIDIgQy0xLjM0IDEuMzQgLTAuNjggMC42OCAwIDAgWiAiIGZpbGw9IiMxQzFEMjIiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDExMiw1OSkiLz4KPC9zdmc+Cg==",
   "name": "WortalSDK",
-  "previewIconUrl": "https://asset-resources.gdevelop.io/public-resources/Icons/Line Hero Pack/Master/SVG/Halloween/9f012bdef8ff0dc1d0748bf7f99b795e62e4408a900d7df4ad643ed0b889c01f_Halloween_coffin.svg",
+  "previewIconUrl": "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjIwMCIgaGVpZ2h0PSIxNjgiPgo8cGF0aCBkPSJNMCAwIEM0LjQxODkzNDYxIDEuMDMzNTA1NTcgNi4wNzQ2MTY2MiAzLjcxOTk1MjgyIDguNTI3MzQzNzUgNy4yODUxNTYyNSBDOS4wMzQ2NzA0MSA3Ljk5MzMzNDk2IDkuNTQxOTk3MDcgOC43MDE1MTM2NyAxMC4wNjQ2OTcyNyA5LjQzMTE1MjM0IEMxMS43NzA2MzE3OSAxMS44NDE3Mzk5NiAxMy40MzQ3ODQwNiAxNC4yNzY4NzY4OSAxNS4wODk4NDM3NSAxNi43MjI2NTYyNSBDMTUuNjg1MzkwNjIgMTcuNjAwNjY4OTUgMTYuMjgwOTM3NSAxOC40Nzg2ODE2NCAxNi44OTQ1MzEyNSAxOS4zODMzMDA3OCBDMjYuMTc4MDkwMTUgMzMuMTY5MDkxOTcgMzQuODQ0MjYwOTUgNDcuMjk1MzIwMTEgNDMuMDg5ODQzNzUgNjEuNzIyNjU2MjUgQzQzLjY5NzYzNjcyIDYyLjc3MzI0MjE5IDQ0LjMwNTQyOTY5IDYzLjgyMzgyODEyIDQ0LjkzMTY0MDYyIDY0LjkwNjI1IEM0Ni43OTc4ODE5MyA2OC4xNDU2OTA1MiA0OC42MzUwOTA3OSA3MS4zOTk5OTEzIDUwLjQ2NDg0Mzc1IDc0LjY2MDE1NjI1IEM1MS4wNDMxNDk0MSA3NS42NjEwMzI3MSA1MS42MjE0NTUwOCA3Ni42NjE5MDkxOCA1Mi4yMTcyODUxNiA3Ny42OTMxMTUyMyBDNTQuNTQ4NzQyMTYgODEuOTE3ODQ3NiA1Ni4wODA3Mzg4NiA4NC43MTgwODMyOSA1Ni4xMjUgODkuNjAxNTYyNSBDNTIuNjQyOTgxNzUgMTAwLjEwMDE3NjAyIDQ0LjgzOTc4NzYzIDEwNi4yNDM0MDE0NyAzNS4zMDg1OTM3NSAxMTEuMTU2MjUgQzI1LjMxNTkxNzQ4IDExNS42ODI1MDI1NiAxNC4wOTc0MTM2NyAxMTguMzk2NTg5MSAzLjA4OTg0Mzc1IDExNy43MjI2NTYyNSBDMi4zMTQ1NTg5NiAxMTQuMjk2OTE2ODggMS45NzA2NTU5NyAxMTEuMTUwMjYzOCAxLjk5MjE4NzUgMTA3LjY0MDYyNSBDMS45OTU0MTAxNiAxMDYuNzA5Mjc3MzQgMS45OTg2MzI4MSAxMDUuNzc3OTI5NjkgMi4wMDE5NTMxMiAxMDQuODE4MzU5MzggQzIuMDE0NTIxNDggMTAzLjM3ODc5ODgzIDIuMDE0NTIxNDggMTAzLjM3ODc5ODgzIDIuMDI3MzQzNzUgMTAxLjkxMDE1NjI1IEMyLjAzMTg1NTQ3IDEwMC45MzExMTMyOCAyLjAzNjM2NzE5IDk5Ljk1MjA3MDMxIDIuMDQxMDE1NjIgOTguOTQzMzU5MzggQzIuMDUyNzU2OTEgOTYuNTM2Mzk1MTQgMi4wNjkxNzk1NiA5NC4xMjk1NTc2OCAyLjA4OTg0Mzc1IDkxLjcyMjY1NjI1IEMyLjc0NDI4NDY3IDkxLjU0NTI0OTAyIDMuMzk4NzI1NTkgOTEuMzY3ODQxOCA0LjA3Mjk5ODA1IDkxLjE4NTA1ODU5IEMxMy42NjUyMTI3MiA4OC40Njg2MzIzNiAyMS4yNTEzMDg3OCA4NC4wMDIzODcwMiAyOC4wODk4NDM3NSA3Ni43MjI2NTYyNSBDMjguNzQ5ODQzNzUgNzYuNzIyNjU2MjUgMjkuNDA5ODQzNzUgNzYuNzIyNjU2MjUgMzAuMDg5ODQzNzUgNzYuNzIyNjU2MjUgQzIzLjYxMjg4MDA2IDYyLjY1MTI5NzQzIDE1LjQ1MzgxMDMxIDQ5LjczNjk3ODY4IDcuMDg5ODQzNzUgMzYuNzIyNjU2MjUgQzYuNjE4NTMwMjcgMzUuOTgyMDg5ODQgNi4xNDcyMTY4IDM1LjI0MTUyMzQ0IDUuNjYxNjIxMDkgMzQuNDc4NTE1NjIgQzIuNTQ0MzEwMzEgMjkuNDgxNTcwNzYgMi41NDQzMTAzMSAyOS40ODE1NzA3NiAtMC45MTAxNTYyNSAyNC43MjI2NTYyNSBDLTEuNTcwMTU2MjUgMjQuNzIyNjU2MjUgLTIuMjMwMTU2MjUgMjQuNzIyNjU2MjUgLTIuOTEwMTU2MjUgMjQuNzIyNjU2MjUgQy00LjQ2NzY0MTYyIDI2LjY2NTU2Mzk2IC01Ljg1MDkzNzkgMjguNTg4Njc1MjcgLTcuMjIyNjU2MjUgMzAuNjYwMTU2MjUgQy03Ljg2NjY2MzgyIDMxLjYyOTAwNzU3IC03Ljg2NjY2MzgyIDMxLjYyOTAwNzU3IC04LjUyMzY4MTY0IDMyLjYxNzQzMTY0IEMtMTIuNjk2NDMyMDIgMzkuMDgzODI3NzEgLTE2LjI5NDIwMTI2IDQ1LjgzODY2MjMzIC0xOS44NDc2NTYyNSA1Mi42NjAxNTYyNSBDLTIwLjY4MDY3MjYxIDU0LjI1ODE1MDYzIC0yMC42ODA2NzI2MSA1NC4yNTgxNTA2MyAtMjEuNTMwNTE3NTggNTUuODg4NDI3NzMgQy0yNi44MjYwMjgxMyA2NS4yMzc5MjYgLTI2LjgyNjAyODEzIDY1LjIzNzkyNiAtMjguODA4NTkzNzUgNzUuNTA3ODEyNSBDLTI1LjY4MzQzMDIyIDgzLjIxMjAxOTk4IC0xNS44Nzk1Mzk3OCA4Ny4yMjUxNTMxMiAtOC45MTAxNTYyNSA5MC43MjI2NTYyNSBDLTguODUxODgwNjcgOTQuMjg1MDg3MDUgLTguODE2NDY3NCA5Ny44NDczOTQ0NCAtOC43ODUxNTYyNSAxMDEuNDEwMTU2MjUgQy04Ljc2ODM5ODQ0IDEwMi40MTc1NTg1OSAtOC43NTE2NDA2MiAxMDMuNDI0OTYwOTQgLTguNzM0Mzc1IDEwNC40NjI4OTA2MiBDLTguNzI0NzA3MDMgMTA1LjkyNzU4Nzg5IC04LjcyNDcwNzAzIDEwNS45Mjc1ODc4OSAtOC43MTQ4NDM3NSAxMDcuNDIxODc1IEMtOC42OTkxMzMzIDEwOC43NjUxMTg0MSAtOC42OTkxMzMzIDEwOC43NjUxMTg0MSAtOC42ODMxMDU0NyAxMTAuMTM1NDk4MDUgQy04LjkzMzEyMTY5IDExMi45ODQzMzg4MiAtOS43Mjk5OTExMyAxMTUuMTMxNjAxNjggLTEwLjkxMDE1NjI1IDExNy43MjI2NTYyNSBDLTIzLjg4NTc4ODg2IDExNC44NjE0OTE2MSAtMzMuNjIyNzQ2NjcgMTA5LjI0MTgzNzE5IC00Mi45MTAxNTYyNSA5OS43MjI2NTYyNSBDLTQ0LjA5MTU4MjAzIDk4LjU3MDIzNDM3IC00NC4wOTE1ODIwMyA5OC41NzAyMzQzNyAtNDUuMjk2ODc1IDk3LjM5NDUzMTI1IEMtNDYuOTEwMTU2MjUgOTQuNzIyNjU2MjUgLTQ2LjkxMDE1NjI1IDk0LjcyMjY1NjI1IC00Ni41NTg1OTM3NSA5MS40Mjk2ODc1IEMtNDYuMTYzMjE0MiA5MC4xMjIzNTM4MyAtNDUuNzM1ODgyOTggODguODI0NDU1MTcgLTQ1LjI4NTE1NjI1IDg3LjUzNTE1NjI1IEMtNDUuMDQ5MzM4MzggODYuODA4MTI1IC00NC44MTM1MjA1MSA4Ni4wODEwOTM3NSAtNDQuNTcwNTU2NjQgODUuMzMyMDMxMjUgQy00My43MjEzNDcxNCA4Mi43ODA5ODgwNSAtNDIuODIxNDA4MjkgODAuMjUyMTg5ODEgLTQxLjkxMDE1NjI1IDc3LjcyMjY1NjI1IEMtNDEuNTY2MTM3NyA3Ni43NTUwNTM3MSAtNDEuMjIyMTE5MTQgNzUuNzg3NDUxMTcgLTQwLjg2NzY3NTc4IDc0Ljc5MDUyNzM0IEMtMzIuMTA3ODMzODIgNTAuNDIyNTIgLTIxLjM5NTcwOTYgMjcuMjM4NTg4MTMgLTYuOTEwMTU2MjUgNS43MjI2NTYyNSBDLTYuMjUwMTU2MjUgNC43MDY4NzUgLTUuNTkwMTU2MjUgMy42OTEwOTM3NSAtNC45MTAxNTYyNSAyLjY0NDUzMTI1IEMtMi45MTAxNTYyNSAwLjcyMjY1NjI1IC0yLjkxMDE1NjI1IDAuNzIyNjU2MjUgMCAwIFogIiBmaWxsPSIjMUMxRDIyIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg5Ni45MTAxNTYyNSwtMC43MjI2NTYyNSkiLz4KPHBhdGggZD0iTTAgMCBDNS4yOCAwIDEwLjU2IDAgMTYgMCBDMTYuMzMgMS45OCAxNi42NiAzLjk2IDE3IDYgQzE3Ljk5IDQuMDIgMTguOTggMi4wNCAyMCAwIEMyMy4zIDAgMjYuNiAwIDMwIDAgQzMwLjIyNzg2NDU4IDIuMDUwNzgxMjUgMzAuNDU1NzI5MTcgNC4xMDE1NjI1IDMwLjY4MzU5Mzc1IDYuMTUyMzQzNzUgQzMwLjgxODg2NjE0IDguMDExNDAyMjkgMzAuODE4ODY2MTQgOC4wMTE0MDIyOSAzMiA5IEMzMi45OSA2LjAzIDMzLjk4IDMuMDYgMzUgMCBDNjkuMzMzMzMzMzMgMCAxMDMuNjY2NjY2NjcgMCAxMzggMCBDMTM3LjY3IDIuMzEgMTM3LjM0IDQuNjIgMTM3IDcgQzEzNC42OSA3IDEzMi4zOCA3IDEzMCA3IEMxMjkuOTI2NTIzNDQgOC4zMDMyNDIxOSAxMjkuOTI2NTIzNDQgOC4zMDMyNDIxOSAxMjkuODUxNTYyNSA5LjYzMjgxMjUgQzEyOS43NzY3OTY4OCAxMC43ODUyMzQzNyAxMjkuNzAyMDMxMjUgMTEuOTM3NjU2MjUgMTI5LjYyNSAxMy4xMjUgQzEyOS41NTUzOTA2MyAxNC4yNjE5NTMxMiAxMjkuNDg1NzgxMjUgMTUuMzk4OTA2MjUgMTI5LjQxNDA2MjUgMTYuNTcwMzEyNSBDMTI4Ljk4NzkwMjI1IDIwLjEwMDIwNTkgMTI4LjYxMzE1MTkxIDIyLjgxOTkxODI5IDEyNyAyNiBDMTI0LjA2NjQwNjI1IDI3LjI0MjE4NzUgMTI0LjA2NjQwNjI1IDI3LjI0MjE4NzUgMTIwLjU2MjUgMjcuODc1IEMxMTkuNDA4Nzg5MDYgMjguMDk5Mjk2ODcgMTE4LjI1NTA3ODEyIDI4LjMyMzU5Mzc1IDExNy4wNjY0MDYyNSAyOC41NTQ2ODc1IEMxMTQgMjkgMTE0IDI5IDExMSAyOSBDMTExLjk5IDIxLjc0IDExMi45OCAxNC40OCAxMTQgNyBDMTEyLjM1IDcgMTEwLjcgNyAxMDkgNyBDMTA4LjYyODc1IDguMTQ0Njg3NSAxMDguNjI4NzUgOC4xNDQ2ODc1IDEwOC4yNSA5LjMxMjUgQzEwNi44OTAwNDQ0MiAxMi4yMzY0MDQ1IDEwNS42ODQxNDE3NCAxMy4zMDAwNDM1NiAxMDMgMTUgQzEwMy4yODg3NSAxNS41NDI2OTUzMSAxMDMuNTc3NSAxNi4wODUzOTA2MyAxMDMuODc1IDE2LjY0NDUzMTI1IEMxMDQuMjQ2MjUgMTcuMzU5OTYwOTQgMTA0LjYxNzUgMTguMDc1MzkwNjMgMTA1IDE4LjgxMjUgQzEwNS4zNzEyNSAxOS41MjAxOTUzMSAxMDUuNzQyNSAyMC4yMjc4OTA2MiAxMDYuMTI1IDIwLjk1NzAzMTI1IEMxMDcgMjMgMTA3IDIzIDEwNyAyNiBDMTAxLjkyNTIzMjA2IDI3LjI2MzA1MzM1IDk3LjI3MjAzNjQ2IDI4LjI3MDM2MDg0IDkyIDI4IEM5MS4wMSAyNS4zNiA5MC4wMiAyMi43MiA4OSAyMCBDODguODE4MjQyMTkgMjAuOTM5NzI2NTYgODguODE4MjQyMTkgMjAuOTM5NzI2NTYgODguNjMyODEyNSAyMS44OTg0Mzc1IEM4OC40NjUyMzQzNyAyMi43MTU3MDMxMyA4OC4yOTc2NTYyNSAyMy41MzI5Njg3NSA4OC4xMjUgMjQuMzc1IEM4Ny45NjI1NzgxMiAyNS4xODcxMDkzOCA4Ny44MDAxNTYyNSAyNS45OTkyMTg3NSA4Ny42MzI4MTI1IDI2LjgzNTkzNzUgQzg3IDI5IDg3IDI5IDg1IDMxIEM4MC4wODM5MzM3NyAzMi41OTI4MDU0NiA3NS4xNjM0MjQxMyAzMy4yNjQ3OTA5OCA3MCAzMyBDNzAgMzAuMzYgNzAgMjcuNzIgNzAgMjUgQzY4LjUxNSAyNS40OTUgNjguNTE1IDI1LjQ5NSA2NyAyNiBDNjIuODU4NDIwOTEgMjYuMjU5NDYyOTUgNTguNzExMzM3NjYgMjYuMjMxMzg0OTEgNTQuNTYyNSAyNi4yNSBDNTMuNDE3MTY3OTcgMjYuMjcwNjI1IDUyLjI3MTgzNTk0IDI2LjI5MTI1IDUxLjA5MTc5Njg4IDI2LjMxMjUgQzQ5Ljk5MDI5Mjk3IDI2LjMxNzY1NjI1IDQ4Ljg4ODc4OTA2IDI2LjMyMjgxMjUgNDcuNzUzOTA2MjUgMjYuMzI4MTI1IEM0Ni4yNDI5MjM1OCAyNi4zNDIxNDM1NSA0Ni4yNDI5MjM1OCAyNi4zNDIxNDM1NSA0NC43MDE0MTYwMiAyNi4zNTY0NDUzMSBDNDEuNTg4NDgzODEgMjUuOTQ1NzAxNDMgNDAuMjEzMzE1MDMgMjUuMjAxODk0NDIgMzggMjMgQzM3Ljc1IDIwLjMxMjUgMzcuNzUgMjAuMzEyNSAzOCAxOCBDMzcuNTYzMDQyMDMgMjIuNjMxNzU0NSAzNy41NjMwNDIwMyAyMi42MzE3NTQ1IDM2IDI1IEMzMS4xNTg0Mzg5OSAyNy4yNDY0ODQzMSAyNi4zMDMzMTgxIDI4IDIxIDI4IEMyMC42NyAyNS4wMyAyMC4zNCAyMi4wNiAyMCAxOSBDMTcuMjI1MjA1NjQgMjEuNzc0Nzk0MzYgMTYuNDI0NTMxMjMgMjMuMTMwNDU0NTQgMTQuOTM3NSAyNi41NjI1IEMxMy40MTgyOTY2IDI5LjM5ODM0NjM0IDEyLjYzNDU2MTU5IDMwLjcxOTg1OTEgOS42NjQwNjI1IDMyLjAzMTI1IEM1LjE0MTIxNzc4IDMyLjk1NDgzMzkxIDAuNjEzODUyOSAzMy4yNDI4MzQzNiAtNCAzMyBDLTQuMjQ5MzM4NjEgMjUuNTg5OTY4MjkgLTMuMzAwMDAwNDkgMTguNzIzNjUxNCAtMiAxMS40Mzc1IEMtMS44MDkyMTg3NSAxMC4zMzM0MTc5NyAtMS42MTg0Mzc1IDkuMjI5MzM1OTQgLTEuNDIxODc1IDguMDkxNzk2ODggQy0wLjk1NDYxMzczIDUuMzkzMzYzMDIgLTAuNDc4MjQwODIgMi42OTY1MDk2MSAwIDAgWiBNNTYgNSBDNTUuMzQgOS45NSA1NC42OCAxNC45IDU0IDIwIEM1NC45OSAyMCA1NS45OCAyMCA1NyAyMCBDNTcuNjYgMTUuMDUgNTguMzIgMTAuMSA1OSA1IEM1OC4wMSA1IDU3LjAyIDUgNTYgNSBaIE05MCA1IEM4OS42NyA2Ljk4IDg5LjM0IDguOTYgODkgMTEgQzg5Ljk5IDExIDkwLjk4IDExIDkyIDExIEM5Mi4zMyA5LjAyIDkyLjY2IDcuMDQgOTMgNSBDOTIuMDEgNSA5MS4wMiA1IDkwIDUgWiBNMTUgOCBDMTYgMTAgMTYgMTAgMTYgMTAgWiBNMzkgMTEgQzQwIDEzIDQwIDEzIDQwIDEzIFogIiBmaWxsPSIjMUMxRDIyIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg0LDEzNSkiLz4KPHBhdGggZD0iTTAgMCBDMC42MzQ3NTczIDEuNTM4MDY1NzggMS4yMDE0MjM1NiAzLjEwNDczNTg1IDEuNzI2NTYyNSA0LjY4MzU5Mzc1IEMyLjAzNTkzNzUgNS42MTEwNzQyMiAyLjM0NTMxMjUgNi41Mzg1NTQ2OSAyLjY2NDA2MjUgNy40OTQxNDA2MiBDMi45ODExNzE4OCA4LjQ2NTQ0OTIyIDMuMjk4MjgxMjUgOS40MzY3NTc4MSAzLjYyNSAxMC40Mzc1IEM0LjExMjI2NTYyIDExLjg4ODY2MjExIDQuMTEyMjY1NjIgMTEuODg4NjYyMTEgNC42MDkzNzUgMTMuMzY5MTQwNjIgQzcgMjAuNjA2MzA1OCA3IDIwLjYwNjMwNTggNyAyNCBDNy42NiAyNCA4LjMyIDI0IDkgMjQgQzkuMDQ4OTg0MzggMjMuMTY1OTc2NTYgOS4wOTc5Njg3NSAyMi4zMzE5NTMxMiA5LjE0ODQzNzUgMjEuNDcyNjU2MjUgQzkuNTkzMTcyNjggMTQuNzc4NjI0OTkgMTAuMzQ2ODIwNCA4LjUwMjUwNjQxIDEyIDIgQzE0LjA2MDgxMzYxIDEuNDkzMDk0MTYgMTYuMTIzNzM1MjYgMC45OTQ3NTM4MSAxOC4xODc1IDAuNSBDMTkuMzM2MDU0NjkgMC4yMjE1NjI1IDIwLjQ4NDYwOTM3IC0wLjA1Njg3NSAyMS42Njc5Njg3NSAtMC4zNDM3NSBDMjUgLTEgMjUgLTEgMzAgLTEgQzI5LjAxIDUuOTMgMjguMDIgMTIuODYgMjcgMjAgQzI5LjMxIDIwLjMzIDMxLjYyIDIwLjY2IDM0IDIxIEMzNC4wNDI1NDM1NiAyMi45OTk1NDc0NiAzNC4wNDA4MDc4MyAyNS4wMDA0MTYzNiAzNCAyNyBDMzIuNDQzMzQxMiAyOC41NTY2NTg4IDMwLjk1MTQ4MjkxIDI4LjEyNzIxODI5IDI4Ljc4NzM1MzUyIDI4LjEyOTM5NDUzIEMyNy44OTI5NTA1OSAyOC4xMzI1NDY2OSAyNi45OTg1NDc2NyAyOC4xMzU2OTg4NSAyNi4wNzcwNDE2MyAyOC4xMzg5NDY1MyBDMjUuMTA0MTU2OTUgMjguMTM2OTIyMyAyNC4xMzEyNzIyOCAyOC4xMzQ4OTgwNyAyMy4xMjg5MDYyNSAyOC4xMzI4MTI1IEMyMi4xMzYyNDI1MiAyOC4xMzM3NjkyMyAyMS4xNDM1Nzg4IDI4LjEzNDcyNTk1IDIwLjEyMDgzNDM1IDI4LjEzNTcxMTY3IEMxOC4wMTY2NzIxMyAyOC4xMzYzOTM2NiAxNS45MTI1MDc4MiAyOC4xMzQ1MzgwNiAxMy44MDgzNDk2MSAyOC4xMzAzNzEwOSBDMTAuNTc5ODY3NCAyOC4xMjUwMjg3NCA3LjM1MTUyNDY5IDI4LjEzMDMxMjU1IDQuMTIzMDQ2ODggMjguMTM2NzE4NzUgQzIuMDgzMzMzMDIgMjguMTM2MDU3ODYgMC4wNDM2MTkyNiAyOC4xMzQ3NzY0OCAtMS45OTYwOTM3NSAyOC4xMzI4MTI1IEMtMi45NjY5NTQxOSAyOC4xMzQ4MzY3MyAtMy45Mzc4MTQ2NCAyOC4xMzY4NjA5NiAtNC45MzgwOTUwOSAyOC4xMzg5NDY1MyBDLTUuODM1NjUwMTggMjguMTM1Nzk0MzcgLTYuNzMzMjA1MjYgMjguMTMyNjQyMjEgLTcuNjU3OTU4OTggMjguMTI5Mzk0NTMgQy04Ljg0NTkwMzA5IDI4LjEyODIwMTE0IC04Ljg0NTkwMzA5IDI4LjEyODIwMTE0IC0xMC4wNTc4NDYwNyAyOC4xMjY5ODM2NCBDLTEyIDI4IC0xMiAyOCAtMTQgMjcgQy0xNCAyNi4wMSAtMTQgMjUuMDIgLTE0IDI0IEMtMTcuNjMgMjQgLTIxLjI2IDI0IC0yNSAyNCBDLTI1LjY2IDI1LjMyIC0yNi4zMiAyNi42NCAtMjcgMjggQy0yOC42NSAyOCAtMzAuMyAyOCAtMzIgMjggQy0zMC40OTc0ODc1NyAxOC42Mjg4NzQ4NSAtMjQuMzY4MzMzOTkgOC45MDcwMjYzMiAtMTggMiBDLTEzLjMyMjU4NjQ4IC0xLjA0MTA2MjU4IC00LjM4NjU4NDg2IC00LjM4NjU4NDg2IDAgMCBaIE0tMTkgMTQgQy0xOS42NiAxNS42NSAtMjAuMzIgMTcuMyAtMjEgMTkgQy0xOS4zNSAxOSAtMTcuNyAxOSAtMTYgMTkgQy0xNi42NiAxNy4zNSAtMTcuMzIgMTUuNyAtMTggMTQgQy0xOC4zMyAxNCAtMTguNjYgMTQgLTE5IDE0IFogIiBmaWxsPSIjMUMxRDIyIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxNjYsMTMzKSIvPgo8cGF0aCBkPSJNMCAwIEMxLjMyIDAuMzMgMi42NCAwLjY2IDQgMSBDNC43OTk1MzEzOCA0LjI4Njk2MjMzIDUuMDk2NTg5MzYgNS43MTAyMzE5MiA0IDkgQzMuMDEgOS4zMyAyLjAyIDkuNjYgMSAxMCBDMC4zNCA5LjY3IC0wLjMyIDkuMzQgLTEgOSBDLTEuOTQ5MzQyMDIgNi4wNzI4NjIxMiAtMi4yMzE3NjQ3MyA0LjU3MTY4NjMyIC0xLjA2MjUgMS42ODc1IEMtMC43MTE4NzUgMS4xMzA2MjUgLTAuMzYxMjUgMC41NzM3NSAwIDAgWiAiIGZpbGw9IiMxQzFEMjIiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDc3LDU5KSIvPgo8cGF0aCBkPSJNMCAwIEMxLjMyIDAuNjYgMi42NCAxLjMyIDQgMiBDNCAzLjk4IDQgNS45NiA0IDggQzIuMDIgOC45OSAyLjAyIDguOTkgMCAxMCBDLTIuMTQ5MTU3ODUgNi43NzYyNjMyMyAtMi4zODI4NjgwMyA1LjczMjk2MzI2IC0yIDIgQy0xLjM0IDEuMzQgLTAuNjggMC42OCAwIDAgWiAiIGZpbGw9IiMxQzFEMjIiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDExMiw1OSkiLz4KPC9zdmc+Cg==",
   "shortDescription": "Wortal SDK for GDevelop5",
   "version": "1.0.0",
-  "description": "",
-  "tags": [],
+  "description": [
+    "Welcome to the Wortal Developer Guide! Here you will find everything you need to launch your HTML5 games on Wortal – When you launch your game with Wortal you gain access to:",
+    "",
+    "- A vast network of online publishers and apps",
+    "- Free publishing and superior share of ad revenue",
+    "- Easy customization, management and reporting",
+    "- A dedicated support team to assist you",
+    "",
+    "Follow the simple steps below to get your game ready for launch:",
+    "",
+    "1. Make Sure Your Game is Wortal Ready <br>",
+    "   Read through the Game Review Requirements and make sure your game meets all the necessary criteria. <br>",
+    "2. Onboard the Wortal SDK <br>",
+    "   The final step is to onboard the Wortal SDK that allows us to serve ads and receive vital data about how players are interacting with your game."
+  ],
+  "tags": [
+    "SDK",
+    "wortal",
+    "HTML5"
+  ],
   "authorIds": [
     "jSwIVHwOdwWxF9zEtBm3knk782G2"
   ],
@@ -50,7 +68,6 @@
             "    Object.keys(result).forEach(key => {",
             "        const value = result[key];",
             "        const valueType = typeof value;",
-            "        console.log(key, value, valueType);",
             "        switch(valueType) {",
             "            case \"string\":",
             "                resultVarChild.getChild(key).setString(value);",
@@ -1063,40 +1080,16 @@
       "sentence": "Opens a context selection dialog",
       "events": [
         {
-          "type": "BuiltinCommonInstructions::Standard",
-          "conditions": [
-            {
-              "type": {
-                "inverted": true,
-                "value": "WortalSDK::IsWortalInitialized"
-              },
-              "parameters": [
-                "",
-                ""
-              ]
-            }
-          ],
-          "actions": [
-            {
-              "type": {
-                "value": "BuiltinAsync::ResolveAsyncEventsFunction"
-              },
-              "parameters": [
-                ""
-              ]
-            }
-          ]
-        },
-        {
           "type": "BuiltinCommonInstructions::JsCode",
           "inlineCode": [
-            "try {\r",
-            "    Wortal.context.chooseAsync()\r",
-            "    .then(() => eventsFunctionContext.task.resolve())\r",
-            "    .catch(() => eventsFunctionContext.task.resolve())\r",
-            "} catch (error) {\r",
-            "    eventsFunctionContext.task.resolve();\r",
-            "}"
+            "Wortal.context.chooseAsync()\r",
+            ".then(() => {\r",
+            "    console.error(\"Context chosen\");\r",
+            "})\r",
+            ".catch(error => {\r",
+            "    console.error(\"Error while choosing context:\", error);\r",
+            "})\r",
+            ".finally(() => eventsFunctionContext.task.resolve());"
           ],
           "parameterObjects": "",
           "useStrict": true,
@@ -1116,42 +1109,18 @@
       "sentence": "Create a context with specified players with id _PARAM1_",
       "events": [
         {
-          "type": "BuiltinCommonInstructions::Standard",
-          "conditions": [
-            {
-              "type": {
-                "inverted": true,
-                "value": "WortalSDK::IsWortalInitialized"
-              },
-              "parameters": [
-                "",
-                ""
-              ]
-            }
-          ],
-          "actions": [
-            {
-              "type": {
-                "value": "BuiltinAsync::ResolveAsyncEventsFunction"
-              },
-              "parameters": [
-                ""
-              ]
-            }
-          ]
-        },
-        {
           "type": "BuiltinCommonInstructions::JsCode",
           "inlineCode": [
-            "try {\r",
-            "    const playerIds = eventsFunctionContext.getArgument(\"PlayerIDs\");\r",
-            "    const ids = keyString.getValue().split(\",\");\r",
-            "    Wortal.context.createAsync(ids)\r",
-            "    .then(() => eventsFunctionContext.task.resolve())\r",
-            "    .catch(() => eventsFunctionContext.task.resolve())\r",
-            "} catch (error) {\r",
-            "    eventsFunctionContext.task.resolve();\r",
-            "}"
+            "const playerIds = eventsFunctionContext.getArgument(\"PlayerIDs\");\r",
+            "const ids = playerIds.split(\",\");\r",
+            "Wortal.context.createAsync(ids)\r",
+            ".then(() => {\r",
+            "    console.error(\"Context created\");\r",
+            "})\r",
+            ".catch(error => {\r",
+            "    console.error(\"Error while creating context:\", error);\r",
+            "})\r",
+            ".finally(() => eventsFunctionContext.task.resolve());"
           ],
           "parameterObjects": "",
           "useStrict": true,
@@ -1160,7 +1129,7 @@
       ],
       "parameters": [
         {
-          "description": "",
+          "description": "ID of players separated by comma",
           "name": "PlayerIDs",
           "type": "string"
         }
@@ -1169,7 +1138,7 @@
     },
     {
       "description": "Get current context id",
-      "fullName": "Get context id async",
+      "fullName": "Get context id",
       "functionType": "StringExpression",
       "group": "Context",
       "name": "GetContextID",
@@ -1199,47 +1168,18 @@
       "sentence": "Get connected players and set the result to _PARAM1_",
       "events": [
         {
-          "type": "BuiltinCommonInstructions::Standard",
-          "conditions": [
-            {
-              "type": {
-                "inverted": true,
-                "value": "WortalSDK::IsWortalInitialized"
-              },
-              "parameters": [
-                "",
-                ""
-              ]
-            }
-          ],
-          "actions": [
-            {
-              "type": {
-                "value": "BuiltinAsync::ResolveAsyncEventsFunction"
-              },
-              "parameters": [
-                ""
-              ]
-            }
-          ]
-        },
-        {
           "type": "BuiltinCommonInstructions::JsCode",
           "inlineCode": [
             "const playersVar = eventsFunctionContext.getArgument(\"ConnectedPlayersVariable\");\r",
             "Wortal.context.getPlayersAsync().then((players) => {\r",
             "    if(players && players.length) {\r",
-            "        playersVar.clearChildren();\r",
-            "        playersVar.forEach((player, index) => {\r",
-            "            const playerVar = playersVar.getChild(index.toString());\r",
-            "            playerVar.getChild(\"id\").setString(player.id || \"\");\r",
-            "            playerVar.getChild(\"name\").setString(player.name || \"\");\r",
-            "            playerVar.getChild(\"photo\").setString(player.photo || \"\");\r",
-            "            playerVar.getChild(\"isFirstPlay\").setNumber(player.isFirstPlay || 0);\r",
-            "            playerVar.getChild(\"daysSinceFirstPlay\").setNumber(player.daysSinceFirstPlay || 0);\r",
-            "        });        \r",
+            "        gdjs._wortalExtension.setResultToVarableCallback(players, playersVar);       \r",
             "    }\r",
-            "});"
+            "})\r",
+            ".catch(error => {\r",
+            "    console.error(\"Error while getting connected players:\", error);\r",
+            "})\r",
+            ".finally(() => eventsFunctionContext.task.resolve());"
           ],
           "parameterObjects": "",
           "useStrict": true,
@@ -1248,7 +1188,7 @@
       ],
       "parameters": [
         {
-          "description": "",
+          "description": "Variable to save the result of connected players of current context",
           "name": "ConnectedPlayersVariable",
           "type": "variable"
         }
@@ -1288,36 +1228,16 @@
       "sentence": "Show a dialog to invite people to the game with payload _PARAM1_",
       "events": [
         {
-          "type": "BuiltinCommonInstructions::Standard",
-          "conditions": [
-            {
-              "type": {
-                "inverted": true,
-                "value": "WortalSDK::IsWortalInitialized"
-              },
-              "parameters": [
-                "",
-                ""
-              ]
-            }
-          ],
-          "actions": [
-            {
-              "type": {
-                "value": "BuiltinAsync::ResolveAsyncEventsFunction"
-              },
-              "parameters": [
-                ""
-              ]
-            }
-          ]
-        },
-        {
           "type": "BuiltinCommonInstructions::JsCode",
           "inlineCode": [
-            "const payloadAsStructure = eventsFunctionContext.getArgument(\"InvitePayloadStructureVariable\");",
+            "const payloadAsStructure = eventsFunctionContext.getArgument(\"Payload\");",
             "const dataAsObj = gdjs._wortalExtension.gdevelopToJsObject(payloadAsStructure);",
-            "Wortal.context.inviteAsync(dataAsObj).then(() => console.log(\"Invite sent!\"));"
+            "Wortal.context.inviteAsync(dataAsObj)",
+            ".then(() => console.log(\"Invitation sent!\"))",
+            ".catch(error => {",
+            "    console.error(\"Error while sending invitation\", error);",
+            "})",
+            ".finally(() => eventsFunctionContext.task.resolve());"
           ],
           "parameterObjects": "",
           "useStrict": true,
@@ -1326,8 +1246,8 @@
       ],
       "parameters": [
         {
-          "description": "",
-          "name": "InvitePayloadStructureVariable2",
+          "description": "Invite players payload",
+          "name": "Payload",
           "type": "variable"
         }
       ],
@@ -1343,36 +1263,16 @@
       "sentence": "Show prompt to share content with payload _PARAM1_",
       "events": [
         {
-          "type": "BuiltinCommonInstructions::Standard",
-          "conditions": [
-            {
-              "type": {
-                "inverted": true,
-                "value": "WortalSDK::IsWortalInitialized"
-              },
-              "parameters": [
-                "",
-                ""
-              ]
-            }
-          ],
-          "actions": [
-            {
-              "type": {
-                "value": "BuiltinAsync::ResolveAsyncEventsFunction"
-              },
-              "parameters": [
-                ""
-              ]
-            }
-          ]
-        },
-        {
           "type": "BuiltinCommonInstructions::JsCode",
           "inlineCode": [
-            "const payloadAsStructure = eventsFunctionContext.getArgument(\"PayloadStructureVariable\");\r",
-            "const dataAsObj = gdjs._wortalExtension.gdevelopToJsObject(payloadAsStructure);\r",
-            "Wortal.context.shareAsync(dataAsObj).then(result => console.log(result));"
+            "const payloadAsStructure = eventsFunctionContext.getArgument(\"Payload\");",
+            "const dataAsObj = gdjs._wortalExtension.gdevelopToJsObject(payloadAsStructure);",
+            "Wortal.context.shareAsync(dataAsObj)",
+            ".then(() => console.log(\"Shared!\"))",
+            ".catch(error => {",
+            "    console.error(\"Error while sharing game link\", error);",
+            "})",
+            ".finally(() => eventsFunctionContext.task.resolve());"
           ],
           "parameterObjects": "",
           "useStrict": true,
@@ -1381,8 +1281,8 @@
       ],
       "parameters": [
         {
-          "description": "",
-          "name": "PayloadStructureVariable2",
+          "description": "Share payload",
+          "name": "Payload",
           "type": "variable"
         }
       ],
@@ -1398,36 +1298,16 @@
       "sentence": "Show share link dialog with payload _PARAM1_",
       "events": [
         {
-          "type": "BuiltinCommonInstructions::Standard",
-          "conditions": [
-            {
-              "type": {
-                "inverted": true,
-                "value": "WortalSDK::IsWortalInitialized"
-              },
-              "parameters": [
-                "",
-                ""
-              ]
-            }
-          ],
-          "actions": [
-            {
-              "type": {
-                "value": "BuiltinAsync::ResolveAsyncEventsFunction"
-              },
-              "parameters": [
-                ""
-              ]
-            }
-          ]
-        },
-        {
           "type": "BuiltinCommonInstructions::JsCode",
           "inlineCode": [
-            "const payloadAsStructure = eventsFunctionContext.getArgument(\"PayloadStructureVariable\");",
+            "const payloadAsStructure = eventsFunctionContext.getArgument(\"Payload\");",
             "const dataAsObj = gdjs._wortalExtension.gdevelopToJsObject(payloadAsStructure);",
-            "Wortal.context.shareLinkAsync(dataAsObj).then(result => console.log(result));"
+            "Wortal.context.shareLinkAsync(dataAsObj)",
+            ".then(() => console.log(\"Shared!\"))",
+            ".catch(error => {",
+            "    console.error(\"Error while sharing game link\", error);",
+            "})",
+            ".finally(() => eventsFunctionContext.task.resolve());"
           ],
           "parameterObjects": "",
           "useStrict": true,
@@ -1437,7 +1317,7 @@
       "parameters": [
         {
           "description": "",
-          "name": "PayloadStructureVariable2",
+          "name": "Payload",
           "type": "variable"
         }
       ],
@@ -1453,36 +1333,14 @@
       "sentence": "Switch to context id _PARAM1_",
       "events": [
         {
-          "type": "BuiltinCommonInstructions::Standard",
-          "conditions": [
-            {
-              "type": {
-                "inverted": true,
-                "value": "WortalSDK::IsWortalInitialized"
-              },
-              "parameters": [
-                "",
-                ""
-              ]
-            }
-          ],
-          "actions": [
-            {
-              "type": {
-                "value": "BuiltinAsync::ResolveAsyncEventsFunction"
-              },
-              "parameters": [
-                ""
-              ]
-            }
-          ]
-        },
-        {
           "type": "BuiltinCommonInstructions::JsCode",
           "inlineCode": [
             "const contextId = eventsFunctionContext.getArgument(\"ContextID\");\r",
-            "const contextIdValue = contextId.getValue();\r",
-            "Wortal.context.switchAsync(contextIdValue);"
+            "Wortal.context.switchAsync(contextId)\r",
+            ".catch(error => {\r",
+            "    console.error(\"Error while switching context\", error);\r",
+            "})\r",
+            ".finally(() => eventsFunctionContext.task.resolve());"
           ],
           "parameterObjects": "",
           "useStrict": true,
@@ -1492,7 +1350,7 @@
       "parameters": [
         {
           "description": "",
-          "name": "ContextID2",
+          "name": "ContextID",
           "type": "string"
         }
       ],
@@ -1508,36 +1366,15 @@
       "sentence": "Post update to currenct context with payload _PARAM1_",
       "events": [
         {
-          "type": "BuiltinCommonInstructions::Standard",
-          "conditions": [
-            {
-              "type": {
-                "inverted": true,
-                "value": "WortalSDK::IsWortalInitialized"
-              },
-              "parameters": [
-                "",
-                ""
-              ]
-            }
-          ],
-          "actions": [
-            {
-              "type": {
-                "value": "BuiltinAsync::ResolveAsyncEventsFunction"
-              },
-              "parameters": [
-                ""
-              ]
-            }
-          ]
-        },
-        {
           "type": "BuiltinCommonInstructions::JsCode",
           "inlineCode": [
-            "const payloadAsStructure = eventsFunctionContext.getArgument(\"PayloadStructureVariable\");\r",
+            "const payloadAsStructure = eventsFunctionContext.getArgument(\"Payload\");\r",
             "const dataAsObj = gdjs._wortalExtension.gdevelopToJsObject(payloadAsStructure);\r",
-            "Wortal.context.updateAsync(dataAsObj);"
+            "Wortal.context.updateAsync(dataAsObj)\r",
+            ".catch(error => {\r",
+            "    console.error(\"Error while updating context\", error);\r",
+            "})\r",
+            ".finally(() => eventsFunctionContext.task.resolve());"
           ],
           "parameterObjects": "",
           "useStrict": true,
@@ -1547,7 +1384,7 @@
       "parameters": [
         {
           "description": "",
-          "name": "PayloadStructureVariable",
+          "name": "Payload",
           "type": "variable"
         }
       ],
@@ -2227,18 +2064,19 @@
       "async": true,
       "description": "Gets the total number of entries in the leaderboard",
       "fullName": "Get leaderboard entry count async",
-      "functionType": "Expression",
+      "functionType": "Action",
       "group": "Leaderboard",
       "name": "GetLeaderboardEntryCountAsync",
-      "sentence": "",
+      "sentence": "Gets the total of entries in the leaderboard name _PARAM1_ and set the result to _PARAM2_",
       "events": [
         {
           "type": "BuiltinCommonInstructions::JsCode",
           "inlineCode": [
             "const name = eventsFunctionContext.getArgument(\"Name\");\r",
+            "const resultVar = eventsFunctionContext.getArgument(\"Result\");\r",
             "Wortal.leaderboard.getEntryCountAsync(name)\r",
             ".then(entries => {\r",
-            "    eventsFunctionContext.returnValue = entries;\r",
+            "    resultVar.setNumber(entries);\r",
             "})\r",
             ".catch(error => {\r",
             "    console.error(\"Error while get leaderboard entries count:\", error);\r",
@@ -2250,14 +2088,16 @@
           "eventsSheetExpanded": false
         }
       ],
-      "expressionType": {
-        "type": "expression"
-      },
       "parameters": [
         {
           "description": "The name of the leaderboard",
           "name": "Name",
           "type": "string"
+        },
+        {
+          "description": "Entry count variable callback",
+          "name": "Result",
+          "type": "variable"
         }
       ],
       "objectGroups": []
@@ -2277,7 +2117,7 @@
             "const name = eventsFunctionContext.getArgument(\"Name\");",
             "const resultVariable = eventsFunctionContext.getArgument(\"Result\");",
             "",
-            "Wortal.notifications.getLeaderboardAsync(name)",
+            "Wortal.leaderboard.getLeaderboardAsync(name)",
             ".then(result => {",
             "    if (result) {",
             "        gdjs._wortalExtension.setResultValues(resultVariable, result);          ",
@@ -2324,7 +2164,7 @@
             "const name = eventsFunctionContext.getArgument(\"Name\");\r",
             "const resultVariable = eventsFunctionContext.getArgument(\"Result\");\r",
             "\r",
-            "Wortal.notifications.getPlayerEntryAsync(name)\r",
+            "Wortal.leaderboard.getPlayerEntryAsync(name)\r",
             ".then(result => {\r",
             "    if (result) {\r",
             "        gdjs._wortalExtension.setResultValues(resultVariable, result);            \r",
@@ -2368,11 +2208,11 @@
         {
           "type": "BuiltinCommonInstructions::JsCode",
           "inlineCode": [
-            "const name = eventsFunctionContext.getArgument(\"Name\").getValue();",
-            "const score = eventsFunctionContext.getArgument(\"Score\").getValue();",
+            "const name = eventsFunctionContext.getArgument(\"Name\");",
+            "const score = eventsFunctionContext.getArgument(\"Score\");",
             "const resultVariable = eventsFunctionContext.getArgument(\"Result\");",
             "",
-            "Wortal.notifications.sendEntryAsync(name, score)",
+            "Wortal.leaderboard.sendEntryAsync(name, score)",
             ".then(result => {",
             "    if (result) {",
             "        gdjs._wortalExtension.setResultValues(resultVariable, result);            ",
@@ -2419,31 +2259,6 @@
       "sentence": "Open the tournament creation dialog with payload _PARAM1_ and set the result to _PARAM2_",
       "events": [
         {
-          "type": "BuiltinCommonInstructions::Standard",
-          "conditions": [
-            {
-              "type": {
-                "inverted": true,
-                "value": "WortalSDK::IsWortalInitialized"
-              },
-              "parameters": [
-                "",
-                ""
-              ]
-            }
-          ],
-          "actions": [
-            {
-              "type": {
-                "value": "BuiltinAsync::ResolveAsyncEventsFunction"
-              },
-              "parameters": [
-                ""
-              ]
-            }
-          ]
-        },
-        {
           "type": "BuiltinCommonInstructions::JsCode",
           "inlineCode": [
             "const payloadVar = eventsFunctionContext.getArgument(\"Payload\");",
@@ -2452,19 +2267,7 @@
             "",
             "Wortal.tournament.createAsync(payloadAsObj)",
             ".then(result => {",
-            "    if (result) {",
-            "        const keys = Object.keys(result);",
-            "        keys.forEach((key) => {",
-            "            if (result[key] !== undefined) {",
-            "                resultVariable.getChild(key).setValue(result[key]);",
-            "            } else {",
-            "                resultVariable.getChild(key).setString(\"\");",
-            "            }",
-            "        });            ",
-            "        console.log(`Tournament created successfully with ID: ${result.contextID}`);",
-            "    } else {",
-            "        console.warn(\"Tournament creation failed.\");",
-            "    }",
+            "    gdjs._wortalExtension.setResultValues(resultVariable, result);",
             "})",
             ".catch(error => {",
             "    console.error(\"Error while creating torunament:\", error);",
@@ -2479,7 +2282,7 @@
       "parameters": [
         {
           "description": "Tournament creation payload structure variable",
-          "name": "Payload2",
+          "name": "Payload",
           "type": "variable"
         },
         {
@@ -2499,31 +2302,6 @@
       "name": "GetAllTournamentsAsync",
       "sentence": "Gets all tournaments and set the result to _PARAM1_",
       "events": [
-        {
-          "type": "BuiltinCommonInstructions::Standard",
-          "conditions": [
-            {
-              "type": {
-                "inverted": true,
-                "value": "WortalSDK::IsWortalInitialized"
-              },
-              "parameters": [
-                "",
-                ""
-              ]
-            }
-          ],
-          "actions": [
-            {
-              "type": {
-                "value": "BuiltinAsync::ResolveAsyncEventsFunction"
-              },
-              "parameters": [
-                ""
-              ]
-            }
-          ]
-        },
         {
           "type": "BuiltinCommonInstructions::JsCode",
           "inlineCode": [
@@ -2561,50 +2339,13 @@
       "sentence": "Gets current tournament and set the result to _PARAM1_",
       "events": [
         {
-          "type": "BuiltinCommonInstructions::Standard",
-          "conditions": [
-            {
-              "type": {
-                "inverted": true,
-                "value": "WortalSDK::IsWortalInitialized"
-              },
-              "parameters": [
-                "",
-                ""
-              ]
-            }
-          ],
-          "actions": [
-            {
-              "type": {
-                "value": "BuiltinAsync::ResolveAsyncEventsFunction"
-              },
-              "parameters": [
-                ""
-              ]
-            }
-          ]
-        },
-        {
           "type": "BuiltinCommonInstructions::JsCode",
           "inlineCode": [
             "const resultVariable = eventsFunctionContext.getArgument(\"Result\");",
             "",
             "Wortal.tournament.getCurrentAsync()",
             ".then(result => {",
-            "    if (result) {",
-            "        const keys = Object.keys(result);",
-            "        keys.forEach((key) => {",
-            "            if (result[key] !== undefined) {",
-            "                resultVariable.getChild(key).setValue(result[key]);",
-            "            } else {",
-            "                resultVariable.getChild(key).setString(\"\");",
-            "            }",
-            "        });            ",
-            "        console.log(`Tournament retrieved successfully with ID: ${result.contextID}`);",
-            "    } else {",
-            "        console.warn(\"Tournament retrieved failed.\");",
-            "    }",
+            "    gdjs._wortalExtension.setResultValues(resultVariable, result);",
             "})",
             ".catch(error => {",
             "    console.error(\"Error while retrieving torunament:\", error);",
@@ -2662,7 +2403,7 @@
         {
           "type": "BuiltinCommonInstructions::JsCode",
           "inlineCode": [
-            "const id = eventsFunctionContext.getArgument(\"ID\").getValue();",
+            "const id = eventsFunctionContext.getArgument(\"ID\");",
             "Wortal.tournament.joinAsync(id)",
             ".then(() => {",
             "    console.error(\"Switched to tournament \", id);",
@@ -2696,34 +2437,9 @@
       "sentence": "Post score _PARAM1_ at the end of tournament activity",
       "events": [
         {
-          "type": "BuiltinCommonInstructions::Standard",
-          "conditions": [
-            {
-              "type": {
-                "inverted": true,
-                "value": "WortalSDK::IsWortalInitialized"
-              },
-              "parameters": [
-                "",
-                ""
-              ]
-            }
-          ],
-          "actions": [
-            {
-              "type": {
-                "value": "BuiltinAsync::ResolveAsyncEventsFunction"
-              },
-              "parameters": [
-                ""
-              ]
-            }
-          ]
-        },
-        {
           "type": "BuiltinCommonInstructions::JsCode",
           "inlineCode": [
-            "const score = eventsFunctionContext.getArgument(\"Score\").getValue();",
+            "const score = eventsFunctionContext.getArgument(\"Score\");",
             "Wortal.tournament.postScoreAsync(score)",
             ".then(() => {",
             "    console.error(\"Score posted\");",
@@ -2756,31 +2472,6 @@
       "name": "ShareTournamentAsync",
       "sentence": "Opens the share tournament dialog with payload _PARAM1_",
       "events": [
-        {
-          "type": "BuiltinCommonInstructions::Standard",
-          "conditions": [
-            {
-              "type": {
-                "inverted": true,
-                "value": "WortalSDK::IsWortalInitialized"
-              },
-              "parameters": [
-                "",
-                ""
-              ]
-            }
-          ],
-          "actions": [
-            {
-              "type": {
-                "value": "BuiltinAsync::ResolveAsyncEventsFunction"
-              },
-              "parameters": [
-                ""
-              ]
-            }
-          ]
-        },
         {
           "type": "BuiltinCommonInstructions::JsCode",
           "inlineCode": [
@@ -2817,37 +2508,12 @@
       "functionType": "Action",
       "group": "IAP",
       "name": "ConsumePurchaseAsync",
-      "sentence": "Consume purchased product with product id _PARAM1_",
+      "sentence": "Consume purchased product with token _PARAM1_",
       "events": [
-        {
-          "type": "BuiltinCommonInstructions::Standard",
-          "conditions": [
-            {
-              "type": {
-                "inverted": true,
-                "value": "WortalSDK::IsWortalInitialized"
-              },
-              "parameters": [
-                "",
-                ""
-              ]
-            }
-          ],
-          "actions": [
-            {
-              "type": {
-                "value": "BuiltinAsync::ResolveAsyncEventsFunction"
-              },
-              "parameters": [
-                ""
-              ]
-            }
-          ]
-        },
         {
           "type": "BuiltinCommonInstructions::JsCode",
           "inlineCode": [
-            "const productID = eventsFunctionContext.getArgument(\"ProductID\").getValue();",
+            "const productID = eventsFunctionContext.getArgument(\"Token\");",
             "Wortal.iap.consumePurchaseAsync(productID)",
             ".then(() => {",
             "    console.error(\"Consumed successfully\");",
@@ -2864,8 +2530,8 @@
       ],
       "parameters": [
         {
-          "description": "ID/Token of the Purchased product",
-          "name": "ProductID",
+          "description": "Token of the Purchased product",
+          "name": "Token",
           "type": "string"
         }
       ],
@@ -2880,31 +2546,6 @@
       "name": "GetCatalogAsync",
       "sentence": "Gets the catalog of products and set to _PARAM1_",
       "events": [
-        {
-          "type": "BuiltinCommonInstructions::Standard",
-          "conditions": [
-            {
-              "type": {
-                "inverted": true,
-                "value": "WortalSDK::IsWortalInitialized"
-              },
-              "parameters": [
-                "",
-                ""
-              ]
-            }
-          ],
-          "actions": [
-            {
-              "type": {
-                "value": "BuiltinAsync::ResolveAsyncEventsFunction"
-              },
-              "parameters": [
-                ""
-              ]
-            }
-          ]
-        },
         {
           "type": "BuiltinCommonInstructions::JsCode",
           "inlineCode": [
@@ -2941,31 +2582,6 @@
       "sentence": "Get purchased products and set the result to _PARAM1_",
       "events": [
         {
-          "type": "BuiltinCommonInstructions::Standard",
-          "conditions": [
-            {
-              "type": {
-                "inverted": true,
-                "value": "WortalSDK::IsWortalInitialized"
-              },
-              "parameters": [
-                "",
-                ""
-              ]
-            }
-          ],
-          "actions": [
-            {
-              "type": {
-                "value": "BuiltinAsync::ResolveAsyncEventsFunction"
-              },
-              "parameters": [
-                ""
-              ]
-            }
-          ]
-        },
-        {
           "type": "BuiltinCommonInstructions::JsCode",
           "inlineCode": [
             "Wortal.iap.getPurchasesAsync()",
@@ -2996,6 +2612,7 @@
       "description": "Checks whether IAP is enabled in this session",
       "fullName": "Is IAP enabled",
       "functionType": "Condition",
+      "group": "IAP",
       "name": "IsIAPEnabled",
       "sentence": "Is IAP enabled",
       "events": [
@@ -3019,38 +2636,13 @@
       "sentence": "Begins the purchase flow for product _PARAM1_ and set the result to _PARAM2_",
       "events": [
         {
-          "type": "BuiltinCommonInstructions::Standard",
-          "conditions": [
-            {
-              "type": {
-                "inverted": true,
-                "value": "WortalSDK::IsWortalInitialized"
-              },
-              "parameters": [
-                "",
-                ""
-              ]
-            }
-          ],
-          "actions": [
-            {
-              "type": {
-                "value": "BuiltinAsync::ResolveAsyncEventsFunction"
-              },
-              "parameters": [
-                ""
-              ]
-            }
-          ]
-        },
-        {
           "type": "BuiltinCommonInstructions::JsCode",
           "inlineCode": [
-            "const productID = eventsFunctionContext.getArgument(\"ProductID\").getValue();",
+            "const productID = eventsFunctionContext.getArgument(\"ProductID\");",
             "Wortal.iap.makePurchaseAsync({\"productID\": productID})",
-            ".then(results => {",
+            ".then(result => {",
             "    const resultsVar = eventsFunctionContext.getArgument(\"Result\");",
-            "    gdjs._wortalExtension.setResultToVarableCallback(results, resultsVar);",
+            "    gdjs._wortalExtension.setResultValues(resultsVar, result);",
             "})",
             ".catch(error => {",
             "    console.warn(\"Failed to retrieve purchased products:\", error);",
@@ -3231,11 +2823,9 @@
             "    }",
             "    eventsFunctionContext.task.resolve();",
             "}",
-            "console.log(\"jalan reward\");",
             "",
             "Wortal.ads.showRewarded(desc,",
             "    () => {",
-            "        console.log(\"beforeAd\");",
             "        gdjs._wortalExtension.hasAdJustFinishedShowing = false;",
             "        gdjs._wortalExtension.isShowingAd = true;",
             "        runtimeScene.getSoundManager().setGlobalVolume(0);",
